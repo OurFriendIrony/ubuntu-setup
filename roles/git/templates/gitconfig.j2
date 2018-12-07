@@ -53,6 +53,6 @@
 [http]
   proxy       = http://{{ proxy_through.host }}:{{ proxy_through.port }}
 [https]
-  proxy       = https://{{ proxy_through.host }}:{{ proxy_through.port }}
+  proxy       = http://{{ proxy_through.host }}:{{ proxy_through.port }}
 {% endif %}
 
