@@ -1,0 +1,13 @@
+---
+
+libraries_apt:
+  - "unzip"
+  - "libgconf-2-4"
+
+postman:
+  url     : "https://dl.pstmn.io/download/version/{{ postman_version }}/linux64"
+  zip     : "Postman-linux-x64-{{ postman_version }}.tar.gz"
+  home    : "/usr/lib/postman"
+
+desktop   : "postman"
+

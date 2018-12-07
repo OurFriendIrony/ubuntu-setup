@@ -41,6 +41,7 @@
     - { role: developer/general                                                                                 }
     - { role: developer/gradle                                                                                  }
     - { role: developer/maven                                                                                   }
+    - { role: developer/postman                                                                                 }
 
     - { role: developer/terraform,      terraform_version   : "0.11.7"                                          }
     - { role: developer/docker                                                                                  }
@@ -52,8 +53,8 @@
     - { role: developer/ide/intellij                                                                            }
     - { role: developer/ide/pycharm                                                                             }
     - { role: developer/ide/android                                                                             }
+    - { role: developer/ide/mongorobot3                                                                         }
 
     - { role: media/steam                                                                                       }
     - { role: media/plex                                                                                        }
-    - { role: developer/ide/mongorobot3                                                                         }
 
