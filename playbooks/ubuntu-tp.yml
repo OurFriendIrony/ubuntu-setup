@@ -34,13 +34,14 @@
     - { role: keychain                                                                                          }
     - { role: wallpaper                                                                                         }
     - { role: system-monitor                                                                                    }
-    - { role: browser/chrome                                                                                   }
+    - { role: browser/chrome                                                                                    }
     - { role: browser/firefox                                                                                   }
     - { role: terminator                                                                                        }
 
     - { role: developer/general                                                                                 }
     - { role: developer/gradle                                                                                  }
     - { role: developer/maven                                                                                   }
+    - { role: developer/postman                                                                                 }
 
     - { role: developer/terraform,      terraform_version   : "0.11.7"                                          }
     - { role: developer/docker                                                                                  }
