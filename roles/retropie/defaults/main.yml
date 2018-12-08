@@ -15,18 +15,18 @@ retropie_achievements:
 
 #######################################################################
 
-retropie_enabled_atari2600  : True
-retropie_enabled_atari7800  : True
-retropie_enabled_nes        : True
-retropie_enabled_snes       : True
-retropie_enabled_megadrive  : True
-retropie_enabled_gba        : True
-retropie_enabled_n64        : True
-retropie_enabled_dreamcast  : True
-retropie_enabled_psx        : True
-retropie_enabled_nds        : True
-retropie_enabled_fba        : True
-retropie_enabled_ports      : True
+retropie_enabled_atari2600  : true
+retropie_enabled_atari7800  : true
+retropie_enabled_nes        : true
+retropie_enabled_snes       : true
+retropie_enabled_megadrive  : true
+retropie_enabled_gba        : true
+retropie_enabled_n64        : true
+retropie_enabled_dreamcast  : true
+retropie_enabled_psx        : true
+retropie_enabled_nds        : true
+retropie_enabled_fba        : true
+retropie_enabled_ports      : true
 retropie_enabled_python     : False
 retropie_enabled_steam      : False
 

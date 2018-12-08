@@ -20,8 +20,8 @@ retropie_steam_pc_ip        : "192.168.1.109"
 
 #######################################################################
 
-retropie_enabled_python     : True
-retropie_enabled_steam      : True
+retropie_enabled_python     : true
+retropie_enabled_steam      : true
 
 #######################################################################
 
