@@ -210,6 +210,41 @@ retropie_controllers:
 
 #######################################################################
 
+retropie_keyboards_emu:
+  - { name    : "Keyboard",
+      up      : "119",     down    : "115",       left    : "97",        right   : "100",
+      a       : "110",     b       : "109",       x       : "104",       y       : "106",
+      start   : "13",                             select  : "8",
+      pageup  : "113",                            pagedown: "101"                       }
+
+retropie_controllers_emu:
+  - { name    : "Xbox Wireless Controller",
+      a       : "0",       b       : "1",         x       : "3",         y       : "4",
+      start   : "11",                             select  : "15",
+      pageup  : "6",                              pagedown: "7"                         }
+  - { name    : "Microsoft X-Box 360 pad",
+      a       : "0",       b       : "1",         x       : "2",         y       : "3",
+      start   : "9",                              select  : "8",
+      pageup  : "4",                              pagedown: "5"                         }
+  - { name    : "Microsoft 360 Wireless Receiver (XBOX)",
+      a       : "0",       b       : "1",         x       : "2",         y       : "3",
+      start   : "9",                              select  : "8",
+      pageup  : "4",                              pagedown: "5"                         }
+  - { name    : "Sony PLAYSTATION(R)3 Controller",
+      a       : "0",       b       : "1",         x       : "3",         y       : "2",
+      start   : "9",                              select  : "8",
+      pageup  : "4",                              pagedown: "5"                         }
+  - { name    : "Sony Interactive Entertainment Wireless Controller",
+      a       : "0",       b       : "1",         x       : "3",         y       : "2",
+      start   : "9",                              select  : "8",
+      pageup  : "4",                              pagedown: "5"                         }
+  - { name    : "Sony Computer Entertainment Wireless Controller",
+      a       : "0",       b       : "1",         x       : "3",         y       : "2",
+      start   : "9",                              select  : "8",
+      pageup  : "4",                              pagedown: "5"                         }
+
+#######################################################################
+
 retropie_controller_analog_remap: false
 
 #######################################################################
