@@ -131,7 +131,7 @@ class CallbackModule(CallbackBase):
         return host_string
 
     def _output_result(self, colour, status, host, msg=None, extra_msgs=None):
-        line = "\r[%s -> %s] %s | %s | %s" % (
+        line = "\r[%s -> %s] %s | %s | %s\033[K" % (
             self.task_started_fmt,
             ("%ds" % self._get_task_duration()).ljust(self.ms_len),
             host.ljust(self.host_len),
@@ -149,7 +149,7 @@ class CallbackModule(CallbackBase):
 
     def _output_general(self, lines, color='normal'):
         for line in lines.splitlines():
-            self._display.display("\r" + line, color=color)
+            self._display.display("\r" + line + "\033[K", color=color)
 
     def _collect_host_info(self, hosts):
         self.host_count = len(hosts)
