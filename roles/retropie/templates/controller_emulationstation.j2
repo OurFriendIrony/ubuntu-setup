@@ -3,89 +3,37 @@
   <inputAction type="onfinish">
     <command>/opt/retropie/supplementary/emulationstation/scripts/inputconfiguration.sh</command>
   </inputAction>
-  <inputConfig type="keyboard" deviceName="Keyboard">
-    <input name="up"        type="key"    id="119"  value="1"   />
-    <input name="down"      type="key"    id="115"  value="1"   />
-    <input name="left"      type="key"    id="97"   value="1"   />
-    <input name="right"     type="key"    id="100"  value="1"   />
-    <input name="a"         type="key"    id="110"  value="1"   />
-    <input name="b"         type="key"    id="109"  value="1"   />
-    <input name="x"         type="key"    id="104"  value="1"   />
-    <input name="y"         type="key"    id="106"  value="1"   />
-    <input name="start"     type="key"    id="13"   value="1"   />
-    <input name="select"    type="key"    id="8"    value="1"   />
-    <input name="pageup"    type="key"    id="113"  value="1"   />
-    <input name="pagedown"  type="key"    id="101"  value="1"   />
+{% for item in retropie_keyboards_emu %}
+  <inputConfig type="keyboard" deviceName="{{ item.name }}">
+    <input name="up"        type="key"    id="{{ item.up }}"  value="1"   />
+    <input name="down"      type="key"    id="{{ item.down }}"  value="1"   />
+    <input name="left"      type="key"    id="{{ item.left }}"   value="1"   />
+    <input name="right"     type="key"    id="{{ item.right }}"  value="1"   />
+    <input name="a"         type="key"    id="{{ item.a }}"  value="1"   />
+    <input name="b"         type="key"    id="{{ item.b }}"  value="1"   />
+    <input name="x"         type="key"    id="{{ item.x }}"  value="1"   />
+    <input name="y"         type="key"    id="{{ item.y }}"  value="1"   />
+    <input name="start"     type="key"    id="{{ item.start }}"   value="1"   />
+    <input name="select"    type="key"    id="{{ item.select }}"    value="1"   />
+    <input name="pageup"    type="key"    id="{{ item.pageup }}"  value="1"   />
+    <input name="pagedown"  type="key"    id="{{ item.pagedown }}"  value="1"   />
   </inputConfig>
-  <inputConfig type="joystick" deviceName="Xbox Wireless Controller">
-    <input name="up"        type="axis"   id="1"    value="-1"  />
-    <input name="down"      type="axis"   id="1"    value="1"   />
-    <input name="left"      type="axis"   id="0"    value="-1"  />
-    <input name="right"     type="axis"   id="0"    value="1"   />
-    <input name="a"         type="button" id="0"    value="1"   />
-    <input name="b"         type="button" id="1"    value="1"   />
-    <input name="x"         type="button" id="3"    value="1"   />
-    <input name="y"         type="button" id="4"    value="1"   />
-    <input name="start"     type="button" id="11"   value="1"   />
-    <input name="select"    type="button" id="15"   value="1"   />
-    <input name="pageup"    type="button" id="6"    value="1"   />
-    <input name="pagedown"  type="button" id="7"    value="1"   />
-  </inputConfig>
-  <inputConfig type="joystick" deviceName="Microsoft X-Box 360 pad">
+{% endfor %}
+{% for item in retropie_controllers_emu %}
+  <inputConfig type="joystick" deviceName="{{ item.name }}">
     <input name="up"        type="axis"   id="1"  value="-1"    />
     <input name="down"      type="axis"   id="1"  value="1"     />
     <input name="left"      type="axis"   id="0"  value="-1"    />
     <input name="right"     type="axis"   id="0"  value="1"     />
-    <input name="a"         type="button" id="0"  value="1"     />
-    <input name="b"         type="button" id="1"  value="1"     />
-    <input name="x"         type="button" id="2"  value="1"     />
-    <input name="y"         type="button" id="3"  value="1"     />
-    <input name="start"     type="button" id="9"  value="1"     />
-    <input name="select"    type="button" id="8"  value="1"     />
-    <input name="pageup"    type="button" id="4"  value="1"     />
-    <input name="pagedown"  type="button" id="5"  value="1"     />
+    <input name="a"         type="button" id="{{ item.a }}"  value="1"     />
+    <input name="b"         type="button" id="{{ item.b }}"  value="1"     />
+    <input name="x"         type="button" id="{{ item.x }}"  value="1"     />
+    <input name="y"         type="button" id="{{ item.y }}"  value="1"     />
+    <input name="start"     type="button" id="{{ item.start }}"  value="1"     />
+    <input name="select"    type="button" id="{{ item.select }}"  value="1"     />
+    <input name="pageup"    type="button" id="{{ item.pageup }}"  value="1"     />
+    <input name="pagedown"  type="button" id="{{ item.pagedown }}"  value="1"     />
   </inputConfig>
-  <inputConfig type="joystick" deviceName="Microsoft 360 Wireless Receiver (XBOX)">
-    <input name="up"        type="axis"   id="1"  value="-1"    />
-    <input name="down"      type="axis"   id="1"  value="1"     />
-    <input name="left"      type="axis"   id="0"  value="-1"    />
-    <input name="right"     type="axis"   id="0"  value="1"     />
-    <input name="a"         type="button" id="0"  value="1"     />
-    <input name="b"         type="button" id="1"  value="1"     />
-    <input name="x"         type="button" id="2"  value="1"     />
-    <input name="y"         type="button" id="3"  value="1"     />
-    <input name="start"     type="button" id="9"  value="1"     />
-    <input name="select"    type="button" id="8"  value="1"     />
-    <input name="pageup"    type="button" id="4"  value="1"     />
-    <input name="pagedown"  type="button" id="5"  value="1"     />
-  </inputConfig>
-  <inputConfig type="joystick" deviceName="Sony PLAYSTATION(R)3 Controller">
-    <input name="up"        type="axis"   id="1"  value="-1"    />
-    <input name="down"      type="axis"   id="1"  value="1"     />
-    <input name="left"      type="axis"   id="0"  value="-1"    />
-    <input name="right"     type="axis"   id="0"  value="1"     />
-    <input name="a"         type="button" id="0"  value="1"     />
-    <input name="b"         type="button" id="1"  value="1"     />
-    <input name="x"         type="button" id="3"  value="1"     />
-    <input name="y"         type="button" id="2"  value="1"     />
-    <input name="start"     type="button" id="9"  value="1"     />
-    <input name="select"    type="button" id="8"  value="1"     />
-    <input name="pageup"    type="button" id="4"  value="1"     />
-    <input name="pagedown"  type="button" id="5"  value="1"     />
-  </inputConfig>
-  <inputConfig type="joystick" deviceName="Sony Interactive Entertainment Wireless Controller">
-    <input name="up"        type="axis"   id="1"  value="-1"    />
-    <input name="down"      type="axis"   id="1"  value="1"     />
-    <input name="left"      type="axis"   id="0"  value="-1"    />
-    <input name="right"     type="axis"   id="0"  value="1"     />
-    <input name="a"         type="button" id="0"  value="1"     />
-    <input name="b"         type="button" id="1"  value="1"     />
-    <input name="x"         type="button" id="3"  value="1"     />
-    <input name="y"         type="button" id="2"  value="1"     />
-    <input name="start"     type="button" id="9"  value="1"     />
-    <input name="select"    type="button" id="8"  value="1"     />
-    <input name="pageup"    type="button" id="4"  value="1"     />
-    <input name="pagedown"  type="button" id="5"  value="1"     />
-  </inputConfig>
+{% endfor %}
 </inputList>
 

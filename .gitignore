@@ -2,6 +2,9 @@
 **/*.swp
 *.retry
 
+# intellij
+.idea
+
 # python
 *.pyc
 

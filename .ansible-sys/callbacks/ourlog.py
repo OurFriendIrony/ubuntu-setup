@@ -40,7 +40,7 @@ def deep_serialize_list(data, indent):
     padding = " " * indent * 2
     output = "\n"
     for item in data:
-        output = "%s->%s%s" % (
+        output = "{}->{}{}".format(
             output,
             padding,
             deep_serialize(item, indent + 1)
@@ -62,7 +62,7 @@ def deep_serialize_dict(data, indent):
 
     output = "\n"
     for key, value in data.items():
-        output = "%s%s%s: %s\n" % (
+        output = "{}{}{}: {}\n".format(
             output,
             padding,
             key,
@@ -122,8 +122,9 @@ class CallbackModule(CallbackBase):
         delegated_vars = result._result.get('_ansible_delegated_vars', None)
 
         if delegated_vars:
-            host_string = "%s -> %s" % (
-                result._host.get_name(), delegated_vars['ansible_host']
+            host_string = "{} -> {}".format(
+                result._host.get_name(),
+                delegated_vars['ansible_host']
             )
         else:
             host_string = result._host.get_name()
@@ -131,7 +132,7 @@ class CallbackModule(CallbackBase):
         return host_string
 
     def _output_result(self, colour, status, host, msg=None, extra_msgs=None):
-        line = "\r[%s -> %s] %s | %s | %s" % (
+        line = "\r[{} -> {}] {} | {} | {}\033[K".format(
             self.task_started_fmt,
             ("%ds" % self._get_task_duration()).ljust(self.ms_len),
             host.ljust(self.host_len),
@@ -139,7 +140,7 @@ class CallbackModule(CallbackBase):
             self.task_title.ljust(self.task_len)
         )
         if msg:
-            line = "%s | %s" % (
+            line = "{} | {}".format(
                 line,
                 msg.rstrip()
             )
@@ -149,7 +150,7 @@ class CallbackModule(CallbackBase):
 
     def _output_general(self, lines, color='normal'):
         for line in lines.splitlines():
-            self._display.display("\r" + line, color=color)
+            self._display.display("\r" + line + "\033[K", color=color)
 
     def _collect_host_info(self, hosts):
         self.host_count = len(hosts)
@@ -188,7 +189,7 @@ class CallbackModule(CallbackBase):
         self.task_title = task.get_name()
 
         sys.stdout.write(
-            "[%s] %s" % (
+            "[{}] {}".format(
                 self.task_started_fmt,
                 self.task_title
             )
@@ -197,9 +198,10 @@ class CallbackModule(CallbackBase):
     @override
     def v2_playbook_on_handler_task_start(self, task):
         self._output_general(
-            "> triggering handler | %s " %
-            task.get_name().strip(),
-            COLOUR_EXTRA
+            "> triggering handler | {} ".format(
+                task.get_name().strip(),
+                COLOUR_EXTRA
+            )
         )
 
     @override
@@ -273,7 +275,7 @@ class CallbackModule(CallbackBase):
     @override
     def v2_playbook_on_include(self, included_file):
         self._output_general(
-            'included: %s for %s' % (
+            'included: {} for {}'.format(
                 included_file._filename,
                 ", ".join([h.name for h in included_file._hosts])
             ),
@@ -283,7 +285,7 @@ class CallbackModule(CallbackBase):
     @override
     def v2_playbook_on_stats(self, stats):
         self._output_general(
-            "-- Summary -- [ %s -> %s ]" % (
+            "-- Summary -- [ {} -> {} ]".format(
                 self.play_started_fmt,
                 ("%ds" % self._get_play_duration()).ljust(self.ms_len)
             ),
@@ -294,7 +296,7 @@ class CallbackModule(CallbackBase):
         for host in hosts:
             totals = stats.summarize(host)
             self._output_general(
-                u" %s : %s %s %s %s" % (
+                u" {} : {} {} {} {}".format(
                     hostcolor(host, totals),
                     colorize(u'ok', totals['ok'], COLOUR_OK),
                     colorize(u'changed', totals['changed'], COLOUR_CHANGED),
