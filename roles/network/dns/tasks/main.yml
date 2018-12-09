@@ -1,0 +1,18 @@
+---
+
+#################################################################
+
+- name: "18.04 | fix resolve.conf"
+  when:
+    - ansible_distribution_version == "18.04"
+  file:
+    src     : "/run/systemd/resolve/resolv.conf"
+    dest    : "/etc/resolv.conf"
+    state   : "link"
+    force   : "yes"
+  tags:
+    - "network"
+    - "dns"
+
+#################################################################
+

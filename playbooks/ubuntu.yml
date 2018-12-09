@@ -22,6 +22,7 @@
     - { role: prereq                                                                                            }
 
 
+    - { role: network/dns                                                                                       }
     - { role: network/forticlient                                                                               }
 
     - { role: git                                                                                               }
