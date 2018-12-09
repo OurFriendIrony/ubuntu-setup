@@ -47,87 +47,21 @@ retropie_runcommand:
 #######################################################################
 
 retropie_emus:
-  - name        : "retropie"
-    desc        : "RetroPie"
-    extension   : [ ".rp", ".sh" ]
-    path        : "{{ retropie_home }}/retropiemenu"
-    cmd         : "sudo /home/pi/RetroPie-Setup/retropie_packages.sh retropiemenu launch %ROM% &lt;/dev/tty &gt;/dev/tty"
-    platform    : ""
-    enabled     : True
-  - name        : "atari2600"
-    desc        : "Atari 2600"
-    extension   : [ ".bin" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_atari2600 }}"
-  - name        : "atari7800"
-    desc        : "Atari 7800"
-    extension   : [ ".a78" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_atari7800 }}"
-  - name        : "nes"
-    desc        : "Nintendo"
-    extension   : [ ".nes" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_nes }}"
-  - name        : "snes"
-    desc        : "Super Nintendo"
-    extension   : [ ".smc" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_snes }}"
-  - name        : "megadrive"
-    desc        : "Sega Mega Drive"
-    extension   : [ ".gen" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_megadrive }}"
-  - name        : "gba"
-    desc        : "Game Boy Advance"
-    extension   : [ ".gba" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_gba }}"
-  - name        : "n64"
-    desc        : "Nintendo 64"
-    extension   : [ ".z64" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_n64 }}"
-  - name        : "dreamcast"
-    desc        : "Sega Dreamcast"
-    extension   : [ ".cdi" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_dreamcast }}"
-  - name        : "psx"
-    desc        : "PlayStation"
-    extension   : [ ".cue" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_psx }}"
-  - name        : "nds"
-    desc        : "Nintendo DS"
-    extension   : [ ".nds" ]
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_nds }}"
-  - name        : "fba"
-    desc        : "Final Burn Alpha"
-    extension   : [ ".zip" ]
-    platform    : "arcade"
-    has_saves   : True
-    enabled     : "{{ retropie_enabled_fba }}"
-  - name        : "ports"
-    desc        : "Ports"
-    extension   : [ ".sh", ".SH" ]
-    cmd         : "bash %ROM%"
-    platform    : "pc"
-    enabled     : "{{ retropie_enabled_ports }}"
-  - name        : "python"
-    desc        : "Python Scripts"
-    extension   : [ ".py", ".PY" ]
-    cmd         : "sudo python %ROM%"
-    platform    : ""
-    enabled     : "{{ retropie_enabled_python }}"
-  - name        : "steam"
-    desc        : "Steam"
-    extension   : [ ".sh", ".SH" ]
-    cmd         : "%ROM%"
-    platform    : ""
-    enabled     : "{{ retropie_enabled_steam }}"
+  - "{{ retropie_rp }}"
+  - "{{ retropie_atari2600 }}"
+  - "{{ retropie_atari7800 }}"
+  - "{{ retropie_nes }}"
+  - "{{ retropie_snes }}"
+  - "{{ retropie_megadrive }}"
+  - "{{ retropie_gba }}"
+  - "{{ retropie_n64 }}"
+  - "{{ retropie_dreamcast }}"
+  - "{{ retropie_psx }}"
+  - "{{ retropie_nds }}"
+  - "{{ retropie_fba }}"
+  - "{{ retropie_ports }}"
+  - "{{ retropie_python }}"
+  - "{{ retropie_steam }}"
 
 #######################################################################
 
@@ -254,50 +188,168 @@ retropie_git:
 
 #######################################################################
 
+retropie_rp:
+  name        : "retropie"
+  desc        : "RetroPie"
+  extension   : [ ".rp", ".sh" ]
+  path        : "{{ retropie_home }}/retropiemenu"
+  cmd         : "sudo /home/pi/RetroPie-Setup/retropie_packages.sh retropiemenu launch %ROM% &lt;/dev/tty &gt;/dev/tty"
+  platform    : ""
+  enabled     : True
+
+#######################################################################
+
+retropie_atari2600:
+  name        : "atari2600"
+  desc        : "Atari 2600"
+  extension   : [ ".bin" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_atari2600 }}"
+
+#######################################################################
+
+retropie_atari7800:
+  name        : "atari7800"
+  desc        : "Atari 7800"
+  extension   : [ ".a78" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_atari7800 }}"
+
+#######################################################################
+
+retropie_nes:
+  name        : "nes"
+  desc        : "Nintendo"
+  extension   : [ ".nes" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_nes }}"
+
+#######################################################################
+
+retropie_snes:
+  name        : "snes"
+  desc        : "Super Nintendo"
+  extension   : [ ".smc" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_snes }}"
+
+#######################################################################
+
+retropie_megadrive:
+  name        : "megadrive"
+  desc        : "Sega Mega Drive"
+  extension   : [ ".gen" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_megadrive }}"
+
+#######################################################################
+
+retropie_gba:
+  name        : "gba"
+  desc        : "Game Boy Advance"
+  extension   : [ ".gba" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_gba }}"
+
+#######################################################################
+
+retropie_n64:
+  name        : "n64"
+  desc        : "Nintendo 64"
+  extension   : [ ".z64" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_n64 }}"
+
+  home        : "{{ retropie_home }}/roms/n64"
+  cfg         : "{{ retropie_cfg  }}/n64"
+  emu         : "Mupen64Plus GLES2"
+  core        : "lr-mupen64plus"
+
+#######################################################################
+
+retropie_dreamcast:
+  name        : "dreamcast"
+  desc        : "Sega Dreamcast"
+  extension   : [ ".cdi" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_dreamcast }}"
+
+  home        : "{{ retropie_home }}/roms/dreamcast"
+  cfg         : "{{ retropie_cfg }}/dreamcast"
+
+#######################################################################
+
+retropie_psx:
+  name        : "psx"
+  desc        : "PlayStation"
+  extension   : [ ".cue" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_psx }}"
+
+  video_smoothing : true
+  emu         : "PCSX-ReARMed"
+  core        : "lr-pcsx-rearmed"
+
+#######################################################################
+
+retropie_nds:
+  name        : "nds"
+  desc        : "Nintendo DS"
+  extension   : [ ".nds" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_nds }}"
+
+  home        : "{{ retropie_home }}/roms/nds"
+  cfg         : "{{ retropie_cfg }}/nds/drastic/config"
+  emu         : "drastic"
+
+#######################################################################
+
+retropie_fba:
+  name        : "fba"
+  desc        : "Final Burn Alpha"
+  extension   : [ ".zip" ]
+  platform    : "arcade"
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_fba }}"
+
+  home        : "{{ retropie_home }}/roms/fba"
+  core        : "lr-fbalpha"
+
+#######################################################################
+
+retropie_ports:
+  name        : "ports"
+  desc        : "Ports"
+  extension   : [ ".sh", ".SH" ]
+  cmd         : "bash %ROM%"
+  platform    : "pc"
+  enabled     : "{{ retropie_enabled_ports }}"
+
+#######################################################################
+
 retropie_python:
+  name        : "python"
+  desc        : "Python Scripts"
+  extension   : [ ".py", ".PY" ]
+  cmd         : "sudo python %ROM%"
+  platform    : ""
+  enabled     : "{{ retropie_enabled_python }}"
+
   home      : "{{ retropie_home }}/roms/python"
   bgm_home  : "{{ retropie_home }}/bgm"
   apt       : [ "python-pygame" ]
 
 #######################################################################
 
-retropie_fba:
-  home      : "{{ retropie_home }}/roms/fba"
-  core      : "lr-fbalpha"
-
-#######################################################################
-
-retropie_n64:
-  home      : "{{ retropie_home }}/roms/n64"
-  state     : "{{ retropie_home }}/states/n64"
-  save      : "{{ retropie_home }}/saves/n64"
-  cfg       : "{{ retropie_cfg  }}/n64"
-  emu       : "Mupen64Plus GLES2"
-  core      : "lr-mupen64plus"
-
-#######################################################################
-
-retropie_psx:
-  video_smoothing : true
-  emu       : "PCSX-ReARMed"
-  core      : "lr-pcsx-rearmed"
-
-#######################################################################
-
-retropie_dreamcast:
-  home      : "{{ retropie_home }}/roms/dreamcast"
-  cfg       : "{{ retropie_cfg }}/dreamcast"
-
-#######################################################################
-
-retropie_nds:
-  home      : "{{ retropie_home }}/roms/nds"
-  cfg       : "{{ retropie_cfg }}/nds/drastic/config"
-  emu       : "drastic"
-
-#######################################################################
-
 retropie_steam:
+  name        : "steam"
+  desc        : "Steam"
+  extension   : [ ".sh", ".SH" ]
+  cmd         : "%ROM%"
+  platform    : ""
+  enabled     : "{{ retropie_enabled_steam }}"
+
   home      : "{{ retropie_home }}/roms/steam"
   cfg       : "{{ retropie_cfg  }}/steam"
   pc_ip     : "{{ retropie_steam_pc_ip }}"
