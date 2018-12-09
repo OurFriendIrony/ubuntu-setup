@@ -27,8 +27,8 @@ retropie_enabled_psx        : true
 retropie_enabled_nds        : true
 retropie_enabled_fba        : true
 retropie_enabled_ports      : true
-retropie_enabled_python     : False
-retropie_enabled_steam      : False
+retropie_enabled_python     : false
+retropie_enabled_steam      : false
 
 #######################################################################
 

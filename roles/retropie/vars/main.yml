@@ -293,6 +293,7 @@ retropie_dreamcast:
 retropie_nds:
   home      : "{{ retropie_home }}/roms/nds"
   cfg       : "{{ retropie_cfg }}/nds/drastic/config"
+  emu       : "drastic"
 
 #######################################################################
 

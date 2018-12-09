@@ -380,6 +380,17 @@
 
 #################################################################
 
+- name: "nds | mkdirs"
+  file:
+    path    : "{{ retropie_cfg }}/nds/{{ retropie_nds.emu }}/config"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
+  tags:
+    - retropie
+    - retropie-nds
+
 - name: "nds | config"
   template:
     src     : "nds_cfg.j2"
@@ -394,6 +405,7 @@
 #################################################################
 
 - name: "python scripts | git clone"
+  become  : "{{ primary_user.id }}"
   git:
     repo    : "{{ retropie_git.url  }}"
     dest    : "{{ retropie_git.dest }}"
