@@ -16,3 +16,14 @@
 
 #################################################################
 
+- name: "18.04 | fix resolve.conf"
+  lineinfile:
+    path    : "/etc/resolv.conf"
+    regexp  : "^search lan"
+    line    : "search lan{% for i in dns_search_additions %} {{i}}{%endfor%}"
+  tags:
+    - "network"
+    - "dns"
+
+#################################################################
+

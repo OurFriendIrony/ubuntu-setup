@@ -50,6 +50,7 @@ git_repos:
 
 proxy         : False
 ntlm_hash     : ""
+dns_search_additions: [ "tpplc.local" ] 
 
 #######################################################################
 ## OPTIONAL ##
@@ -61,15 +62,6 @@ aws:
   account     : "your_acct_here"
   access_key  : "your_key_here"
   access_pass : "your_secret_here"
-
-#######################################################################
-## OPTIONAL ##
-# Only relevant if you are setting up retropie and you want to enable
-#   in game achievements
-
-retropie_achievements:
-  user        : "my_user"
-  pass        : "my_password"
 
 #######################################################################
 
