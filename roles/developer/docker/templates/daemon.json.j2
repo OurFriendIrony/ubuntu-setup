@@ -1,6 +1,6 @@
 {
     "insecure-registries" : [
-{% for reg in docker_registries %}
+{% for reg in docker_private_registries %}
         "{{ reg }}"{% if not loop.last %},{% endif %}
 
 {% endfor %}

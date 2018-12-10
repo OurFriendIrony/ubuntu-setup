@@ -21,6 +21,10 @@ ssh_keys:
 proxy         : True
 ntlm_hash     : ""
 
+docker_private_creds:
+  user: "?"
+  pass: "?"
+
 #######################################################################
 
 terraform_version : "0.9.6"

@@ -164,6 +164,19 @@
 
 #################################################################
 
+- name: "Login to private repos"
+  when:
+    - docker_private_creds is defined
+  with_items:
+    - "{{ docker_private_registries }}"
+  docker_login:
+    registry: "{{ item }}"
+    username: "{{ docker_private_creds.user }}"
+    password: "{{ docker_private_creds.pass }}"
+  tags:
+    - "developer"
+    - "docker"
+
 - name: "images | install"
   become: yes
   with_items:

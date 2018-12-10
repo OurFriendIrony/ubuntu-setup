@@ -16,7 +16,7 @@ docker:
   apts:
     - "docker-ce"
 
-docker_registries:
+docker_private_registries:
   - "artifactory1.shared.devops.shared01.aws.travisperkins.cloud"
 
 docker_images:
@@ -24,4 +24,6 @@ docker_images:
     version   : "5.6"
   - name      : "jenkins/jenkins"
     version   : "2.96"
+
+docker_images_additional: []
 
