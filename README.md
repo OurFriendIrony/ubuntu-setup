@@ -1,6 +1,15 @@
 ## Summary
 The sections below cover install and build steps to get a full functioning linux box meeting whatever requirements you have.
+
+  * [Playbooks](#playbooks)
+    * [Ubuntu](#ubuntu)
+    * [Ubuntu TP](#ubuntu-tp)
+    * [Retropie](#retropie)
+  * [Help](#help)
+  * [Ansible Module Index](#ansible-module-index)
+
 ___
+# Playbooks
 ## ubuntu
 #### Setup
 - ***If on VM***
@@ -21,7 +30,6 @@ sudo apt-get install -y python-pip git \
   && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
   && cd /tmp/ansible
 ```
-
 ___
 ## ubuntu-tp
 #### Setup
@@ -90,10 +98,10 @@ sudo apt-get install -y python-pip git \
 ```
 
 ___
-## Help
+# Help
 `./go.sh -h`
 
 ___
-## Module index
+# Ansible Module Index
 All Modules are documented [**here**](http://docs.ansible.com/ansible/latest/list_of_all_modules.html)
 
