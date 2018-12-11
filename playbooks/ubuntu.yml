@@ -18,11 +18,12 @@
   roles:
     - { role: checks                                                                                            }
     - { role: users                                                                                             }
-    - { role: desktop                                                                                             }
+    - { role: desktop                                                                                           }
     - { role: prereq                                                                                            }
 
 
-    - { role: work/forticlient                                                                                  }
+    - { role: network/dns                                                                                       }
+    - { role: network/forticlient                                                                               }
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }

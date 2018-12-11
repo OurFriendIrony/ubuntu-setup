@@ -7,7 +7,8 @@
     deb: "{{ forticlient.url }}{{ forticlient.file }}"
     state: present
   tags:
-    - forticlient
+    - "network"
+    - "forticlient"
 
 #################################################################
 
@@ -19,7 +20,8 @@
     group: "{{ primary_user.id }}"
     mode: 0644
   tags:
-    - forticlient
+    - "network"
+    - "forticlient"
 
 #################################################################
 
