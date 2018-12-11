@@ -43,11 +43,13 @@
 
 - name: "symlink | set version"
   with_items:
-    - java
-    - default-java
+    - { src : "{{ java.home }}/{{ java.default }}",
+        dest: "java"                                }
+    - { src : "{{ java.home }}/java",
+        dest: "default-java"                        }
   file:
-    src   : "{{ java.home }}/{{ java.default }}"
-    dest  : "{{ java.home }}/{{ item }}"
+    src   : "{{ item.src                  }}"
+    dest  : "{{ java.home }}/{{ item.dest }}"
     owner : "{{ primary_user.id }}"
     group : "{{ primary_user.id }}"
     state : link
