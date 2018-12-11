@@ -22,6 +22,10 @@ proxy         : True
 ntlm_hash     : ""
 dns_search_additions: [ "tpplc.local" ] 
 
+docker_private_creds:
+  user: "?"
+  pass: "?"
+
 #######################################################################
 
 terraform_version : "0.9.6"
