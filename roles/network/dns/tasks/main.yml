@@ -2,7 +2,7 @@
 
 #################################################################
 
-- name: "18.04 | fix resolve.conf"
+- name: "18.04 bugfix | correct resolve.conf path"
   when:
     - ansible_distribution_version == "18.04"
   file:
@@ -16,10 +16,22 @@
 
 #################################################################
 
-- name: "18.04 | fix resolve.conf"
+- name: "config | nsswitch.conf"
+  template:
+    src     : "nsswitch.conf.j2"
+    dest    : "/etc/nsswitch.conf"
+    owner   : "{{ root_user.id }}"
+    group   : "{{ root_user.id }}"
+  tags:
+    - "network"
+    - "dns"
+
+#################################################################
+
+- name: "resolve.conf"
   lineinfile:
     path    : "/etc/resolv.conf"
-    regexp  : "^search lan"
+    regexp  : "^search"
     line    : "search lan{% for i in dns_search_additions %} {{i}}{%endfor%}"
   tags:
     - "network"
