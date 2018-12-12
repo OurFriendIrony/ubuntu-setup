@@ -1,16 +1,4 @@
 ---
 
-libraries_apt:
-  - unzip
-
 terraform_version : "0.11.7"
-
-terraform:
-  url             : "https://releases.hashicorp.com/terraform"
-  home            : "/usr/lib/terraform"
-  versions        :
-    - "{{ terraform_version }}"
-    - "0.11.7"
-    - "0.9.6"
-    - "0.7.4"
 

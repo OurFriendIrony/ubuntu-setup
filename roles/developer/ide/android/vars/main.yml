@@ -1,0 +1,13 @@
+---
+
+libraries_apt:
+  - unzip
+  - android-tools-adb
+
+android:
+  url     : "https://dl.google.com/dl/android/studio/ide-zips/"
+  zip     : "{{ android_version }}/android-studio-ide-{{ android_build }}-linux.zip"
+  home    : "/usr/lib/android-studio"
+
+desktop   : "jetbrains-android-studio"
+

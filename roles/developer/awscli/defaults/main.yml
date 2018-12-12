@@ -1,6 +1,4 @@
 ---
-libraries_pip:
-  - awscli
 
 aws:
   region      : "eu-west-1"

@@ -1,18 +1,7 @@
 ---
 
-libraries_apt:
-  - ssh
-
-ssh_dirs:
-  - ".ssh"
-
-ssh_keys        : []
-
 ssh_log_level   : "INFO"
-
-ssh_templates:
-  - "authorized_keys"
-  - "config"
+ssh_keys        : []
 
 ssh_config:
   hosts:
@@ -44,5 +33,4 @@ ssh_config:
         - "*.travisperkins.com"
         - "!*.aws.travisperkins.com"
         - "!lc0hymgt01"
-
 

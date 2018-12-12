@@ -1,16 +1,5 @@
 ---
 
-libraries_apt:
-  - unzip
-
 pycharm_year       : "2018.1"
 pycharm_subversion : "2"
-pycharm_version    : "{{ pycharm_year }}.{{ pycharm_subversion }}"
-
-pycharm:
-  url     : "https://download-cf.jetbrains.com/python/"
-  zip     : "pycharm-community-{{ pycharm_version }}.tar.gz"
-  home    : "/usr/lib/pycharm"
-
-desktop   : "jetbrains-pycharm-ce"
 

@@ -1,6 +1,2 @@
 ---
 
-libraries_apt:
-  - vim
-  - git
-

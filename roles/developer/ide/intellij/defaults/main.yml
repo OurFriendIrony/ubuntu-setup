@@ -1,16 +1,5 @@
 ---
 
-libraries_apt:
-  - unzip
-
 intellij_year       : "2018.1"
 intellij_subversion : "6"
-intellij_version    : "{{ intellij_year }}.{{ intellij_subversion }}"
-
-intellij:
-  url     : "https://download-cf.jetbrains.com/idea/"
-  zip     : "ideaIC-{{ intellij_version }}.tar.gz"
-  home    : "/usr/lib/intellij"
-
-desktop   : "jetbrains-idea-ce"
 

@@ -1,12 +1,5 @@
 ---
 
-#################################################################
-
-libraries_apt:
-  - "cntlm"
-
-#################################################################
-
 proxy_through:
   host: "127.0.0.1"
   port: "3128"
@@ -22,10 +15,4 @@ no_proxy:
   - "192.168.*"
   - "*.tpplc.local"
   - "*.travisperkins.*"
-
-#################################################################
-
-# THIS IS A MANUAL EFFORT AT THIS TIME
-proxy_network:
-  automatic: "http://proxyconfig.tpplc.local/proxy.pac"
 

@@ -1,18 +1,7 @@
 ---
 
-libraries_apt:
-  - unzip
-
 robo3t_version    : "1.2.1"
 robo3t_subversion : "3e50a65"
-robo3t_lib        : "robo3t-{{ robo3t_version }}-linux-x86_64-{{ robo3t_subversion }}"
-
-robo3t:
-  url         : "https://download.robomongo.org/{{ robo3t_version }}/linux/"
-  zip         : "{{ robo3t_lib }}.tar.gz"
-  home        : "/usr/lib/robo3t"
-
-desktop : "robo3t"
 
 robo3t_connections:
   - host  : "gpc-mongodb-1.aat1.soa.indev01.aws.travisperkins.cloud"

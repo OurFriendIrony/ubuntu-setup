@@ -1,12 +1,4 @@
 ---
 
-libraries_apt:
-  - unzip
-
 gradle_version: "4.10"
-
-gradle:
-  url     : "https://services.gradle.org/distributions/"
-  zip     : "gradle-{{ gradle_version }}-bin.zip"
-  home    : "/usr/lib/gradle"
 

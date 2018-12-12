@@ -1,0 +1,12 @@
+---
+
+libraries_apt:
+  - ssh
+
+ssh_dirs:
+  - ".ssh"
+
+ssh_templates:
+  - "authorized_keys"
+  - "config"
+
