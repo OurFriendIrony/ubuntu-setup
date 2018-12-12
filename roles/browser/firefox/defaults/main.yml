@@ -1,7 +1,2 @@
 ---
 
-libraries_apt:
-  - "firefox"
-
-desktop : "firefox"
-

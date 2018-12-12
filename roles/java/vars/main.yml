@@ -1,0 +1,11 @@
+---
+
+libraries_apt:
+  - openjdk-8-jdk
+  - openjdk-11-jdk
+
+java:
+  home    : "/usr/lib/jvm"
+  default : "java-{{ java_version }}-openjdk-amd64"
+  ppa     : "ppa:openjdk-r/ppa"
+

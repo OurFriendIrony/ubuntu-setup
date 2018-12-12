@@ -1,0 +1,8 @@
+---
+
+repos_apt:
+  - "ppa:fossfreedom/indicator-sysmonitor"
+
+libraries_apt:
+  - indicator-sysmonitor
+

@@ -1,12 +1,4 @@
 ---
 
-libraries_apt:
-  - unzip
-
 dbeaver_version    : "5.0.4"
-
-dbeaver:
-  url     : "https://dbeaver.jkiss.org/files/{{ dbeaver_version }}/dbeaver-ce_{{ dbeaver_version }}_amd64.deb"
-
-desktop   : "dbeaver"
 

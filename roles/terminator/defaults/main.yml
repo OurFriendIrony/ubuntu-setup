@@ -1,7 +1,2 @@
 ---
 
-libraries_apt:
-  - terminator
-
-desktop : "terminator"
-

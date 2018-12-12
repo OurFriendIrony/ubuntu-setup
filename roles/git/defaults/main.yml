@@ -1,10 +1,4 @@
 ---
 
-libraries_apt:
-  - git
-
-git:
-  home  : "{{ primary_user.home }}/git"
-
 git_repos: []
 
