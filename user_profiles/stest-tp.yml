@@ -16,6 +16,42 @@ ssh_keys:
   - name      : "devops"
     value     : "AAAAB3NzaC1yc2EAAAADAQABAAABAQDcXNVwZlQ9Udnh9v06POArB9J3uS7b1q3YsLd39YbothqR8Z5eVWUIJj5uk/gcMN7nVgJrES3qhhtu4RTR9fMQ8+uT91E0NKEXPbmRcCY/pebR6R+2ZEoP00pJDuMfv5FJGMEKmOUHi20zpGJDWsUhO+Cw4WYcEaYlikZksgx5vJLH+MMUnV8nSSqsNPibnO8g+bGAqfF5NZrjvfub+kxxwGh/sXONNhpEd+KgWQFSNmSoFAOopG/bUsW6ELmGwPDw4IN3/lzpcdBZdW3Qk6TZK8bF8HOyLWPyW3qUtMiLd45B3a7UbBGzEEEUGC1yiFWcL1KsSbKMhqb77IIAOovT"
 
+ssh_config_hosts:
+  - name        : "192.168.1.90"
+    psuedo_names: [ "pi", "retropie" ]
+
+  - name        : "ssh-bastion.shared.devops.indev01.aws.travisperkins.cloud"
+    psuedo_names: [ "bastion-indev" ]
+
+  - name        : "ssh-bastion.shared.devops.intest01.aws.travisperkins.cloud"
+    psuedo_names: [ "bastion-intest", "bastion" ]
+
+  - name        : "lc0hymgt01"
+    psuedo_names: [ "bastion-onprem" ]
+
+  - proxy       : "ssh-bastion.shared.devops.indev01.aws.travisperkins.cloud"
+    psuedo_names:
+      - "*.indev01.aws.travisperkins.cloud"
+      - "!ssh-bastion.shared.devops.indev01.aws.travisperkins.cloud"
+
+  - proxy       : "ssh-bastion.shared.devops.intest01.aws.travisperkins.cloud"
+    psuedo_names:
+      - "*.intest01.aws.travisperkins.cloud"
+      - "!ssh-bastion.shared.devops.intest01.aws.travisperkins.cloud"
+
+  - proxy       : "lc0hymgt01"
+    user        : "root"
+    identity    : "/home/{{ primary_user.id }}/.ssh/root.lc0hymgt01.key"
+    psuedo_names:
+      - "*tcwsi*.*.travisperkins.com"
+
+  - proxy       : "lc0hymgt01"
+    psuedo_names:
+      - "*.tpplc.local"
+      - "*.travisperkins.com"
+      - "!*.aws.travisperkins.com"
+      - "!lc0hymgt01"
+
 #######################################################################
 
 proxy         : True

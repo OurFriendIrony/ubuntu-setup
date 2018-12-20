@@ -5,12 +5,18 @@ Host *
   ForwardX11            no
   ServerAliveInterval   120
   LogLevel              {{ ssh_log_level }}
-{% for host in ssh_config.hosts %}
+{% for host in ssh_config_hosts %}
 
 Host {% for psuedo in host.psuedo_names -%}{{ psuedo }} {% endfor %}
 
 {% if host.name is defined %}
   Hostname              {{ host.name }}
+{% endif -%}
+{% if host.user is defined %}
+  User                  {{ host.user }}
+{% endif -%}
+{% if host.identity is defined %}
+  IdentityFile          {{ host.identity }}
 {% endif -%}
 {% if host.proxy is defined %}
   ProxyCommand          ssh {{ host.proxy }} exec nc %h %p

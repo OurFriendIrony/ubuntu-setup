@@ -2,35 +2,5 @@
 
 ssh_log_level   : "INFO"
 ssh_keys        : []
-
-ssh_config:
-  hosts:
-    - name        : "192.168.1.90"
-      psuedo_names: [ "pi", "retropie" ]
-
-    - name        : "ssh-bastion.shared.devops.indev01.aws.travisperkins.cloud"
-      psuedo_names: [ "bastion-indev" ]
-
-    - name        : "ssh-bastion.shared.devops.intest01.aws.travisperkins.cloud"
-      psuedo_names: [ "bastion-intest", "bastion" ]
-
-    - name        : "lc0hymgt01"
-      psuedo_names: [ "bastion-onprem" ]
-
-    - proxy       : "ssh-bastion.shared.devops.indev01.aws.travisperkins.cloud"
-      psuedo_names:
-        - "*.indev01.aws.travisperkins.cloud"
-        - "!ssh-bastion.shared.devops.indev01.aws.travisperkins.cloud"
-
-    - proxy       : "ssh-bastion.shared.devops.intest01.aws.travisperkins.cloud"
-      psuedo_names:
-        - "*.intest01.aws.travisperkins.cloud"
-        - "!ssh-bastion.shared.devops.intest01.aws.travisperkins.cloud"
-
-    - proxy       : "lc0hymgt01"
-      psuedo_names:
-        - "*.tpplc.local"
-        - "*.travisperkins.com"
-        - "!*.aws.travisperkins.com"
-        - "!lc0hymgt01"
+ssh_config_hosts: []
 
