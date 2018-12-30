@@ -75,6 +75,7 @@ retropie_keyboard:
 
 retropie_controllers:
   - { name    : "Xbox Wireless Controller",
+      note    : "Xbox One",
       up      : "h0up",    down    : "h0down",    left    : "h0left",    right   : "h0right",
       up_j    : "-1",      down_j  : "+1",        left_j  : "-0",        right_j : "+0",
       a       : "0",       b       : "1",         x       : "3",         y       : "4",
@@ -86,6 +87,7 @@ retropie_controllers:
       special : "16"                                                                    }
 
   - { name    : "Microsoft X-Box 360 pad",
+      note    : "Xbox 360",
       up      : "h0up",    down    : "h0down",    left    : "h0left",    right   : "h0right",
       up_j    : "-1",      down_j  : "+1",        left_j  : "-0",        right_j : "+0",
       a       : "0",       b       : "1",         x       : "2",         y       : "3",
@@ -97,6 +99,7 @@ retropie_controllers:
       special : "10"                                                                    }
 
   - { name    : "Microsoft 360 Wireless Receiver (XBOX)",
+      note    : "Xbox 360",
       up      : "h0up",    down    : "h0down",    left    : "h0left",    right   : "h0right",
       up_j    : "-1",      down_j  : "+1",        left_j  : "-0",        right_j : "+0",
       a       : "0",       b       : "1",         x       : "2",         y       : "3",
@@ -108,6 +111,7 @@ retropie_controllers:
       special : "10"                                                                    }
 
   - { name    : "Sony PLAYSTATION(R)3 Controller",
+      note    : "PS3",
       up      : "13",      down    : "14",        left    : "15",        right   : "16",
       up_j    : "-1",      down_j  : "+1",        left_j  : "-0",        right_j : "+0",
       a       : "0",       b       : "1",         x       : "3",         y       : "2",
@@ -119,6 +123,7 @@ retropie_controllers:
       special : "10"                                                                    }
 
   - { name    : "Sony Interactive Entertainment Wireless Controller",
+      note    : "PS4",
       up      : "h0up",    down    : "h0down",    left    : "h0left",    right   : "h0right",
       up_j    : "-1",      down_j  : "+1",        left_j  : "-0",        right_j : "+0",
       a       : "0",       b       : "1",         x       : "3",         y       : "2",
@@ -130,6 +135,19 @@ retropie_controllers:
       special : "10"                                                                    }
 
   - { name    : "Sony Computer Entertainment Wireless Controller",
+      note    : "PS4",
+      up      : "h0up",    down    : "h0down",    left    : "h0left",    right   : "h0right",
+      up_j    : "-1",      down_j  : "+1",        left_j  : "-0",        right_j : "+0",
+      a       : "0",       b       : "1",         x       : "3",         y       : "2",
+      l_1     : "4",       r_1     : "5",         l_2     : "6",         r_2     : "7",
+      l_up    : "+0",      l_down  : "+1",        l_left  : "-0",        l_right : "-1",
+      r_up    : "+3",      r_down  : "+4",        r_left  : "-3",        r_right : "-4",
+      l_button: "11",                             r_button: "12",
+      start   : "9",                              select  : "8",
+      special : "10"                                                                    }
+
+  - { name    : "Wireless Controller",
+      note    : "PS4",
       up      : "h0up",    down    : "h0down",    left    : "h0left",    right   : "h0right",
       up_j    : "-1",      down_j  : "+1",        left_j  : "-0",        right_j : "+0",
       a       : "0",       b       : "1",         x       : "3",         y       : "2",
@@ -151,26 +169,37 @@ retropie_keyboards_emu:
 
 retropie_controllers_emu:
   - { name    : "Xbox Wireless Controller",
+      note    : "Xbox One",
       a       : "0",       b       : "1",         x       : "3",         y       : "4",
       start   : "11",                             select  : "15",
       pageup  : "6",                              pagedown: "7"                         }
   - { name    : "Microsoft X-Box 360 pad",
+      note    : "Xbox 360",
       a       : "0",       b       : "1",         x       : "2",         y       : "3",
       start   : "9",                              select  : "8",
       pageup  : "4",                              pagedown: "5"                         }
   - { name    : "Microsoft 360 Wireless Receiver (XBOX)",
+      note    : "Xbox 360",
       a       : "0",       b       : "1",         x       : "2",         y       : "3",
       start   : "9",                              select  : "8",
       pageup  : "4",                              pagedown: "5"                         }
   - { name    : "Sony PLAYSTATION(R)3 Controller",
+      note    : "PS3",
       a       : "0",       b       : "1",         x       : "3",         y       : "2",
       start   : "9",                              select  : "8",
       pageup  : "4",                              pagedown: "5"                         }
   - { name    : "Sony Interactive Entertainment Wireless Controller",
+      note    : "PS4",
       a       : "0",       b       : "1",         x       : "3",         y       : "2",
       start   : "9",                              select  : "8",
       pageup  : "4",                              pagedown: "5"                         }
   - { name    : "Sony Computer Entertainment Wireless Controller",
+      note    : "PS4",
+      a       : "0",       b       : "1",         x       : "3",         y       : "2",
+      start   : "9",                              select  : "8",
+      pageup  : "4",                              pagedown: "5"                         }
+  - { name    : "Wireless Controller",
+      note    : "PS4",
       a       : "0",       b       : "1",         x       : "3",         y       : "2",
       start   : "9",                              select  : "8",
       pageup  : "4",                              pagedown: "5"                         }
