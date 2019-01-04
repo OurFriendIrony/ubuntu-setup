@@ -45,12 +45,18 @@ ssh_config_hosts:
     psuedo_names:
       - "*tcwsi*.*.travisperkins.com"
 
-  - proxy       : "lc0hymgt01"
+  - user        : "root"
+    identity    : "/home/{{ primary_user.id }}/.ssh/root.lc0hymgt01.key"
     psuedo_names:
-      - "*.tpplc.local"
-      - "*.travisperkins.com"
-      - "!*.aws.travisperkins.com"
-      - "!lc0hymgt01"
+      - "*talgpc*.*.travisperkins.com"
+      - "*TALGPC*.*.travisperkins.com"
+
+#  - proxy       : "lc0hymgt01"
+#    psuedo_names:
+#      - "*.tpplc.local"
+#      - "*.travisperkins.com"
+#      - "!*.aws.travisperkins.com"
+#      - "!lc0hymgt01"
 
 #######################################################################
 
