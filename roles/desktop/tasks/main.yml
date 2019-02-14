@@ -5,6 +5,7 @@
 - name: "desktop | apply dock config"
   when:
     - gui
+    - desktop_environment == "gnome"
   become: "{{ primary_user.id }}"
   block:
     - name    : "dock | extend-height"
