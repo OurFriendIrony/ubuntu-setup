@@ -16,9 +16,12 @@
 
 - name: "apt | repositories"
   when: not proxy
+  become: yes
+  become_user: "{{ primary_user.id }}"
   apt_repository:
     repo  : "{{ java.ppa }}"
     state : "present"
+    codename      : "bionic"
   tags:
     - java
 
