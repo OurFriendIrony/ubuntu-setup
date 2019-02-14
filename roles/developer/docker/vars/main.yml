@@ -9,10 +9,13 @@ libraries_apt:
 libraries_pip:
   - "docker-compose==1.9.0"     # This version avoids a bug with Ansible's 'docker_image' module
 
+docker_dist : "{% if ansible_distribution == 'Linux Mint' %}ubuntu{% else %}{{ ansible_distribution | lower }}{% endif %}"
+docker_rel  : "{% if ansible_distribution == 'Linux Mint' %}bionic{% else %}{{ ansible_distribution_release | lower }}{% endif %}"
+
 docker:
-  key_server  : "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
+  key_server  : "https://download.docker.com/linux/{{ docker_dist }}/gpg"
   key_id      : "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
-  repo        : "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} stable"
+  repo        : "deb [arch=amd64] https://download.docker.com/linux/{{ docker_dist}} {{ docker_rel }} stable"
   apts:
     - "docker-ce"
 
