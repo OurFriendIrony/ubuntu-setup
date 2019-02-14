@@ -1,0 +1,17 @@
+---
+
+java:
+  home    : "/usr/lib/jvm"
+  default : "java-{{ java_version }}-oracle"
+
+java_versions:
+  - v   : "8"
+    ppa : "ppa:webupd8team/java"
+    apt : "oracle-java8-installer"
+    license : "shared/accepted-oracle-license-v1-1"
+
+  - v   : "11"
+    ppa : "ppa:linuxuprising/java"
+    apt : "oracle-java11-installer"
+    license : "shared/accepted-oracle-license-v1-2"
+

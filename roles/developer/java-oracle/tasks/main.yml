@@ -1,0 +1,93 @@
+---
+
+#################################################################
+
+- name: "mkdir structure"
+  file:
+    path  : "{{ java.home }}"
+    state : directory
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    mode  : 0755
+  tags:
+    - "java"
+
+#################################################################
+
+- name: "apt | repositories"
+  when: not proxy
+  become: yes
+  become_user: "{{ primary_user.id }}"
+  with_items:
+    - "{{ java_versions }}"
+  apt_repository:
+    repo          : "{{ item.ppa }}"
+    state         : "present"
+    codename      : "bionic"
+  tags:
+    - java
+
+- name: "apt | repositories"
+  when: proxy
+  become: yes
+  become_user: "{{ primary_user.id }}"
+  with_items:
+    - "{{ java_versions }}"
+  shell: "sudo -E add-apt-repository {{ item.ppa }} -y"
+  tags:
+    - "java"
+
+#################################################################
+
+- name: "apt | agree licenses"
+  become: yes
+  become_user: "{{ primary_user.id }}"
+  with_items:
+    - "{{ java_versions }}"
+  debconf:
+    name      : "{{ item.apt      }}"
+    question  : "{{ item.license  }}"
+    value     : "true"
+    vtype     : "select"
+  tags:
+    - "java"
+
+#################################################################
+
+- name: "apt | install packages"
+  with_items:
+    - "{{ java_versions }}"
+  apt:
+    name          : "{{ item.apt }}"
+    state         : latest
+    update_cache  :  "yes"
+  tags:
+    - "java"
+
+#################################################################
+
+- name: "symlink | set version"
+  with_items:
+    - { src : "{{ java.home }}/{{ java.default }}",
+        dest: "java"                                }
+    - { src : "{{ java.home }}/java",
+        dest: "default-java"                        }
+  file:
+    src   : "{{ item.src                  }}"
+    dest  : "{{ java.home }}/{{ item.dest }}"
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    state : link
+  tags:
+    - "java"
+
+
+- name: "alternative | set version"
+  alternatives:
+    name  : "java"
+    path  : "{{ java.home }}/{{ java.default }}/bin/java"
+  tags:
+    - "java"
+
+#################################################################
+
