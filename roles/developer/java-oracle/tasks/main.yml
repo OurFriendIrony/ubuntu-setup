@@ -16,8 +16,6 @@
 
 - name: "apt | repositories"
   when: not proxy
-  become: yes
-  become_user: "{{ primary_user.id }}"
   with_items:
     - "{{ java_versions }}"
   apt_repository:
@@ -29,8 +27,6 @@
 
 - name: "apt | repositories"
   when: proxy
-  become: yes
-  become_user: "{{ primary_user.id }}"
   with_items:
     - "{{ java_versions }}"
   shell: "sudo -E add-apt-repository {{ item.ppa }} -y"
