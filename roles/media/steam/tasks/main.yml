@@ -9,6 +9,7 @@
     repo          : "{{ item }}"
     state         : "present"
     update_cache  : "yes"
+    codename      : "bionic"
   tags:
     - "media"
     - "steam"
