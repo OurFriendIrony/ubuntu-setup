@@ -42,7 +42,7 @@ Installs Ubuntu configurations
 
 ##### Bootstrap
 ```bash
-sudo apt-get install -y python-pip git \
+sudo apt-get install -y python-pip python-setuptools git \
   && sudo pip install ansible \
   && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
   && cd /tmp/ansible
