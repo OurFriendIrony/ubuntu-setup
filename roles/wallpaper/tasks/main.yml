@@ -33,7 +33,7 @@
 
 #################################################################
 
-- name: "copy | config "
+- name: "copy | config"
   template:
     src   : "{{ wallpaper.config.name }}.j2"
     dest  : "{{ wallpaper.config.dir  }}{{ wallpaper.config.name }}"
