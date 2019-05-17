@@ -4,7 +4,7 @@
 
 - name: "mkdirs"
   with_items:
-    - "{{ postman.home }}/{{ postman_version }}"
+    - "{{ postman.home }}"
   file:
     name    : "{{ item }}"
     state   : "directory"
@@ -32,10 +32,10 @@
   become : "{{ primary_user.id }}"
   unarchive:
     src         : "{{ postman.url }}"
-    dest        : "{{ postman.home }}/{{ postman_version }}"
+    dest        : "{{ postman.home }}"
     remote_src  : "yes"
     extra_opts  : [--strip-components=1]
-    creates     : "{{ postman.home }}/{{ postman_version }}/Postman"
+    creates     : "{{ postman.home }}/Postman"
   tags:
     - "developer"
     - "postman"
