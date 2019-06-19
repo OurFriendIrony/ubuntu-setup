@@ -11,6 +11,20 @@
     group   : "pi"
     mode    : "0775"
     state   : "link"
+    force   : "yes"
+  tags:
+    - retropie
+    - retropie-dirs
+
+- name: "mkdirs | general dirs"
+  with_items:
+    - "{{ retropie_dirs }}"
+  file:
+    path    : "{{ item }}"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
   tags:
     - retropie
     - retropie-dirs
@@ -341,6 +355,17 @@
     - retropie-controllers
 
 #################################################################
+
+- name: "mkdirs | dreamcast"
+  file:
+    path    : "{{ retropie_dreamcast.cfg }}/mappings"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
+  tags:
+    - retropie
+    - retropie-dreamcast
 
 - name: "dreamcast | config"
   template:

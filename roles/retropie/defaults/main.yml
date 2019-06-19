@@ -1,6 +1,11 @@
 ---
 #######################################################################
 
+retropie_dirs:
+ - "{{ retropie_home }}/splashscreens"
+
+#######################################################################
+
 retropie_theme              : "eudora"
 retropie_splash             : "retropie.mov"
 
