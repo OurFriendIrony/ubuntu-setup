@@ -170,6 +170,7 @@
   docker_image:
     name          : "{{ item.name }}"
     tag           : "{{ item.version }}"
+    source        : "pull"
   tags:
     - "developer"
     - "docker"
