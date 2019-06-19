@@ -11,4 +11,5 @@
 # build
 .ansible-sys/facts/**/*
 .ansible-sys/ansible.cfg
+.ansible-sys/out/lastrun.log
 

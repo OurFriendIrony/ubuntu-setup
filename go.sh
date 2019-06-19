@@ -101,7 +101,7 @@ fi
 
 exe="ansible-playbook ${playbook} --diff${limit}${tags}${skip}${verbosity}${sudo}${check}${key}${uservars}${extravars}"
 echo "${exe}"
-eval "${exe}"
+eval "${exe}" | tee .ansible-sys/out/lastrun.log
 
 rm "$(find . -type f -name "*.retry")" 2> /dev/null
 
