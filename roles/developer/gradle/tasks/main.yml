@@ -54,7 +54,7 @@
     - "proxy"
 
 - name: "proxy | config"
-  when: proxy
+  when: proxy | bool
   with_items:
     - "{{ all_users }}"
   template:

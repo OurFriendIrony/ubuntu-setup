@@ -11,7 +11,7 @@
 
 - name: "apt | install | gui"
   when:
-    - gui
+    - gui | bool
   apt:
     name  : "{{ libraries_apt_gui }}"
     state : "latest"

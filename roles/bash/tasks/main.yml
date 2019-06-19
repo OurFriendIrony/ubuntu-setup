@@ -52,7 +52,7 @@
     - "bash"
 
 - name: "copy | config | .bash_proxy"
-  when    : proxy
+  when    : proxy | bool
   with_items:
     - "{{ all_users }}"
   template:

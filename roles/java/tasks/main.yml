@@ -15,7 +15,7 @@
 #################################################################
 
 - name: "apt | repositories"
-  when: not proxy
+  when: not proxy | bool
   apt_repository:
     repo  : "{{ java.ppa }}"
     state : "present"
@@ -23,7 +23,7 @@
     - java
 
 - name: "apt | repositories"
-  when: proxy
+  when: proxy | bool
   become: yes
   become_user: "{{ primary_user.id }}"
   shell: "sudo -E add-apt-repository {{ java.ppa }} -y"

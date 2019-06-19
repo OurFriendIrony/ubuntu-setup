@@ -26,7 +26,7 @@
 #################################################################
 
 - name: "copy | fonts"
-  when: gui
+  when: gui | bool
   copy:
     src   : "PowerlineSymbols.otf"
     dest  : "/usr/local/share/fonts/"
@@ -37,7 +37,7 @@
     - "powerline"
 
 - name: "copy | font config"
-  when: gui
+  when: gui | bool
   with_items:
     - "{{ all_users }}"
   copy:

@@ -3,7 +3,7 @@
 #################################################################
 
 - name: "apt | add repository"
-  when: not proxy
+  when: not proxy | bool
   with_items:
     - "{{ repos_apt }}"
   apt_repository:
@@ -14,7 +14,7 @@
     - "system-monitor"
 
 - name: "apt | add repository"
-  when: proxy
+  when: proxy | bool
   become: yes
   become_user: "{{ primary_user.id }}"
   with_items:

@@ -23,7 +23,7 @@
 #################################################################
 
 - name: "apt | key"
-  when: not proxy
+  when: not proxy | bool
   apt_key:
     url           : "{{ docker.key_server }}"
     id            : "{{ docker.key_id }}"
@@ -35,14 +35,14 @@
 - name: "apt | key"
   become: yes
   become_user: "{{ primary_user.id }}"
-  when: proxy
+  when: proxy | bool
   shell: "sudo -E curl -fsSL {{ docker.key_server }} | sudo -E apt-key add -"
   tags:
     - "developer"
     - "docker"
 
 - name: "apt | repo"
-  when: not proxy
+  when: not proxy | bool
   apt_repository:
     repo          : "{{ docker.repo }}"
     state         : "present"
@@ -53,7 +53,7 @@
 - name: "apt | repo"
   become: yes
   become_user: "{{ primary_user.id }}"
-  when: proxy
+  when: proxy | bool
   shell: "sudo -E add-apt-repository \"{{ docker.repo }}\" -y"
   tags:
     - "developer"
@@ -95,7 +95,7 @@
     - "proxy"
 
 - name: "proxy | config"
-  when: proxy
+  when: proxy | bool
   with_items:
     - "{{ all_users }}"
   template:
@@ -110,7 +110,7 @@
     - "proxy"
 
 - name: "proxy | config | system"
-  when: proxy
+  when: proxy | bool
   template:
     src     : "http-proxy.conf.j2"
     dest    : "/etc/systemd/system/docker.service.d/http-proxy.conf"
@@ -140,7 +140,7 @@
 
 - name: "service | restart"
   when:
-    - proxy
+    - proxy | bool
     - docker_config is defined
     - docker_config.changed
   service:

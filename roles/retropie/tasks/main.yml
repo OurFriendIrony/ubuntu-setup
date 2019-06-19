@@ -18,7 +18,7 @@
 - name: "mkdirs | save and state dirs"
   when:
     - item[0].has_saves is defined
-    - item[0].has_saves
+    - item[0].has_saves | bool
   with_nested:
     - "{{ retropie_emus }}"
     - [ "states", "saves", "roms" ]
@@ -158,7 +158,7 @@
 - name: "retropie | config | mkdirs"
   when:
     - item.has_saves is defined
-    - item.has_saves
+    - item.has_saves | bool
   with_items:
     - "{{ retropie_emus }}"
   file:
@@ -171,7 +171,7 @@
 - name: "retropie | config | emu | retroarch.cfg"
   when:
     - item.has_saves is defined
-    - item.has_saves
+    - item.has_saves | bool
   with_items:
     - "{{ retropie_emus }}"
   template:
@@ -484,6 +484,7 @@
 #################################################################
 
 - name: "steam | mkdir"
+  when: retropie_enabled_steam | bool
   with_items:
     - "{{ retropie_steam.home }}"
     - "{{ retropie_steam.cfg  }}"
@@ -498,6 +499,7 @@
     - retropie-steam
 
 - name: "steam | apt key"
+  when: retropie_enabled_steam | bool
   apt_key:
     url     : "http://archive.itimmer.nl/itimmer.gpg"
     state   : "present"
@@ -506,6 +508,7 @@
     - retropie-steam
 
 - name: "steam | apt source"
+  when: retropie_enabled_steam | bool
   apt_repository:
     repo    : "deb http://archive.itimmer.nl/raspbian/moonlight stretch main"
     state   : "present"
@@ -514,6 +517,7 @@
     - retropie-steam
 
 - name: "steam | apt install"
+  when: retropie_enabled_steam | bool
   apt:
     name    : "moonlight-embedded"
     state   : "present"
@@ -523,6 +527,7 @@
     - retropie-steam
 
 - name: "steam | 'roms'"
+  when: retropie_enabled_steam | bool
   with_items:
     - "{{ retropie_steam.modes }}"
   template:

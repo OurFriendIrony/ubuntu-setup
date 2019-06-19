@@ -4,7 +4,7 @@
 
 - name: "apt | install"
   when:
-    - proxy
+    - proxy | bool
   apt:
     name    : "{{ libraries_apt }}"
     state   : "latest"
@@ -14,7 +14,7 @@
 
 - name: "apt | install"
   when:
-    - not proxy
+    - not proxy | bool
   apt:
     name    : "{{ libraries_apt }}"
     state   : "absent"
