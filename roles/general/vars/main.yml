@@ -20,3 +20,6 @@ libraries_apt_gui:
   - vlc               # Media Player
   - gedit             # Text Editor
 
+libraries_snap:
+  - p7zip-desktop     # Archiver
+

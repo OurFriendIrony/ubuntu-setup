@@ -25,6 +25,13 @@
   tags:
     - "general"
 
+- name: "snap | install | no gui"
+  snap:
+    name  : "{{ libraries_snap }}"
+    state : "present"
+  tags:
+    - "general"
+
 #################################################################
 
 - name: "additional mounts"
