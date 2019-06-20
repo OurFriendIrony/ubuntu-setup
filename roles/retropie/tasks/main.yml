@@ -561,6 +561,7 @@
 
 - name: "steam | apt install"
   when: retropie_enabled_steam | bool
+  ignore_errors: yes
   apt:
     name    : "moonlight-embedded"
     state   : "present"
