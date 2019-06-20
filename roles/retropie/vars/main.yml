@@ -56,6 +56,7 @@ retropie_emus:
   - "{{ retropie_gba }}"
   - "{{ retropie_n64 }}"
   - "{{ retropie_dreamcast }}"
+  - "{{ retropie_gc }}"
   - "{{ retropie_psx }}"
   - "{{ retropie_nds }}"
   - "{{ retropie_fba }}"
@@ -231,6 +232,7 @@ retropie_rp:
 retropie_atari2600:
   name        : "atari2600"
   desc        : "Atari 2600"
+  core        : "lr-stella2014"
   extension   : [ ".bin" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_atari2600 }}"
@@ -240,6 +242,7 @@ retropie_atari2600:
 retropie_atari7800:
   name        : "atari7800"
   desc        : "Atari 7800"
+  core        : "lr-prosystem"
   extension   : [ ".a78" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_atari7800 }}"
@@ -249,6 +252,7 @@ retropie_atari7800:
 retropie_nes:
   name        : "nes"
   desc        : "Nintendo"
+  core        : "lr-fceumm"
   extension   : [ ".nes" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_nes }}"
@@ -258,6 +262,7 @@ retropie_nes:
 retropie_snes:
   name        : "snes"
   desc        : "Super Nintendo"
+  core        : "lr-snes9x2010"
   extension   : [ ".smc" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_snes }}"
@@ -267,6 +272,7 @@ retropie_snes:
 retropie_megadrive:
   name        : "megadrive"
   desc        : "Sega Mega Drive"
+  core        : "lr-picodrive"
   extension   : [ ".gen" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_megadrive }}"
@@ -276,6 +282,7 @@ retropie_megadrive:
 retropie_gba:
   name        : "gba"
   desc        : "Game Boy Advance"
+  core        : "lr-mgba"
   extension   : [ ".gba" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_gba }}"
@@ -285,6 +292,7 @@ retropie_gba:
 retropie_n64:
   name        : "n64"
   desc        : "Nintendo 64"
+  core        : "lr-mupen64plus"
   extension   : [ ".z64" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_n64 }}"
@@ -292,13 +300,13 @@ retropie_n64:
   home        : "{{ retropie_home }}/roms/n64"
   cfg         : "{{ retropie_cfg  }}/n64"
   emu         : "Mupen64Plus GLES2"
-  core        : "lr-mupen64plus"
 
 #######################################################################
 
 retropie_dreamcast:
   name        : "dreamcast"
   desc        : "Sega Dreamcast"
+  core        : "lr-redream"
   extension   : [ ".cdi" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_dreamcast }}"
@@ -311,13 +319,26 @@ retropie_dreamcast:
 retropie_psx:
   name        : "psx"
   desc        : "PlayStation"
+  core        : "lr-pcsx-rearmed"
   extension   : [ ".cue" ]
   has_saves   : True
   enabled     : "{{ retropie_enabled_psx }}"
 
   video_smoothing : true
   emu         : "PCSX-ReARMed"
-  core        : "lr-pcsx-rearmed"
+
+#######################################################################
+
+retropie_gc:
+  name        : "gc"
+  desc        : "GameCube"
+  core        : "lr-dolphin"
+  extension   : [ ".gcm" ]
+  has_saves   : True
+  enabled     : "{{ retropie_enabled_gc }}"
+
+  home        : "{{ retropie_home }}/roms/gc"
+  cfg         : "{{ retropie_cfg }}/gc"
 
 #######################################################################
 
@@ -337,13 +358,13 @@ retropie_nds:
 retropie_fba:
   name        : "fba"
   desc        : "Final Burn Alpha"
+  core        : "lr-fbneo"
   extension   : [ ".zip" ]
   platform    : "arcade"
   has_saves   : True
   enabled     : "{{ retropie_enabled_fba }}"
 
   home        : "{{ retropie_home }}/roms/fba"
-  core        : "lr-fbalpha"
 
 #######################################################################
 

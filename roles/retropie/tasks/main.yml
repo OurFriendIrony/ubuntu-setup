@@ -48,6 +48,33 @@
 
 #################################################################
 
+- name: "emulators | install preferred"
+  when:
+    - item.core is defined
+  with_items:
+    - "{{ retropie_emus }}"
+  command: "{{ retropie_home }}-Setup/retropie_packages.sh {{ item.core }}"
+  args:
+    creates : "/opt/retropie/libretrocores/{{ item.core }}"
+  tags:
+    - retropie
+    - retropie-emu
+
+- name: "emulators | change default emulator"
+  when:
+    - item.core is defined
+  with_items:
+    - "{{ retropie_emus }}"
+  lineinfile:
+    path    : "{{ retropie_cfg }}/{{ item.name }}/emulators.cfg"
+    regexp  : "^default"
+    line    : 'default = "{{ item.core }}"'
+  tags:
+    - retropie
+    - retropie-emu
+
+#################################################################
+
 - name: "boot | cmdline.txt"
   template:
     src     : "boot_cmdline.txt.j2"
@@ -302,15 +329,6 @@
     - retropie-controllers
 
 #################################################################
-
-- name: "n64 | change default emulator"
-  lineinfile:
-    path    : "{{ retropie_n64.cfg }}/emulators.cfg"
-    regexp  : "^default"
-    line    : 'default = "lr-mupen64plus"'
-  tags:
-    - retropie
-    - retropie-n64
 
 - name: "n64 | mkdirs"
   file:

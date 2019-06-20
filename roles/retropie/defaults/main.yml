@@ -30,6 +30,7 @@ retropie_enabled_n64        : true
 retropie_enabled_dreamcast  : true
 retropie_enabled_psx        : true
 retropie_enabled_nds        : true
+retropie_enabled_gc         : true
 retropie_enabled_fba        : true
 retropie_enabled_ports      : true
 retropie_enabled_python     : false
