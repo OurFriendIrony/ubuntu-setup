@@ -20,12 +20,19 @@
     - { role: users                                                                                             }
     - { role: prereq                                                                                            }
 
+
+
+
+
+
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
     - { role: bash,                     bash_welcome        : "retropie"                                        }
     - { role: vim                                                                                               }
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }
+
+    - { role: keychain                                                                                          }
 
     - { role: retropie                                                                                          }
 

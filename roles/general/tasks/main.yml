@@ -2,14 +2,28 @@
 
 #################################################################
 
-- name: "apt | install | no gui"
+- name: "install > apt"
   apt:
     name  : "{{ libraries_apt }}"
     state : "latest"
   tags:
     - "general"
 
-- name: "apt | install | gui"
+- name: "install > pip"
+  pip:
+    name  : "{{ libraries_pip }}"
+    state : "latest"
+  tags:
+    - "general"
+
+- name: "install > snap"
+  snap:
+    name  : "{{ libraries_snap }}"
+    state : "present"
+  tags:
+    - "general"
+
+- name: "install > apt > gui only"
   when:
     - gui | bool
   apt:
@@ -18,16 +32,20 @@
   tags:
     - "general"
 
-- name: "pip | install | no gui"
-  pip:
-    name  : "{{ libraries_pip }}"
+- name: "install > pip > gui only"
+  when:
+    - gui | bool
+  apt:
+    name  : "{{ libraries_pip_gui }}"
     state : "latest"
   tags:
     - "general"
 
-- name: "snap | install | no gui"
+- name: "install > snap > gui only"
+  when:
+    - gui | bool
   snap:
-    name  : "{{ libraries_snap }}"
+    name  : "{{ libraries_snap_gui }}"
     state : "present"
   tags:
     - "general"

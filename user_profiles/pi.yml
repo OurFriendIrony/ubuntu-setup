@@ -25,3 +25,8 @@ retropie_enabled_steam      : true
 
 #######################################################################
 
+git_repos:
+  - { repo: "https://github.com/OurFriendIrony/retropie-rom-manager.git", subdir: "retropie-rom-manager" }
+
+#######################################################################
+

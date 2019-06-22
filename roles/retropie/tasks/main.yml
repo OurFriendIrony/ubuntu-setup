@@ -30,7 +30,7 @@
     - retropie
     - retropie-dirs
 
-- name: "mkdirs | general dirs"
+- name: "mkdirs > general dirs"
   with_items:
     - "{{ retropie_dirs }}"
   file:
@@ -43,7 +43,7 @@
     - retropie
     - retropie-dirs
 
-- name: "mkdirs | save and state dirs"
+- name: "mkdirs > save and state dirs"
   when:
     - item[0].has_saves is defined
     - item[0].has_saves | bool
@@ -103,9 +103,17 @@
     - retropie
     - retropie-install
 
+- name: "install > retropie menu"
+  command: "{{ retropie_home }}-Setup/retropie_packages.sh retropiemenu"
+  args:
+    creates : "{{ retropie_home }}/retropiemenu/"
+  tags:
+    - retropie
+    - retropie-install
+
 #################################################################
 
-- name: "boot | cmdline.txt"
+- name: "config > boot > cmdline.txt"
   template:
     src     : "boot_cmdline.txt.j2"
     dest    : "/boot/cmdline.txt"
@@ -116,7 +124,7 @@
     - retropie
     - retropie-boot
 
-- name: "boot | config.txt"
+- name: "config > boot > config.txt"
   template:
     src     : "boot_config.txt.j2"
     dest    : "/boot/config.txt"

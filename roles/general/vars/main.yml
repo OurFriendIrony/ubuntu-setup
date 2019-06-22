@@ -14,12 +14,17 @@ libraries_apt:
 libraries_pip:
   - yq                # Yaml Parser
 
+libraries_snap:
+  - p7zip-desktop     # Archiver
+  - htop              # Memory viewer
+
 libraries_apt_gui:
   - baobab            # Disk Usage
   - shutter           # Snipping Tool
   - vlc               # Media Player
   - gedit             # Text Editor
 
-libraries_snap:
-  - p7zip-desktop     # Archiver
+libraries_pip_gui: []
+
+libraries_snap_gui: []
 
