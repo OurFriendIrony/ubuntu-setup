@@ -22,8 +22,16 @@ if [[ -f "/opt/vc/bin/vcgencmd" ]]; then
   fi
 fi
 
-local df_perc=$(df -h | awk 'NR==2 { print $5 }')
-local df_out=$(df -h | awk 'NR==2 { print $3 " / " $2 }')
+if [[ -z "${gpuTempC}" || -z "${cpuTempC}" ]]; then
+  tempString="n/a"
+else
+  tempString"CPU: ${cpuTempC}°C   GPU: ${gpuTempC}°C"
+fi
+
+# Calc Disk Usage
+
+local df_perc=$(df -h | grep '\/$' | awk '{ print $5 }')
+local df_out=$(df -h | grep '\/$' | awk '{ print $3 " / " $2 }')
 
 # Set Colours
 local rst="$(tput sgr0)"
@@ -85,7 +93,7 @@ for i in "${!logo[@]}"; do
       out+="${fgred}Uptime.....:${fggrn} ${UPTIME}"
       ;;
     5)
-      out+="${fgred}IP.........:${fggrn} $(ip route get 8.8.8.8 | awk '{print $NF; exit}')"
+      out+="${fgred}IP.........:${fggrn} $(hostname -I)"
       ;;
     6)
       out+="${fgred}Processes..:${fggrn} $(ps ax | wc -l | tr -d " ")"
@@ -99,7 +107,7 @@ for i in "${!logo[@]}"; do
       out+="${fgred}Memory.....:${fggrn} $(free | grep Mem | awk '{printf("%.0f", ($3/$2 * 100.0) )}')%"
       ;;
     10)
-      out+="${fgred}Temp.......:${fggrn} CPU: $cpuTempC°C   GPU: $gpuTempC°C"
+      out+="${fgred}Temp.......:${fggrn} ${tempString}"
       ;;
     11)
       ;;
