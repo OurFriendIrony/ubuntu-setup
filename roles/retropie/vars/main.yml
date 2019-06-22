@@ -1,7 +1,7 @@
 ---
 #######################################################################
 
-retropie_home       : "/home/pi/RetroPie"
+retropie_home       : "{{ pi_user.home }}/RetroPie"
 retropie_cfg        : "/opt/retropie/configs"
 retropie_cores      : "/opt/retropie/libretrocores"
 
@@ -9,15 +9,15 @@ retropie_cores      : "/opt/retropie/libretrocores"
 
 retropie_shortcuts:
   - src   : "{{ retropie_cfg }}"
-    dest  : "/home/pi/.cfg_emus"
+    dest  : "{{ pi_user.home }}/.cfg_emus"
   - src   : "{{ retropie_cfg }}/all"
-    dest  : "/home/pi/.cfg_core"
+    dest  : "{{ pi_user.home }}/.cfg_core"
   - src   : "{{ retropie_cfg }}/all/retroarch"
-    dest  : "/home/pi/.cfg_retroarch"
+    dest  : "{{ pi_user.home }}/.cfg_retroarch"
   - src   : "{{ retropie_cfg }}/all/emulationstation"
-    dest  : "/home/pi/.cfg_es"
+    dest  : "{{ pi_user.home }}/.cfg_es"
   - src   : "/etc/emulationstation"
-    dest  : "/home/pi/.cfg_es_2"
+    dest  : "{{ pi_user.home }}/.cfg_es_2"
 
 #######################################################################
 
@@ -213,8 +213,8 @@ retropie_controller_analog_remap: false
 
 retropie_git:
   url     : "https://github.com/OurFriendIrony/python-retropie.git"
-  dest    : "/home/pi/git/python-retropie/"
-  src     : "/home/pi/git/python-retropie/src/"
+  dest    : "{{ pi_user.home }}/git/python-retropie/"
+  src     : "{{ pi_user.home }}/git/python-retropie/src/"
 
 #######################################################################
 
@@ -223,7 +223,7 @@ retropie_rp:
   desc        : "RetroPie"
   extension   : [ ".rp", ".sh" ]
   path        : "{{ retropie_home }}/retropiemenu"
-  cmd         : "sudo /home/pi/RetroPie-Setup/retropie_packages.sh retropiemenu launch %ROM% &lt;/dev/tty &gt;/dev/tty"
+  cmd         : "sudo {{ pi_user.home }}/RetroPie-Setup/retropie_packages.sh retropiemenu launch %ROM% &lt;/dev/tty &gt;/dev/tty"
   platform    : ""
   enabled     : True
 
