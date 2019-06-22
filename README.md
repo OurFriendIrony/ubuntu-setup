@@ -44,8 +44,8 @@ Installs Ubuntu configurations
 ```bash
 sudo apt install -y python-pip python-setuptools git \
   && sudo pip install ansible \
-  && git clone --depth=1 https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
-  && cd /tmp/ansible
+  && git clone --depth=1 https://github.com/OurFriendIrony/ansible.git /home/$USER/ansible \
+  && cd /home/$USER/ansible
 ```
 ___
 ## ubuntu-tp
@@ -83,8 +83,8 @@ export https_proxy="http://${LOGNAME}:${TMP_PASS}@10.0.20.196:8080" \
   && sudo apt update \
   && sudo apt install -y python-pip python-setuptools git cntlm \
   && sudo -E pip install ansible \
-  && git clone --depth=1 https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
-  && cd /tmp/ansible \
+  && git clone --depth=1 https://github.com/OurFriendIrony/ansible.git /home/$USER/ansible \
+  && cd /home/$USER/ansible \
   && echo ${TMP_PASS} | cntlm -H -d tpplc -u ${LOGNAME} | awk 'NR==4 {print "\nntlm_hash = "$2}' \
   && unset TMP_PASS
 ```
@@ -112,8 +112,8 @@ Installs all configurations for a [**Retropie 4.4**](https://retropie.org.uk/201
 ```bash
 sudo apt install -y python-pip python-setuptools git dialog unzip xmlstarlet \
   && sudo pip install ansible \
-  && git clone --depth=1 https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
-  && cd /tmp/ansible
+  && git clone --depth=1 https://github.com/OurFriendIrony/ansible.git /home/$USER/ansible \
+  && cd /home/$USER/ansible
 ```
 ___
 # Help
