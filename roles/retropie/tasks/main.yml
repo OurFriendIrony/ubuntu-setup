@@ -62,19 +62,35 @@
 
 #################################################################
 
-- name: "emulators | install preferred"
+- name: "install > retroarch"
+  command: "{{ retropie_home }}-Setup/retropie_packages.sh retroarch"
+  args:
+    creates : "/opt/retropie/emulators/retroarch/"
+  tags:
+    - retropie
+    - retropie-install
+
+- name: "install > emulationstation"
+  command: "{{ retropie_home }}-Setup/retropie_packages.sh emulationstation"
+  args:
+    creates : "/usr/bin/emulationstation"
+  tags:
+    - retropie
+    - retropie-install
+
+- name: "install > emulators"
   when:
     - item.core is defined
   with_items:
     - "{{ retropie_emus }}"
   command: "{{ retropie_home }}-Setup/retropie_packages.sh {{ item.core }}"
   args:
-    creates : "/opt/retropie/libretrocores/{{ item.core }}"
+    creates : "/opt/retropie/libretrocores/{{ item.core }}/"
   tags:
     - retropie
-    - retropie-emu
+    - retropie-install
 
-- name: "emulators | change default emulator"
+- name: "install > emulators > config default"
   when:
     - item.core is defined
   with_items:
@@ -85,7 +101,7 @@
     line    : 'default = "{{ item.core }}"'
   tags:
     - retropie
-    - retropie-emu
+    - retropie-install
 
 #################################################################
 
