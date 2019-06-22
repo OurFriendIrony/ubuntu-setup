@@ -78,6 +78,22 @@
     - retropie
     - retropie-install
 
+- name: "install > runcommand"
+  command: "{{ retropie_home }}-Setup/retropie_packages.sh runcommand"
+#  args:
+#    creates : "{{ retropie_home }}/retropiemenu/"
+  tags:
+    - retropie
+    - retropie-install
+
+- name: "install > bluetooth"
+  command: "{{ retropie_home }}-Setup/retropie_packages.sh bluetooth"
+#  args:
+#    creates : "{{ retropie_home }}/retropiemenu/"
+  tags:
+    - retropie
+    - retropie-install
+
 - name: "install > emulators"
   when:
     - item.core is defined
