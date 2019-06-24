@@ -2,7 +2,7 @@
   * [Tags](#tags)
   * [Playbooks](#playbooks)
     * [Ubuntu](#ubuntu)
-    * [Ubuntu TP](#ubuntu-tp)
+    * [Ubuntu Work](#ubuntu-work)
     * [Retropie](#retropie)
   * [Help](#help)
   * [Ansible Module Index](#ansible-module-index)
@@ -48,7 +48,7 @@ sudo apt-get install -y python-pip python-setuptools git \
   && cd /tmp/ansible
 ```
 ___
-## ubuntu-tp
+## ubuntu-work
 #### Setup
 Installs Ubuntu configurations from behind a proxy
 ***Note:** Your password will be temporarily stored in a couple of files to initially escape the to the internet via the proxy, where it can download cntlm and apply your hashed password. It is then 'forgotten'*
@@ -66,18 +66,20 @@ Installs Ubuntu configurations from behind a proxy
 
 #### First Run
 To ensure successful executions, first run the following and then restart you machine before attempting to run the main rollout
-`./go.sh -s -p ubuntu-tp -u {user_profile} -t proxy`
+`./go.sh -s -p ubuntu-work -u {user_profile} -t proxy`
 
 #### Run 
-`./go.sh -s -p ubuntu-tp -u {user_profile}`
+`./go.sh -s -p ubuntu-work -u {user_profile}`
 
 #### Bootstrap
 ```bash
  TMP_PASS="__YOURPASSWORD__"
+ TMP_DOMAIN="__YOUR_WORK_DOMAIN__"
+ TMP_PROXY="__A_PROXY_ADDRESS__"
 ```
 followed by
 ```bash
-export https_proxy="http://${LOGNAME}:${TMP_PASS}@10.0.20.196:8080" \
+export https_proxy="http://${LOGNAME}:${TMP_PASS}@$}TMP_PROXY}" \
   && echo -e "Acquire::http::Proxy \"${https_proxy}\";" | sudo tee /etc/apt/apt.conf.d/01proxy > /dev/null \
   && echo -e "[http]\n  proxy = ${https_proxy}" > ~/.gitconfig \
   && sudo apt-get update \
@@ -85,7 +87,7 @@ export https_proxy="http://${LOGNAME}:${TMP_PASS}@10.0.20.196:8080" \
   && sudo -E pip install ansible \
   && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
   && cd /tmp/ansible \
-  && echo ${TMP_PASS} | cntlm -H -d tpplc -u ${LOGNAME} | awk 'NR==4 {print "\nntlm_hash = "$2}' \
+  && echo ${TMP_PASS} | cntlm -H -d ${TMP_DOMAIN} -u ${LOGNAME} | awk 'NR==4 {print "\nntlm_hash = "$2}' \
   && unset TMP_PASS
 ```
 ___

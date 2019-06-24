@@ -24,6 +24,7 @@
     - { role: network/proxy                                                                                     }
     - { role: network/dns                                                                                       }
     - { role: network/forticlient                                                                               }
+    - { role: network/anyconnect                                                                                }
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }

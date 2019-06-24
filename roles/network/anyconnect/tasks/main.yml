@@ -1,0 +1,53 @@
+---
+
+#################################################################
+
+- name: "install > mkdirs"
+  file:
+    path        : "{{ anyconnect.home }}"
+    state       : "directory"
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    mode  : 0755
+  tags:
+    - "network"
+    - "anyconnect"
+
+- name: "install > download"
+  unarchive:
+    src         : "{{ anyconnect.url }}{{ anyconnect.file }}"
+    dest        : "{{ anyconnect.home }}"
+    remote_src  : "yes"
+    extra_opts  : [--strip-components=1]
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    mode  : 0755
+  args:
+    creates: "{{ anyconnect.home }}/vpn"
+  tags:
+    - "network"
+    - "anyconnect"
+
+- name: "install"
+  shell:
+    cmd   : "echo 'y' | sudo ./vpn_install.sh"
+    chdir : "/usr/lib/anyconnect/vpn/"
+  tags:
+    - "network"
+    - "anyconnect"
+
+#################################################################
+
+- name: "config > add profile"
+  template:
+    src: "euctfyac.xml.j2"
+    dest: "/opt/cisco/anyconnect/profile/euctfyac.xml"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  tags:
+    - "network"
+    - "anyconnect"
+
+#################################################################
+

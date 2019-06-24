@@ -50,7 +50,8 @@ git_repos:
 
 proxy         : False
 ntlm_hash     : ""
-dns_search_additions: [ "tpplc.local" ] 
+domain        : ""
+dns_search_additions: [ "{{ domain }}.local" ]
 
 #######################################################################
 ## OPTIONAL ##

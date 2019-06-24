@@ -1,7 +1,7 @@
 {{ note.cfg }}
 {% if proxy %}
 Username    {{ primary_user.id }}
-Domain      tpplc
+Domain      {{ domain }}
 PassNTLMv2  {{ ntlm_hash }}
 
 {% for p in proxy_hosts %}

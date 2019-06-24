@@ -1,0 +1,8 @@
+---
+
+anyconnect:
+  url   : "https://ftp.tugraz.at/tu-graz/vpn/"
+  file  : "anyconnect-linux64-4.7.01076-predeploy-k9.tar.gz"
+  home  : "/usr/lib/anyconnect"
+
+

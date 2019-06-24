@@ -13,6 +13,6 @@ no_proxy:
   - "127.0.0.*"
   - "10.*"
   - "192.168.*"
-  - "*.tpplc.local"
+  - "*.{{ domain }}.local"
   - "*.travisperkins.*"
 

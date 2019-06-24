@@ -62,7 +62,11 @@ ssh_config_hosts:
 
 proxy         : True
 ntlm_hash     : ""
-dns_search_additions: [ "tpplc.local" ] 
+domain        : "tpplc"
+dns_search_additions: [ "{{ domain }}.local" ] 
+proxy_hosts:
+  - { host: "10.0.20.196", port: "8080" }
+  - { host: "10.0.20.197", port: "8080" }
 
 #######################################################################
 
