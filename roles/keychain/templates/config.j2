@@ -1,4 +1,5 @@
 {{ note.cfg }}
 {% for key in ssh_keys %}
 {{ key.name }}.pem
+{{ key.name }}
 {% endfor %}
