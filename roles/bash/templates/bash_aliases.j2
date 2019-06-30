@@ -6,8 +6,9 @@ alias diff='diff -u'
 
 {% raw %}
 alias docker.clean='docker system prune -f'
-alias docker.ps='docker ps  --format "table | {{.Image}}\t| {{.ID}}\t| {{.Names}}\t| {{.Status}}\t| {{.Ports}}\t|"'
+alias docker.ps='docker ps  --format "table | {{.Image}}\t| {{.ID}}\t| {{.Names}}\t| {{.Status}}\t| {{.Ports}}\t|" -a'
 {% endraw %}
+
 alias json=func_json_pretty
 alias xclip="xclip -selection clipboard"
 
