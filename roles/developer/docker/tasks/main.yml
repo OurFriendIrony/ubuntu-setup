@@ -12,16 +12,6 @@
 
 #################################################################
 
-- name: "pip | install | prereq"
-  pip:
-    name    : "{{ libraries_pip }}"
-    state   : "latest"
-  tags:
-    - "developer"
-    - "docker"
-
-#################################################################
-
 - name: "apt | key"
   when: not proxy | bool
   apt_key:
@@ -157,6 +147,17 @@
     name          : "{{ primary_user.id }}"
     groups        : "docker"
     append        : "yes"
+  tags:
+    - "developer"
+    - "docker"
+
+#################################################################
+
+- name: "install > docker-compose"
+  get_url:
+    url     : "{{ docker_compose.url  }}"
+    dest    : "{{ docker_compose.dest }}"
+    mode    : "755"
   tags:
     - "developer"
     - "docker"

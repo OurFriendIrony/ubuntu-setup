@@ -2,6 +2,7 @@
 
 libraries_apt:
   ubuntu:
+    - "aptitude"
     - "libc6-i386"
     - "lib32z1"
     - "lib32ncurses5"

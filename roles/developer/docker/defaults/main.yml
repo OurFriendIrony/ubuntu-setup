@@ -9,3 +9,5 @@ docker_images:
   - name      : "jenkins/jenkins"
     version   : "2.96"
 
+docker_compose_version: "1.24.0"
+
