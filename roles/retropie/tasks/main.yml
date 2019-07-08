@@ -595,11 +595,31 @@
     - retropie
     - retropie-steam
 
+- name: "steam > moonlight > apt key"
+  when: retropie_enabled_steam | bool
+  apt_key:
+    url     : "http://archive.itimmer.nl/itimmer.gpg"
+    state   : "present"
+  tags:
+    - retropie
+    - retropie-steam
+
+- name: "steam > moonlight > apt source"
+  when: retropie_enabled_steam | bool
+  apt_repository:
+    repo    : "deb http://archive.itimmer.nl/raspbian/moonlight stretch main"
+    state   : "present"
+  tags:
+    - retropie
+    - retropie-steam
+
 - name: "steam > moonlight > install"
   when: retropie_enabled_steam | bool
-  snap:
-    name  : "moonlight"
-    state : "present"
+  ignore_errors: yes
+  apt:
+    name    : "moonlight-embedded"
+    state   : "present"
+    update_cache: "yes"
   tags:
     - retropie
     - retropie-steam
