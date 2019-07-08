@@ -173,11 +173,12 @@ class CallbackModule(CallbackBase):
             return deep_serialize(result._result).lstrip('\n').rstrip()
         return None
 
-    def _get_error_from_list(self, result):
-        for item in result._result.get('results',None):
-            if item.get('failed', False):
-                return item.get('msg').split('\n')[0]
-        return result._result.get('msg', None)
+    def _get_error_message(self, result):
+        if result._result.get('results', False):
+            for item in result._result.get('results', None):
+                if item.get('failed', False):
+                    return item.get('msg').split('\n')[0]
+        return result._result.get('module_stderr', result._result.get('msg', "ERROR UNKNOWN") )
 
     #
     # Override Hooks
@@ -216,7 +217,7 @@ class CallbackModule(CallbackBase):
             COLOUR_FAILED,
             "FAILED",
             self._host_string(result),
-            result._result.get('module_stderr', self._get_error_from_list(result)),
+            self._get_error_message(result),
             self._get_extra_msgs(result)
         )
 
