@@ -580,7 +580,7 @@
 
 #################################################################
 
-- name: "steam | mkdir"
+- name: "steam > moonlight > mkdir"
   when: retropie_enabled_steam | bool
   with_items:
     - "{{ retropie_steam.home }}"
@@ -595,7 +595,7 @@
     - retropie
     - retropie-steam
 
-- name: "steam | install"
+- name: "steam > moonlight > install"
   when: retropie_enabled_steam | bool
   snap:
     name  : "moonlight"
@@ -604,7 +604,19 @@
     - retropie
     - retropie-steam
 
-- name: "steam | 'roms'"
+- name: "steam > moonlight > pair script"
+  when: retropie_enabled_steam | bool
+  template:
+    src     : "steam_pair.j2"
+    dest    : "{{ retropie_steam.home }}/_pair.sh"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+  tags:
+    - retropie
+    - retropie-steam
+
+- name: "steam > moonlight > run scripts"
   when: retropie_enabled_steam | bool
   with_items:
     - "{{ retropie_steam.modes }}"
