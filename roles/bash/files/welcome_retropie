@@ -25,7 +25,7 @@ fi
 if [[ -z "${gpuTempC}" || -z "${cpuTempC}" ]]; then
   tempString="n/a"
 else
-  tempString"CPU: ${cpuTempC}°C   GPU: ${gpuTempC}°C"
+  tempString="CPU: ${cpuTempC}°C   GPU: ${gpuTempC}°C"
 fi
 
 # Calc Disk Usage
