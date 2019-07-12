@@ -1,0 +1,27 @@
+---
+#################################################################
+
+- name: "nds > mkdirs"
+  file:
+    path    : "{{ retropie_cfg }}/nds/{{ retropie_nds.emu }}/config"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
+  tags:
+    - retropie
+    - retropie-nds
+
+- name: "nds > config"
+  template:
+    src     : "nds_cfg.j2"
+    dest    : "{{ retropie_nds.cfg }}/drastic.cfg"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0664"
+  tags:
+    - retropie
+    - retropie-nds
+
+#################################################################
+

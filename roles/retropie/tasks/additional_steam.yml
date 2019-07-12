@@ -1,0 +1,69 @@
+---
+#################################################################
+
+- name: "steam > moonlight > mkdir"
+  with_items:
+    - "{{ retropie_steam.home }}"
+    - "{{ retropie_steam.cfg  }}"
+  file:
+    dest    : "{{ item }}"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
+  tags:
+    - retropie
+    - retropie-steam
+
+- name: "steam > moonlight > apt key"
+  apt_key:
+    url     : "http://archive.itimmer.nl/itimmer.gpg"
+    state   : "present"
+  tags:
+    - retropie
+    - retropie-steam
+
+- name: "steam > moonlight > apt source"
+  apt_repository:
+    repo    : "deb http://archive.itimmer.nl/raspbian/moonlight stretch main"
+    state   : "present"
+  tags:
+    - retropie
+    - retropie-steam
+
+- name: "steam > moonlight > install"
+  ignore_errors: yes
+  apt:
+    name    : "moonlight-embedded"
+    state   : "present"
+    update_cache: "yes"
+  tags:
+    - retropie
+    - retropie-steam
+
+- name: "steam > moonlight > pair script"
+  template:
+    src     : "steam_pair.j2"
+    dest    : "{{ retropie_steam.home }}/_pair.sh"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+  tags:
+    - retropie
+    - retropie-steam
+
+- name: "steam > moonlight > run scripts"
+  with_items:
+    - "{{ retropie_steam.modes }}"
+  template:
+    src     : "steam.j2"
+    dest    : "{{ retropie_steam.home }}/{{ item.res }}_{{ item.fps }}fps.sh"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+  tags:
+    - retropie
+    - retropie-steam
+
+#################################################################
+

@@ -1,0 +1,25 @@
+---
+#################################################################
+
+- name: "n64 > mkdirs"
+  file:
+    path    : "{{ retropie_cfg }}/n64/{{ retropie_n64.emu }}"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
+  tags:
+    - retropie
+    - retropie-n64
+
+- name: "n64 > controller remap"
+  template:
+    src     : "controller_n64.j2"
+    dest    : "{{ retropie_cfg }}/n64/{{ retropie_n64.emu }}/{{ retropie_n64.emu }}.rmp"
+  tags:
+    - retropie
+    - retropie-n64
+    - retropie-controllers
+
+#################################################################
+

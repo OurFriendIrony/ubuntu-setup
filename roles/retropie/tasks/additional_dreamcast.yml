@@ -1,0 +1,52 @@
+---
+#################################################################
+
+- name: "dreamcase > mkdirs"
+  file:
+    path    : "{{ retropie_dreamcast.cfg }}/mappings"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
+  tags:
+    - retropie
+    - retropie-dreamcast
+
+- name: "dreamcast > config"
+  template:
+    src     : "dreamcast_emu.cfg.j2"
+    dest    : "{{ retropie_dreamcast.cfg }}/emu.cfg"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0664"
+  tags:
+    - retropie
+    - retropie-dreamcast
+
+- name: "dreamcast > controller memory cards"
+  unarchive:
+    src     : "bin/dreamcast_vmu.zip"
+    dest    : "{{ retropie_dreamcast.cfg }}"
+    creates : "{{ retropie_dreamcast.cfg }}/vmu_save_A1.bin"
+  tags:
+    - retropie
+    - retropie-dreamcast
+
+- name: "dreamcast > controller"
+  with_items:
+    - { src: "xbox360",   dest: "controller_xpad"     }
+    - { src: "xboxone",   dest: "controller_generic"  }
+    - { src: "keyboard",  dest: "keyboard"            }
+  template:
+    src     : "controller_dreamcast_{{ item.src }}.j2"
+    dest    : "{{ retropie_dreamcast.cfg }}/mappings/{{ item.dest }}.cfg"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0664"
+  tags:
+    - retropie
+    - retropie-dreamcast
+    - retropie-controllers
+
+#################################################################
+

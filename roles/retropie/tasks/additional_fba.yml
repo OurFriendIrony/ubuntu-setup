@@ -1,0 +1,13 @@
+---
+#################################################################
+
+- name: "fba > install bios"
+  unarchive:
+    src     : "bin/bios_fba.zip"
+    dest    : "{{ retropie_fba.home }}"
+  tags:
+    - retropie
+    - retropie-fba
+
+#################################################################
+

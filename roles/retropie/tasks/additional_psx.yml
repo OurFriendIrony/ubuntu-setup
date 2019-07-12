@@ -1,0 +1,25 @@
+---
+#################################################################
+
+- name: "psx > mkdirs"
+  file:
+    path    : "{{ retropie_cfg }}/psx/{{ retropie_psx.emu }}"
+    owner   : "pi"
+    group   : "pi"
+    mode    : "0775"
+    state   : "directory"
+  tags:
+    - retropie
+    - retropie-psx
+
+- name: "psx > controller remap"
+  template:
+    src     : "controller_psx.j2"
+    dest    : "{{ retropie_cfg }}/psx/{{ retropie_psx.emu }}/{{ retropie_psx.emu }}.rmp"
+  tags:
+    - retropie
+    - retropie-psx
+    - retropie-controllers
+
+#################################################################
+
