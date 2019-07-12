@@ -52,7 +52,7 @@
   become: yes
   become_user: "{{ item.id }}"
   command: "vim -E -s -c 'source {{ item.home }}/.vimrc' -c PluginInstall -c qa"
-  changed_when: False
+  ignore_errors: yes
   tags:
     - "vim"
 
