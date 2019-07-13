@@ -7,7 +7,7 @@ source ./.ansible-sys/scripts/setup.sh
 
 usage () {
   PRG=$(basename $0)
-  echo "$PRG -p PLAYBOOK -u USER [-l LIMIT] [-t TAGS] [-z SKIP] [-v VERBOSITY] [-k KEY] [-e EXTRAVARS] [-s] [-c] [-h]"
+  echo "$PRG -p PLAYBOOK -u USER [-l LIMIT] [-t TAGS] [-z SKIP] [-v VERBOSITY] [-k KEY] [-e EXTRAVARS] [-s] [-c] [-d] [-h]"
   echo "     -p PLAYBOOK      path to playbook"
   echo "     -u USER          user profile to load"
   echo "     -l LIMIT         limit to host"
@@ -18,6 +18,7 @@ usage () {
   echo "     -e EXTRAVARS     include as extra vars"
   echo "     -s               run as sudo"
   echo "     -c               run in check mode"
+  echo "     -d               run with debugger"
   echo "     -h               show help"
   exit 0
 }
@@ -30,7 +31,7 @@ get_playbook () {
 #######################################################################
 # Get Input
 
-while getopts ":p:u:l:t:z:v:e:k:sch" arg; do
+while getopts ":p:u:l:t:z:v:e:k:scdh" arg; do
   case $arg in
     p)
       playbook=$(get_playbook "${OPTARG}")
@@ -62,6 +63,9 @@ while getopts ":p:u:l:t:z:v:e:k:sch" arg; do
       ;;
     c)
       check=" --check"
+      ;;
+    d)
+      debug="ANSIBLE_ENABLE_TASK_DEBUGGER=True "
       ;;
     h)
       usage
@@ -99,7 +103,7 @@ fi
 
 #######################################################################
 
-exe="ansible-playbook ${playbook} --diff${limit}${tags}${skip}${verbosity}${sudo}${check}${key}${uservars}${extravars}"
+exe="${debug} ansible-playbook ${playbook} --diff${limit}${tags}${skip}${verbosity}${sudo}${check}${key}${uservars}${extravars}"
 echo "${exe}"
 eval "${exe}"
 

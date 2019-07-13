@@ -1,6 +1,14 @@
 ---
 #################################################################
 
+- name: "Am I on a Raspberry Pi?"
+  debug:
+    msg: "{{ retropie_on_pi }}"
+  tags:
+    - always
+
+#################################################################
+
 - name: "retropie core > git clone"
   become  : "{{ primary_user.id }}"
   git:
@@ -106,6 +114,7 @@
   tags:
     - retropie
     - retropie-install
+    - retropie-test
 
 - name: "install > emulators > config default"
   when:

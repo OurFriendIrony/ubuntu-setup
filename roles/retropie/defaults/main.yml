@@ -1,6 +1,10 @@
 ---
 #######################################################################
 
+retropie_on_pi: "{{ ansible_lsb.id == 'Raspbian' }}"
+
+#######################################################################
+
 retropie_dirs:
  - "{{ retropie_home }}/splashscreens"
 
@@ -27,14 +31,14 @@ retropie_enabled_snes       : true
 retropie_enabled_megadrive  : true
 retropie_enabled_gba        : true
 retropie_enabled_n64        : true
-retropie_enabled_dreamcast  : true
+retropie_enabled_dreamcast  : "{{ not retropie_on_pi }}"
 retropie_enabled_psx        : true
 retropie_enabled_nds        : true
-retropie_enabled_gc         : true
+retropie_enabled_gc         : "{{ not retropie_om_pi }}"
 retropie_enabled_fba        : true
 retropie_enabled_ports      : true
-retropie_enabled_python     : false
-retropie_enabled_steam      : false
+retropie_enabled_python     : true
+retropie_enabled_steam      : "{{     retropie_on_pi }}"
 
 #######################################################################
 
