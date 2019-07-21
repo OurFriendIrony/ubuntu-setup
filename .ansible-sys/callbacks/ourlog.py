@@ -3,6 +3,7 @@ from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
 import sys
+import json
 from datetime import datetime
 
 try:
@@ -87,6 +88,10 @@ def deep_serialize(data, indent=1):
         return deep_serialize_dict(data, indent)
     else:
         return deep_serialize_string(data)
+
+
+def verbose_result(data):
+    return str(json.dumps(data))
 
 
 class CallbackModule(CallbackBase):
@@ -174,7 +179,7 @@ class CallbackModule(CallbackBase):
         return None
 
     def _get_error_from_list(self, result):
-        if hasattr( result._result, 'results' ):
+        if 'results' in result._result:
             for item in result._result.get('results', None):
                 if item.get('failed', False):
                     return item.get('msg').split('\n')[0]
