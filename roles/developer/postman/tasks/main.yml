@@ -4,7 +4,7 @@
 
 - name: "mkdirs"
   with_items:
-    - "{{ postman.home }}/{{ postman_version }}"
+    - "{{ postman.home }}"
   file:
     name    : "{{ item }}"
     state   : "directory"
@@ -18,7 +18,7 @@
 
 #################################################################
 
-- name: "apt | install"
+- name: "apt"
   apt:
     name    : "{{ libraries_apt }}"
     state   : "latest"
@@ -28,21 +28,21 @@
 
 #################################################################
 
-- name: "unpack | application"
+- name: "wget"
   become : "{{ primary_user.id }}"
   unarchive:
     src         : "{{ postman.url }}"
-    dest        : "{{ postman.home }}/{{ postman_version }}"
+    dest        : "{{ postman.home }}/"
     remote_src  : "yes"
     extra_opts  : [--strip-components=1]
-    creates     : "{{ postman.home }}/{{ postman_version }}/Postman"
+    creates     : "{{ postman.home }}/Postman"
   tags:
     - "developer"
     - "postman"
 
 #################################################################
 
-- name: "launcher | desktop icon"
+- name: "launcher > desktop icon"
   template:
     src   : "{{ desktop }}.desktop.j2"
     dest  : "/usr/share/applications/{{ desktop }}.desktop"
@@ -54,7 +54,7 @@
     - "postman"
     - "launcher"
 
-- name    : "launcher | add"
+- name: "launcher > add"
   become  : "{{ primary_user.id }}"
   script  : "../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
