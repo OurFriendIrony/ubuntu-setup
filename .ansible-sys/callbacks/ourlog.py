@@ -174,10 +174,12 @@ class CallbackModule(CallbackBase):
         return None
 
     def _get_error_from_list(self, result):
-        for item in result._result.get('results',None):
-            if item.get('failed', False):
-                return item.get('msg').split('\n')[0]
+        if hasattr( result._result, 'results' ):
+            for item in result._result.get('results', None):
+                if item.get('failed', False):
+                    return item.get('msg').split('\n')[0]
         return result._result.get('msg', None)
+
 
     #
     # Override Hooks
