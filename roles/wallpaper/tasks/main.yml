@@ -33,50 +33,50 @@
 
 #################################################################
 
-- name: "copy | config "
-  template:
-    src   : "{{ wallpaper.config.name }}.j2"
-    dest  : "{{ wallpaper.config.dir  }}{{ wallpaper.config.name }}"
-    owner : "{{ primary_user.id       }}"
-    group : "{{ primary_user.id       }}"
-    mode  : "0644"
-  tags:
-    - "wallpaper"
-
-#################################################################
-
-- name: "copy | wallpaper resources"
+- name: "resources > {{ wallpaper.resource.dir }}"
   copy:
     src   : "."
     dest  : "{{ wallpaper.resource.dir }}"
   tags:
     - "wallpaper"
+    - "helloworld"
 
-- name: "copy | wallpaper service"
+#################################################################
+
+- name: "service > script"
   template:
     src   : "{{ wallpaper.service.name }}.sh.j2"
     dest  : "{{ wallpaper.install.dir }}{{ wallpaper.service.name }}.sh"
     owner : "{{ root_user.id }}"
     group : "{{ root_user.id }}"
     mode  : "0755"
-  notify: "wallpaper service | start"
+  notify: "service > restart"
   tags:
     - "wallpaper"
 
-- name: "copy | systemd service"
+- name: "service > config"
+  template:
+    src   : "{{ wallpaper.config.name }}.j2"
+    dest  : "{{ wallpaper.config.dir  }}{{ wallpaper.config.name }}"
+    owner : "{{ primary_user.id       }}"
+    group : "{{ primary_user.id       }}"
+    mode  : "0644"
+  notify: "service > restart"
+  tags:
+    - "wallpaper"
+
+- name: "service > systemd"
   template:
     src   : "{{ wallpaper.service.name }}.service.j2"
     dest  : "{{ wallpaper.service.dir }}{{ wallpaper.service.name }}.service"
     owner : "{{ root_user.id }}"
     group : "{{ root_user.id }}"
     mode: "0755"
-  notify: "wallpaper service | start"
+  notify: "service > restart"
   tags:
     - "wallpaper"
 
-#################################################################
-
-- name: "service | start"
+- name: "service > start"
   service:
     name    : "{{ wallpaper.service.name }}"
     enabled : yes

@@ -2,7 +2,7 @@
 
 #################################################################
 
-- name: "wallpaper service | start"
+- name: "service > restart"
   service:
     name    : "{{ wallpaper.service.name }}"
     enabled : yes

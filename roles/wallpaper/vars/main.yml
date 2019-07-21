@@ -15,7 +15,8 @@ wallpaper:
     dir     : "{{ primary_user.home }}/.config/ofi-wallpaper/"
 
   resource:
-    dir     : "/lib/ofi-wallpaper/resources/space_abstract"
+    dir     : "/lib/ofi-wallpaper/resources"
+    default : "/lib/ofi-wallpaper/resources/space_abstract"
 
   service :
     name    : "ofi-wallpaper"

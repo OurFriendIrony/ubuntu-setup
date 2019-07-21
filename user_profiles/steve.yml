@@ -7,7 +7,7 @@ primary_user:
   home        : "/home/steve"
   id          : "steve"
   email       : "steve.h.i.stevens@gmail.com"
-  wallpaper   : "/lib/ofi-wallpaper/resources/video_games"
+  wallpaper   : "/lib/ofi-wallpaper/resources/*"
 
 #######################################################################
 

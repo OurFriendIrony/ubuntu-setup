@@ -4,5 +4,5 @@ sleep:
   sec     : "60"
 
 wallpapers:
-  dir      : "{{ primary_user.wallpaper | default( wallpaper.resource.dir ) }}"
+  dir      : "{{ primary_user.wallpaper | default( wallpaper.resource.default ) }}"
 
