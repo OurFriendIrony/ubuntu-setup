@@ -19,6 +19,20 @@
 
 #################################################################
 
+- name: "user > kvm"
+  with_items:
+    - "{{ all_users }}"
+  user:
+    name    : "{{ item.id }}"
+    groups  : "kvm"
+    append  : "yes"
+  tags:
+    - "developer"
+    - "ide"
+    - "android"
+
+#################################################################
+
 - name: "apt | install"
   apt:
     name    : "{{ libraries_apt }}"

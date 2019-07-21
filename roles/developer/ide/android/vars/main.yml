@@ -3,6 +3,7 @@
 libraries_apt:
   - unzip
   - android-tools-adb
+  - qemu-kvm
 
 android:
   url     : "https://dl.google.com/dl/android/studio/ide-zips/"
