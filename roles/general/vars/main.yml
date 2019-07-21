@@ -10,13 +10,22 @@ libraries_apt:
   - jq                # Json Parser
   - xclip             # Store to Clipboard
   - gawk              # Extended awk
+  - p7zip-full        # 7z [1]
+  - p7zip-rar         # 7z [2]
 
 libraries_pip:
   - yq                # Yaml Parser
+
+libraries_snap: []
 
 libraries_apt_gui:
   - baobab            # Disk Usage
   - shutter           # Snipping Tool
   - vlc               # Media Player
   - gedit             # Text Editor
+
+libraries_pip_gui: []
+
+libraries_snap_gui:
+  - p7zip-desktop     # 7z [3]
 
