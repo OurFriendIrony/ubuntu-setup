@@ -1,0 +1,13 @@
+---
+
+- hosts         : windows
+  connection    : local
+  gather_facts  : yes
+
+  vars: []
+  roles:
+    - { role: checks                                                                                            }
+  tasks:
+    - name: "Ping Test"
+      win_ping:
+
