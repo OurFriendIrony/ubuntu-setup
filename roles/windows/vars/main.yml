@@ -1,0 +1,19 @@
+---
+
+libraries_choco:
+  - grep
+  - netcat
+  - git
+  - vim
+  - jdk8
+  - 7zip
+  - speccy
+  - windirstat
+  - ccleaner
+  - vlc
+  - googlechrome
+  - steam
+  - plexmediaserver
+  - qbittorrent
+  - yumi-uefi
+

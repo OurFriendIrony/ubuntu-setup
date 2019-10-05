@@ -7,6 +7,7 @@
   vars: []
   roles:
     - { role: checks                                                                                            }
+    - { role: windows                                                                                           }
   tasks:
     - name: "Ping Test"
       win_ping:
