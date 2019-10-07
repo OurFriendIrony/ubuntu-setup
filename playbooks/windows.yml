@@ -4,10 +4,16 @@
   connection    : local
   gather_facts  : yes
 
-  vars: []
+  vars:
+    - ansible_user                          : "steve.stevens@live.co.uk"
+    - ansible_password                      : "-CHANGEME-"
+    - ansible_connection                    : "winrm"
+    - ansible_winrm_transport               : "ntlm"
+    - ansible_winrm_server_cert_validation  : "ignore"
   roles:
     - { role: checks                                                                                            }
     - { role: windows                                                                                           }
+    - { role: wallpaper                                                                                         }
   tasks:
     - name: "Ping Test"
       win_ping:

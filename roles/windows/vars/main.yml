@@ -16,4 +16,5 @@ libraries_choco:
   - plexmediaserver
   - qbittorrent
   - yumi-uefi
+  - notepadplusplus
 

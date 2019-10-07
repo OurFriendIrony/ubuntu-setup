@@ -2,6 +2,16 @@
 
 #################################################################
 
+- name: "resolv.conf dir"
+  file:
+    path    : "/run/systemd/resolve"
+    owner   : "{{ root_user.id }}"
+    group   : "{{ root_user.id }}"
+    state   : "directory"
+  tags:
+    - "network"
+    - "dns"
+
 - name: "18.04 bugfix | correct resolve.conf path"
   when:
     - ansible_distribution_version == "18.04"

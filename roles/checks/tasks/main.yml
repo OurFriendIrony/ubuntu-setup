@@ -6,14 +6,19 @@
     msg : "You must be running at least version {{ min_ansible_version }}"
   tags: [ "always" ]
 
-- name: "Additional Facts"
+- name: "Define Additional Facts"
   set_fact:
     "{{ item.k }}": "{{ item.v }}"
   with_items:
     - k: "desktop_environment"
       v: "{{ lookup('env', 'XDG_CURRENT_DESKTOP').split(':')[-1] | lower }}"
     - k: "gui"
-      v: "{{ has_gui }}"
+      v: "{{ desktop_environment is defined }}"
+  tags: [ "always" ]
+
+- name: "OS Family"
+  debug :
+    msg : "{{ ansible_os_family | default() | lower }}"
   tags: [ "always" ]
 
 - name: "Distribution"
@@ -28,8 +33,13 @@
     msg: "{{ ansible_virtualization_role }} [{{ ansible_virtualization_type }}]"
   tags: [ "always" ]
 
-- name: "Desktop Environment"
+- name: "Gathered Vars"
+  with_items:
+    - { k: "Distribution",                      v: "{{ ansible_distribution_version }} {{ ansible_distribution | lower }}-{{ ansible_distribution_release | default() | lower }}"                 }
+    - { k: "Has GUI?",                          v: "{{ gui }}"                 }
+    - { k: "Desktop Environment",               v: "{{ desktop_environment }}" }
+    - { k: "VM Status",                         v: "{{ ansible_virtualization_role }} [{{ ansible_virtualization_type }}]" }
   debug:
-    msg: "{{ desktop_environment }}"
+    msg: "{{ item.k }}: {{ item.v }}"
   tags: [ "always" ]
 
