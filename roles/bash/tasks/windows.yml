@@ -1,0 +1,15 @@
+---
+
+#################################################################
+
+- name: "copy | profile"
+  with_items:
+    - "{{ primary_user }}"
+  win_template:
+    src   : "profile.ps1.j2"
+    dest  : "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\profile.ps1"
+  tags:
+    - "bash"
+
+#################################################################
+

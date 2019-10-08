@@ -286,16 +286,6 @@ class CallbackModule(CallbackBase):
         )
 
     @override
-    def v2_playbook_on_include(self, included_file):
-        self._output_general(
-            'included: {} for {}'.format(
-                included_file._filename,
-                ", ".join([h.name for h in included_file._hosts])
-            ),
-            color=COLOUR_SKIPPED
-        )
-
-    @override
     def v2_playbook_on_stats(self, stats):
         self._output_general(
             "-- Summary -- [ {} -> {} ]".format(

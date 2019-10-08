@@ -1,0 +1,69 @@
+---
+
+#################################################################
+
+- name: "copy | config | .bashrc"
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src   : "bashrc.j2"
+    dest  : "{{ item.home }}/.bashrc"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : "0644"
+  tags:
+    - "bash"
+
+- name: "copy | config | .bash_aliases"
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src   : "bash_aliases.j2"
+    dest  : "{{ item.home }}/.bash_aliases"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : "0644"
+  tags:
+    - "bash"
+
+- name: "copy | config | .bash_functions"
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src   : "bash_functions.j2"
+    dest  : "{{ item.home }}/.bash_functions"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : "0644"
+  tags:
+    - "bash"
+
+- name: "copy | config | .bash_welcome"
+  with_items:
+    - "{{ all_users }}"
+  when    : bash_welcome != ""
+  copy:
+    src   : "welcome_{{ bash_welcome }}"
+    dest  : "{{ item.home }}/.bash_welcome"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : "0644"
+  tags:
+    - "bash"
+
+- name: "copy | config | .bash_proxy"
+  when    : proxy | bool
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src   : "bash_proxy.j2"
+    dest  : "{{ item.home }}/.bash_proxy"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : "0644"
+  tags:
+    - "bash"
+    - "proxy"
+
+#################################################################
+

@@ -2,9 +2,11 @@
 
 #################################################################
 
-- include : "{{ ansible_os_family | lower }}.yml"
+- include_tasks : "{{ ansible_os_family | lower }}.yml"
   when    :
-    - gui
+    - gui | bool
+  tags:
+    - "wallpaper"
 
 #################################################################
 

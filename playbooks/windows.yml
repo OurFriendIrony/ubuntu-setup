@@ -14,6 +14,8 @@
     - { role: checks                                                                                            }
     - { role: windows                                                                                           }
     - { role: wallpaper                                                                                         }
+    - { role: bash                                                                                              }
+    - { role: vim                                                                                               }
   tasks:
     - name: "Ping Test"
       win_ping:
