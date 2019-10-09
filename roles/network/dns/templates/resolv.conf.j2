@@ -1,0 +1,5 @@
+{{ note.cfg }}
+nameserver 8.8.8.8
+
+search lan{% for i in dns_search_additions %} {{i}}{%endfor%}
+
