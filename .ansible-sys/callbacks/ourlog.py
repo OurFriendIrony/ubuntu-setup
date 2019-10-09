@@ -169,13 +169,24 @@ class CallbackModule(CallbackBase):
     def _is_changed(self, result):
         return result._result.get('changed', False)
 
-    def _is_verbose(self, result):
-        return (self._display.verbosity > 0 or ('_ansible_verbose_always' in result._result)) \
-               and not ('_ansible_verbose_override' in result._result)
+    def _is_verbose(self, item):
+        return (self._display.verbosity > 0 or ('_ansible_verbose_always' in item)) \
+               and not ('_ansible_verbose_override' in item)
 
     def _get_extra_msgs(self, result):
-        if self._is_verbose(result):
-            return deep_serialize(result._result).lstrip('\n').rstrip()
+        extra_msg = ""
+        if 'results' in result._result:
+            for item in result._result.get('results', None):
+                if 'msg' in item:
+                    if self._is_verbose(item):
+                        extra_msg += "\n  " + item.get('msg')
+
+        elif 'msg' in result._result:
+            if self._is_verbose(result._result):
+                extra_msg += "\n  " + result._result.get('msg')
+
+        if extra_msg != "":
+            return extra_msg.lstrip('\n')
         return None
 
     def _get_error_from_list(self, result):
@@ -245,7 +256,6 @@ class CallbackModule(CallbackBase):
 
     @override
     def v2_runner_on_ok(self, result):
-        self._clean_results(result._result, result._task.action)
         self._handle_warnings(result._result)
 
         if self._is_changed(result):

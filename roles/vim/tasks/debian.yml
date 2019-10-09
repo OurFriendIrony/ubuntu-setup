@@ -27,7 +27,7 @@
   with_items:
     - "{{ all_users }}"
   git:
-    repo  : "http://github.com/gmarik/vundle.git"
+    repo  : "https://github.com/VundleVim/Vundle.vim.git"
     dest  : "{{ item.home }}/.vim/bundle/vundle"
     update: no
   tags:

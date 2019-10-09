@@ -2,10 +2,10 @@
 
 #################################################################
 
-- name: "choco | install"
+- name: "choco > install"
   win_chocolatey:
-    name    : "{{ libraries_choco }}"
-    state   : "latest"
+    name    : "{{ libraries }}"
+    state   : "present"
   tags:
     - "choco"
 

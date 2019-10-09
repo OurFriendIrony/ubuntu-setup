@@ -1,6 +1,6 @@
 ---
 
-libraries_choco:
+libraries:
   - grep
   - netcat
   - git
