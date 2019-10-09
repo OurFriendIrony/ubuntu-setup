@@ -20,8 +20,8 @@
 
 - name: "Collect Additional Facts > Boolean"
   with_items:
-    - { k: "gui",                 v: "{{ 'False' if desktop_environment == '' else 'True' }}" }
-    - { k: "vm",                  v: "{{ 'False' if vm_type == ''             else 'True' }}" }
+    - { k: "gui",                 v: "{{ 'True' if desktop_environment != '' or dist_family == 'windows' else 'False' }}" }
+    - { k: "vm",                  v: "{{ 'True' if vm_type != ''             else 'False' }}" }
   set_fact:
     "{{ item.k }}": "{{ item.v }}"
   tags: [ "always" ]

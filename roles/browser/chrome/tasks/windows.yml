@@ -2,9 +2,10 @@
 
 #################################################################
 
-- include_tasks : "{{ ansible_os_family | lower }}.yml"
-  when:
-    - gui | bool
+- name: "choco > install"
+  win_chocolatey:
+    name    : "{{ libraries }}"
+    state   : "present" 
   tags:
     - "browser"
     - "chrome"
