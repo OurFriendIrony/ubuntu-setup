@@ -16,7 +16,7 @@
     - "{{ primary_user }}"
   win_template:
     src   : "vimrc.j2"
-    dest  : "{{ item.home }}\\.vimrc"
+    dest  : "{{ item.home }}/.vimrc"
     newline_sequence: "\n"
   tags:
     - "vim"
@@ -24,9 +24,9 @@
 - name: "git > pull vundle"
   with_items:
     - "{{ primary_user }}"
-  win_command: "git clone https://github.com/VundleVim/Vundle.vim.git {{ item.home }}\\.vim\\bundle\\vundle"
+  win_command: "git clone https://github.com/VundleVim/Vundle.vim.git {{ item.home }}/.vim/bundle/vundle"
   args:
-    creates: "{{ item.home }}\\.vim\\bundle\\vundle"
+    creates: "{{ item.home }}/.vim/bundle/vundle"
   tags:
     - "vim"
 

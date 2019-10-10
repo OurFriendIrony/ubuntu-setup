@@ -2,7 +2,7 @@
 
 #################################################################
 
-- name: "copy | config | .bashrc"
+- name: "bash > config > .bashrc"
   with_items:
     - "{{ all_users }}"
   template:
@@ -12,9 +12,10 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
+    - "shell"
     - "bash"
 
-- name: "copy | config | .bash_aliases"
+- name: "bash > config > .bash_aliases"
   with_items:
     - "{{ all_users }}"
   template:
@@ -24,9 +25,10 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
+    - "shell"
     - "bash"
 
-- name: "copy | config | .bash_functions"
+- name: "bash > config > .bash_functions"
   with_items:
     - "{{ all_users }}"
   template:
@@ -36,9 +38,10 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
+    - "shell"
     - "bash"
 
-- name: "copy | config | .bash_welcome"
+- name: "bash > config > .bash_welcome"
   with_items:
     - "{{ all_users }}"
   when    : bash_welcome != ""
@@ -49,9 +52,10 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
+    - "shell"
     - "bash"
 
-- name: "copy | config | .bash_proxy"
+- name: "bash > config > .bash_proxy"
   when    : proxy | bool
   with_items:
     - "{{ all_users }}"
@@ -62,6 +66,7 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
+    - "shell"
     - "bash"
     - "proxy"
 

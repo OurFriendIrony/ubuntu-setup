@@ -25,7 +25,7 @@
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
-    - { role: bash,                     bash_welcome        : "retropie"                                        }
+    - { role: shell,                    bash_welcome        : "retropie"                                        }
     - { role: vim                                                                                               }
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }

@@ -22,7 +22,7 @@
     - { role: checks                                                                                            }
     - { role: general                                                                                           }
     - { role: browser/chrome                                                                                    }
-    - { role: bash                                                                                              }
+    - { role: shell                                                                                             }
     - { role: vim                                                                                               }
 
 #################################################################

@@ -30,7 +30,7 @@
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
-    - { role: bash                                                                                              }
+    - { role: shell                                                                                             }
     - { role: vim                                                                                               }
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }

@@ -46,15 +46,15 @@
   tags:
     - "vim"
 
-- name: "plugins > update"
-  with_items:
-    - "{{ all_users }}"
-  become: yes
-  become_user: "{{ item.id }}"
-  command: "vim -E -s -c 'source {{ item.home }}/.vimrc' -c PluginInstall -c qa"
-  changed_when: False
-  tags:
-    - "vim"
+#- name: "plugins > update"
+#  with_items:
+#    - "{{ all_users }}"
+#  become: yes
+#  become_user: "{{ item.id }}"
+#  command: "vim -E -s -c 'source {{ item.home }}/.vimrc' -c PluginInstall -c qa"
+#  changed_when: False
+#  tags:
+#    - "vim"
 
 #################################################################
 
