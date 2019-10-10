@@ -12,8 +12,7 @@
     - ansible_winrm_server_cert_validation  : "ignore"
   roles:
     - { role: checks                                                                                            }
-    - { role: windows                                                                                           }
-    - { role: wallpaper                                                                                         }
+    - { role: general                                                                                           }
     - { role: browser/chrome                                                                                    }
     - { role: bash                                                                                              }
     - { role: vim                                                                                               }
