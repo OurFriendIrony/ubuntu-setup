@@ -3,8 +3,9 @@
 #################################################################
 
 - name: ">"
-  include_tasks : "{{ ansible_os_family | lower }}.yml"
-  when    :
+  include_tasks : "{{ dist_family }}.yml"
+  when:
+    - dist_family in [ 'debian', 'windows' ]
     - gui | bool
   tags:
     - "wallpaper"

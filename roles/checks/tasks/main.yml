@@ -1,10 +1,14 @@
 ---
 
+#################################################################
+
 - name: "Check Ansible Version >= {{ min_ansible_version }}"
   assert:
     that: "ansible_version.full is version_compare('{{ min_ansible_version }}', '>=')"
     msg : "You must be running at least version {{ min_ansible_version }}"
   tags: [ "always" ]
+
+#################################################################
 
 - name: "Collect Additional Facts"
   with_items:
@@ -21,10 +25,12 @@
 - name: "Collect Additional Facts > Boolean"
   with_items:
     - { k: "gui",                 v: "{{ 'True' if desktop_environment != '' or dist_family == 'windows' else 'False' }}" }
-    - { k: "vm",                  v: "{{ 'True' if vm_type != ''             else 'False' }}" }
+    - { k: "vm",                  v: "{{ 'True' if vm_type != ''                                         else 'False' }}" }
   set_fact:
     "{{ item.k }}": "{{ item.v }}"
   tags: [ "always" ]
+
+#################################################################
 
 - name: "Gathered Facts"
   with_items:
@@ -39,4 +45,6 @@
   debug:
     msg: "{{ item.k }} : {{ item.v }}"
   tags: [ "always" ]
+
+#################################################################
 
