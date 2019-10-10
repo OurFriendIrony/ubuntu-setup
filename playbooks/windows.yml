@@ -1,8 +1,12 @@
 ---
 
+#################################################################
+
 - hosts         : windows
   connection    : local
   gather_facts  : yes
+
+
 
   vars:
     - ansible_user                          : "steve.stevens@live.co.uk"
@@ -10,13 +14,16 @@
     - ansible_connection                    : "winrm"
     - ansible_winrm_transport               : "ntlm"
     - ansible_winrm_server_cert_validation  : "ignore"
+
+
+#################################################################
+
   roles:
     - { role: checks                                                                                            }
     - { role: general                                                                                           }
     - { role: browser/chrome                                                                                    }
     - { role: bash                                                                                              }
     - { role: vim                                                                                               }
-  tasks:
-    - name: "Ping Test"
-      win_ping:
+
+#################################################################
 

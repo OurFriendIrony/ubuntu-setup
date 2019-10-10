@@ -1,5 +1,7 @@
 ---
 
+#################################################################
+
 - hosts         : localhost
   become        : yes
   become_method : sudo
@@ -8,12 +10,13 @@
 
   vars:
     - proxy     : True
-      has_gui   : True
+
 
       all_users:
         - "{{ root_user     }}"
         - "{{ primary_user  }}"
 
+#################################################################
 
   roles:
     - { role: checks                                                                                            }
@@ -56,4 +59,6 @@
     - { role: developer/ide/android                                                                             }
     - { role: developer/ide/wso2studio                                                                          }
     - { role: developer/ide/mongorobot3                                                                         }
+
+#################################################################
 
