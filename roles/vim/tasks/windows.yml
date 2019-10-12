@@ -30,41 +30,5 @@
   tags:
     - "vim"
 
-#- name: "plugins > update"
-#  with_items:
-#    - "{{ primary_user }}"
-#  win_command: "vim -E -s -c 'source {{ item.home }}\\.vimrc' -c PluginInstall -c qa"
-#  tags:
-#    - "vim"
-
 ##################################################################
-
-- name: "copy > font"
-  when: gui | bool
-  win_copy:
-    src   : "PowerlineSymbols.otf"
-    dest  : "%TEMP%/PowerlineSymbols.otf"
-  tags:
-    - "vim"
-
-- name: "install > font"
-  when: gui | bool
-  win_shell: "c:\\windows\\System32\\WindowsPowerShell\\v1.0\\Install-Font.ps1 C:\\Users\\steve\\AppData\\Local\\Temp\\PowerlineSymbols.otf"
-  tags:
-    - "vim"
-
-#- name: "copy | font config"
-#  when: gui | bool
-#  with_items:
-#    - "{{ all_users }}"
-#  copy:
-#    src   : "10-powerline-symbols.conf"
-#    dest  : "{{ item.home }}/.config/fontconfig/fonts.conf/"
-#    owner : "{{ item.id }}"
-#    group : "{{ item.id }}"
-#    mode  : 0644
-#  tags:
-#    - vim
-
-#################################################################
 
