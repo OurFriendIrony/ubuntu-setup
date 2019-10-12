@@ -2,39 +2,15 @@
 
 #################################################################
 
-- name: "apt | install"
-  apt:
-    name    : "{{ libraries_apt }}"
-    state   : "latest"
+- name: " "
+  include_tasks : "{{ dist_family }}.yml"
+  when:
+    - dist_family in [ 'debian' ]
+    - gui | bool
   tags:
     - "developer"
     - "data"
     - "mysql-workbench"
-
-#################################################################
-
-- name: "launcher | desktop icon"
-  template:
-    src   : "{{ desktop }}.desktop.j2"
-    dest  : "/usr/share/applications/{{ desktop }}.desktop"
-    owner : "{{ primary_user.id }}"
-    group : "{{ primary_user.id }}"
-    mode  : "0644"
-  tags:
-    - "developer"
-    - "data"
-    - "mysql-workbench"
-    - "launcher"
-
-- name    : "launcher | add"
-  become  : "{{ primary_user.id }}"
-  script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
-  changed_when: False
-  tags:
-    - "developer"
-    - "data"
-    - "mysql-workbench"
-    - "launcher"
 
 #################################################################
 

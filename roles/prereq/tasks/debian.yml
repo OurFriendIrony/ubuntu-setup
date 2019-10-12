@@ -1,0 +1,46 @@
+---
+
+#################################################################
+
+- name: "apt > update cache"
+  apt:
+    update_cache: yes
+  changed_when: False
+  tags:
+    - "prereq"
+
+- name: "apt > install"
+  apt:
+    name  : "{{ libraries_apt.all }}"
+    state : "latest"
+  tags:
+    - "prereq"
+
+- name: "apt > install > ubuntu"
+  when:
+    - ansible_distribution      | lower == "ubuntu"
+  apt:
+    name  : "{{ libraries_apt.ubuntu }}"
+    state : "latest"
+  tags:
+    - "prereq"
+
+- name: "apt > install > ubuntu > gnome"
+  when:
+    - desktop_environment == "gnome"
+  apt:
+    name  : "{{ libraries_apt.ubuntu_gnome }}"
+    state : "latest"
+  tags:
+    - "prereq"
+
+- name: "apt > autoclean"
+  apt:
+    autoclean : yes
+    autoremove: yes
+  changed_when: False
+  tags:
+    - "prereq"
+
+#################################################################
+

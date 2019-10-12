@@ -38,8 +38,6 @@ libraries_choco_gui:
   - windirstat
   - ccleaner
   - vlc
-  - steam
-  - plexmediaserver
   - qbittorrent
   - yumi-uefi
   - notepadplusplus

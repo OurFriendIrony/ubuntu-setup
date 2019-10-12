@@ -1,0 +1,71 @@
+---
+
+#################################################################
+
+- name: "mkdirs"
+  with_items:
+    - "{{ gradle.home }}"
+  file:
+    name    : "{{ item }}"
+    owner   : "{{ primary_user.id }}"
+    group   : "{{ primary_user.id }}"
+    state   : "directory"
+  tags:
+    - "developer"
+    - "gradle"
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name    : "{{ libraries_apt }}"
+    state   : "latest"
+  tags:
+    - "developer"
+    - "gradle"
+
+#################################################################
+
+- name: "unpack"
+  unarchive:
+    src         : "{{ gradle.url      }}{{ gradle.zip }}"
+    dest        : "{{ gradle.home     }}"
+    owner       : "{{ primary_user.id }}"
+    group       : "{{ primary_user.id }}"
+    creates     : "{{ gradle.home     }}/gradle-{{ gradle_version }}/"
+    remote_src  : "yes"
+  tags:
+    - "developer"
+    - "gradle"
+
+#################################################################
+
+- name: "proxy > mkdirs"
+  with_items:
+    - "{{ all_users }}"
+  file:
+    name    : "{{ item.home }}/.gradle"
+    owner   : "{{ item.id   }}"
+    group   : "{{ item.id   }}"
+    state   : "directory"
+  tags:
+    - "developer"
+    - "gradle"
+    - "proxy"
+
+- name: "proxy > config"
+  when: proxy | bool
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src     : "gradle.properties.j2"
+    dest    : "{{ item.home }}/.gradle/gradle.properties"
+    owner   : "{{ item.id   }}"
+    group   : "{{ item.id   }}"
+  tags:
+    - "developer"
+    - "gradle"
+    - "proxy"
+
+#################################################################
+

@@ -1,0 +1,53 @@
+---
+
+#################################################################
+
+- name: "pip > install"
+  pip:
+    name  : "{{ libraries_pip }}"
+    state : "latest"
+  tags:
+    - "powerline"
+
+#################################################################
+
+- name: "copy > .powerline-shell.json"
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src   : "powerline-shell.json.j2"
+    dest  : "{{ item.home }}/.powerline-shell.json"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : 0644
+  tags:
+    - "powerline"
+
+#################################################################
+
+- name: "copy > fonts"
+  when: gui | bool
+  copy:
+    src   : "PowerlineSymbols.otf"
+    dest  : "/usr/local/share/fonts/"
+    owner : root
+    group : root
+    mode  : 0644
+  tags:
+    - "powerline"
+
+- name: "copy > font config"
+  when: gui | bool
+  with_items:
+    - "{{ all_users }}"
+  copy:
+    src   : "10-powerline-symbols.conf"
+    dest  : "{{ item.home }}/.config/fontconfig/fonts.conf/"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : 0644
+  tags:
+    - "powerline"
+
+#################################################################
+

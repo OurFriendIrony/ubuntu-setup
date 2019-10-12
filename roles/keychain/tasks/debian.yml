@@ -1,0 +1,41 @@
+---
+
+#################################################################
+
+- name: "mkdirs"
+  with_items:
+    - "{{ all_users }}"
+  file:
+    dest: "{{ item.home }}/.config/keychain"
+    state: "directory"
+    owner: "{{ item.id }}"
+    group: "{{ item.id }}"
+    mode: 0755
+  tags:
+    - "keychain"
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name: "{{ libraries_apt }}"
+    state: "latest"
+  tags:
+    - "keychain"
+
+#################################################################
+
+- name: "copy > config"
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src   : "config.j2"
+    dest  : "{{ item.home }}/.config/keychain/config"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : 0644
+  tags:
+    - "keychain"
+
+#################################################################
+

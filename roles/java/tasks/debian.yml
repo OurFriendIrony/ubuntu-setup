@@ -1,0 +1,68 @@
+---
+
+#################################################################
+
+- name: "mkdir"
+  file:
+    path  : "{{ java.home }}"
+    state : directory
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    mode  : 0755
+  tags:
+    - "java"
+
+#################################################################
+
+- name: "apt > repositories"
+  when: not proxy | bool
+  apt_repository:
+    repo  : "{{ java.ppa }}"
+    state : "present"
+  tags:
+    - "java"
+
+- name: "apt > repositories"
+  when: proxy | bool
+  become: yes
+  become_user: "{{ primary_user.id }}"
+  shell: "sudo -E add-apt-repository {{ java.ppa }} -y"
+  tags:
+    - "java"
+    - "proxy"
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name  : "{{ libraries_apt }}"
+    state : latest
+  tags:
+    - "java"
+
+#################################################################
+
+- name: "symlink > set version"
+  with_items:
+    - { src : "{{ java.home }}/{{ java.default }}",
+        dest: "java"                                }
+    - { src : "{{ java.home }}/java",
+        dest: "default-java"                        }
+  file:
+    src   : "{{ item.src                  }}"
+    dest  : "{{ java.home }}/{{ item.dest }}"
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    state : link
+  tags:
+    - "java"
+
+- name: "alternative > set version"
+  alternatives:
+    name  : "java"
+    path  : "{{ java.home }}/{{ java.default }}/bin/java"
+  tags:
+    - "java"
+
+#################################################################
+

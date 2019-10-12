@@ -1,0 +1,22 @@
+---
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name    : "{{ libraries_apt }}"
+    state   : "latest"
+  tags:
+    - developer
+    - developer-general
+
+- name: "pip > install"
+  pip:
+    name    : "{{ libraries_pip }}"
+    state   : "latest"
+  tags:
+    - developer
+    - developer-general
+
+#################################################################
+

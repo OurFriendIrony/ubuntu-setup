@@ -1,0 +1,73 @@
+---
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name    : "{{ libraries_apt }}"
+    state   : "latest"
+  tags:
+    - "ssh"
+
+#################################################################
+
+- name: "mkdirs"
+  with_nested:
+    - "{{ all_users }}"
+    - "{{ ssh_dirs }}"
+  file:
+    name    : "{{ item[0].home }}/{{ item[1] }}"
+    owner   : "{{ item[0].id }}"
+    group   : "{{ item[0].id }}"
+    mode    : "0755"
+    state   : "directory"
+  tags:
+    - "ssh"
+
+#################################################################
+
+- name: "config > templates"
+  with_nested:
+    - "{{ all_users }}"
+    - "{{ ssh_templates }}"
+  template:
+    src     : "{{ item[1] }}.j2"
+    dest    : "{{ item[0].home }}/.ssh/{{ item[1] }}"
+    owner   : "{{ item[0].id }}"
+    group   : "{{ item[0].id }}"
+    mode    : "0664"
+  tags:
+    - "ssh"
+
+#################################################################
+
+- name: "config ? pub keys"
+  with_nested:
+    - "{{ all_users }}"
+    - "{{ ssh_keys }}"
+  template:
+    src     : "pub.j2"
+    dest    : "{{ item[0].home }}/.ssh/{{ item[1].name }}.pub"
+    owner   : "{{ item[0].id }}"
+    group   : "{{ item[0].id }}"
+    mode    : "0664"
+  tags:
+    - "ssh"
+
+#################################################################
+
+- name: "copy > hushlogin"
+  with_items:
+    - "{{ all_users }}"
+  copy:
+    content : ""
+    dest    : "{{ item.home }}/.hushlogin"
+    owner   : "{{ item.id }}"
+    group   : "{{ item.id }}"
+    mode    : "0664"
+    force   : "no"
+  tags:
+    - "ssh"
+
+#################################################################
+

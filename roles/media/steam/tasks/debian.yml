@@ -1,0 +1,77 @@
+---
+
+#################################################################
+
+- name: "apt > repo | prereq"
+  with_items:
+    - "{{ repositories_apt }}"
+  apt_repository:
+    repo          : "{{ item }}"
+    state         : "present"
+    update_cache  : "yes"
+  tags:
+    - "media"
+    - "steam"
+
+- name: "apt > upgrade"
+  apt:
+    update_cache  : "yes"
+    upgrade       : "dist"
+  tags:
+    - "media"
+    - "steam"
+
+- name: "apt > install > prereq"
+  apt:
+    name          : "{{ libraries_apt }}"
+    state         : "latest"
+  tags:
+    - "media"
+    - "steam"
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    deb           : "{{ steam.deb }}"
+  tags:
+    - "media"
+    - "steam"
+
+#################################################################
+
+- name: "file > destroy files"
+  with_items:
+    - "{{ binme }}"
+  file:
+    path          : "{{ item }}"
+    state         : "absent"
+  tags:
+    - "media"
+    - "steam"
+
+#################################################################
+
+- name: "launcher > desktop icon"
+  template:
+    src   : "{{ desktop }}.desktop.j2"
+    dest  : "/usr/share/applications/{{ desktop }}.desktop"
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    mode  : "0644"
+  tags:
+    - "media"
+    - "steam"
+    - "launcher"
+
+- name    : "launcher > add"
+  become  : "{{ primary_user.id }}"
+  script  : "../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
+  changed_when: False
+  tags:
+    - "media"
+    - "steam"
+    - "launcher"
+
+#################################################################
+
