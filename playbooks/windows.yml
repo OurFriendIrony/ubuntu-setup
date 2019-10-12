@@ -24,6 +24,7 @@
     - { role: browser/chrome                                                                                    }
     - { role: shell                                                                                             }
     - { role: vim                                                                                               }
+    - { role: browser/firefox }
 
 #################################################################
 

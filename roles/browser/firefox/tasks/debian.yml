@@ -1,0 +1,37 @@
+---
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name  : "{{ libraries_apt }}"
+    state : "latest"
+  tags:
+    - "browser"
+    - "firefox"
+
+#################################################################
+
+- name: "launcher > desktop icon"
+  template:
+    src   : "{{ desktop }}.desktop.j2"
+    dest  : "/usr/share/applications/{{ desktop }}.desktop"
+    owner : "{{ primary_user.id }}"
+    group : "{{ primary_user.id }}"
+    mode  : "0644"
+  tags:
+    - "browser"
+    - "firefox"
+    - "launcher"
+
+- name    : "launcher > add"
+  become  : "{{ primary_user.id }}"
+  script  : "../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
+  changed_when: False
+  tags:
+    - "browser"
+    - "firefox"
+    - "launcher"
+
+#################################################################
+

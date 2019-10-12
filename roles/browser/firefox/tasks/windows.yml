@@ -2,11 +2,10 @@
 
 #################################################################
 
-- name: " "
-  include_tasks : "{{ dist_family }}.yml"
-  when:
-    - dist_family in [ 'debian', 'windows' ]
-    - gui | bool
+- name: "choco > install"
+  win_chocolatey:
+    name    : "{{ libraries_choco }}"
+    state   : "present" 
   tags:
     - "browser"
     - "firefox"
