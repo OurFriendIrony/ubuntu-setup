@@ -2,55 +2,13 @@
 
 #################################################################
 
-- name: "apt | install"
-  apt:
-    name  : "{{ libraries_apt }}"
-    state : "latest"
+- name: " "
+  include_tasks : "{{ dist_family }}.yml"
+  when:
+    - dist_family in [ 'debian' ]
+    - gui | bool
   tags:
     - "terminator"
-
-#################################################################
-
-- name: "mkdir"
-  file:
-    path  : "{{ primary_user.home }}/.config/terminator"
-    state : directory
-    owner : "{{ primary_user.id }}"
-    group : "{{ primary_user.id }}"
-    mode  : 0755
-  tags:
-    - "terminator"
-
-- name: "copy | config"
-  template:
-    src   : "config.j2"
-    dest  : "{{ primary_user.home }}/.config/terminator/config"
-    owner : "{{ primary_user.id }}"
-    group : "{{ primary_user.id }}"
-    mode  : 0644
-  tags:
-    - "terminator"
-
-#################################################################
-
-- name: "launcher | desktop icon"
-  template:
-    src   : "{{ desktop }}.desktop.j2"
-    dest  : "/usr/share/applications/{{ desktop }}.desktop"
-    owner : "{{ primary_user.id }}"
-    group : "{{ primary_user.id }}"
-    mode  : "0644"
-  tags:
-    - "terminator"
-    - "launcher"
-
-- name    : "launcher | add"
-  become  : "{{ primary_user.id }}"
-  script  : "../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
-  changed_when: False
-  tags:
-    - "terminator"
-    - "launcher"
 
 #################################################################
 

@@ -1,5 +1,7 @@
 ---
 
+#################################################################
+
 - hosts         : retropie
   become        : yes
   become_method : sudo
@@ -8,12 +10,13 @@
 
   vars:
     - proxy     : False
-      has_gui   : False
 
       pi_user     : "{{ primary_user }}"
       all_users:
         - "{{ root_user     }}"
         - "{{ primary_user  }}"
+
+#################################################################
 
   roles:
     - { role: checks                                                                                            }
@@ -22,10 +25,12 @@
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
-    - { role: bash,                     bash_welcome        : "retropie"                                        }
+    - { role: shell,                    bash_welcome        : "retropie"                                        }
     - { role: vim                                                                                               }
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }
 
     - { role: retropie                                                                                          }
+
+#################################################################
 

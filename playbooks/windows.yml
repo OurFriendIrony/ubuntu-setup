@@ -1,0 +1,68 @@
+---
+
+#################################################################
+
+- hosts         : windows
+  gather_facts  : yes
+  connection    : local
+
+  vars:
+    - ansible_user                          : "steve.stevens@live.co.uk"
+    - ansible_password                      : "-CHANGEME-"
+    - ansible_connection                    : "winrm"
+    - ansible_winrm_transport               : "ntlm"
+    - ansible_winrm_server_cert_validation  : "ignore"
+    - proxy     : False
+
+
+    - all_users:
+        - "{{ primary_user  }}"
+
+#################################################################
+
+  roles:
+    - { role: checks                                                                                            }
+    - { role: users                                                                                             }
+    - { role: desktop                                                                                           }
+    - { role: prereq                                                                                            }
+
+
+    - { role: network/dns                                                                                       }
+    - { role: network/forticlient                                                                               }
+
+    - { role: git                                                                                               }
+    - { role: ssh                                                                                               }
+    - { role: shell                                                                                             }
+    - { role: vim                                                                                               }
+    - { role: powerline                                                                                         }
+    - { role: general                                                                                           }
+    - { role: java                                                                                              }
+    - { role: keychain                                                                                          }
+    - { role: wallpaper                                                                                         }
+    - { role: system-monitor                                                                                    }
+    - { role: browser/chrome                                                                                    }
+    - { role: browser/firefox                                                                                   }
+    - { role: terminator                                                                                        }
+
+    - { role: developer/general                                                                                 }
+    - { role: developer/gradle                                                                                  }
+    - { role: developer/maven                                                                                   }
+    - { role: developer/postman                                                                                 }
+
+    - { role: developer/terraform,      terraform_version   : "0.11.7"                                          }
+    - { role: developer/docker                                                                                  }
+    - { role: developer/awscli                                                                                  }
+
+
+
+
+    - { role: developer/ide/intellij                                                                            }
+    - { role: developer/ide/pycharm                                                                             }
+    - { role: developer/ide/android                                                                             }
+    - { role: developer/ide/mongorobot3                                                                         }
+
+    - { role: media/steam                                                                                       }
+    - { role: media/plex                                                                                        }
+
+#################################################################
+

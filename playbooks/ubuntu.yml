@@ -1,5 +1,7 @@
 ---
 
+#################################################################
+
 - hosts         : localhost
   become        : yes
   become_method : sudo
@@ -8,12 +10,13 @@
 
   vars:
     - proxy     : False
-      has_gui   : True
+
 
       all_users:
         - "{{ root_user     }}"
         - "{{ primary_user  }}"
 
+#################################################################
 
   roles:
     - { role: checks                                                                                            }
@@ -27,7 +30,7 @@
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
-    - { role: bash                                                                                              }
+    - { role: shell                                                                                             }
     - { role: vim                                                                                               }
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }
@@ -58,4 +61,6 @@
 
     - { role: media/steam                                                                                       }
     - { role: media/plex                                                                                        }
+
+#################################################################
 

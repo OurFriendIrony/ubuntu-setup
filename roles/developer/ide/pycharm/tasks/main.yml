@@ -2,71 +2,15 @@
 
 #################################################################
 
-- name: "mkdirs"
-  with_items:
-    - "{{ pycharm.home }}/{{ pycharm_version }}"
-  file:
-    name    : "{{ item }}"
-    state   : "directory"
-    recurse : "yes"
-    owner   : "{{ primary_user.id }}"
-    group   : "{{ primary_user.id }}"
-    mode    : "0755"
+- name: " "
+  include_tasks : "{{ dist_family }}.yml"
+  when:
+    - dist_family in [ 'debian' ]
+    - gui | bool
   tags:
     - "developer"
     - "ide"
     - "pycharm"
-
-#################################################################
-
-- name: "apt | install"
-  apt:
-    name    : "{{ libraries_apt }}"
-    state   : "latest"
-  tags:
-    - "developer"
-    - "ide"
-    - "pycharm"
-
-#################################################################
-
-- name: "unpack | application"
-  become : "{{ primary_user.id }}"
-  unarchive:
-    src         : "{{ pycharm.url }}{{ pycharm.zip }}"
-    dest        : "{{ pycharm.home }}/{{ pycharm_version }}"
-    remote_src  : "yes"
-    extra_opts  : [--strip-components=1]
-    creates     : "{{ pycharm.home }}/{{ pycharm_version }}/bin/"
-  tags:
-    - "developer"
-    - "ide"
-    - "pycharm"
-
-#################################################################
-
-- name: "launcher | desktop icon"
-  template:
-    src   : "{{ desktop }}.desktop.j2"
-    dest  : "/usr/share/applications/{{ desktop }}.desktop"
-    owner : "{{ primary_user.id }}"
-    group : "{{ primary_user.id }}"
-    mode  : "0644"
-  tags:
-    - "developer"
-    - "ide"
-    - "pycharm"
-    - "launcher"
-
-- name    : "launcher | add"
-  become  : "{{ primary_user.id }}"
-  script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
-  changed_when: False
-  tags:
-    - "developer"
-    - "ide"
-    - "pycharm"
-    - "launcher"
 
 #################################################################
 

@@ -1,0 +1,59 @@
+---
+
+#################################################################
+
+- name: "mkdirs"
+  with_items:
+    - "{{ terraform.versions }}"
+  file:
+    name    : "{{ terraform.home }}/{{ item }}"
+    state   : "directory"
+    recurse : "yes"
+    owner   : "{{ primary_user.id }}"
+    group   : "{{ primary_user.id }}"
+    mode    : "0755"
+  tags:
+    - developer
+    - terraform
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name    : "{{ libraries_apt }}"
+    state   : "latest"
+  tags:
+    - developer
+    - terraform
+
+#################################################################
+
+- name: "unpack > application"
+  with_items:
+    - "{{ terraform.versions }}"
+  unarchive:
+    src         : "{{ terraform.url }}/{{ item }}/terraform_{{ item }}_linux_amd64.zip"
+    dest        : "{{ terraform.home }}/{{ item }}"
+    remote_src  : "yes"
+    creates     : "{{ terraform.home }}/{{ item }}/terraform"
+  tags:
+    - developer
+    - terraform
+
+#################################################################
+
+- name: "symlink"
+  file:
+    src     : "{{ terraform.home }}/{{ terraform_version }}/terraform"
+    dest    : "{{ terraform.home }}/terraform"
+    owner   : "{{ primary_user.id }}"
+    group   : "{{ primary_user.id }}"
+    mode    : "0755"
+    state   : "link"
+    force   : "yes"
+  tags:
+    - developer
+    - terraform
+
+#################################################################
+

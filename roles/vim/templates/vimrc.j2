@@ -22,14 +22,15 @@
   Plugin 'markcornick/vim-terraform'
   Plugin 'pearofducks/ansible-vim'
   Plugin 'ekalinin/dockerfile.vim'
+  Plugin 'pprovost/vim-ps1'
 
 " Plugin config
   " Airline
     let g:airline#extensions#tabline#enabled = 1
-{% if gui == True %}
-    let g:airline_powerline_fonts = 1
-{% else %}
+{% if (not gui) or (dist_family == "windows") %}
     let g:airline_powerline_fonts = 0
+{% else %}
+    let g:airline_powerline_fonts = 1
 {% endif %}
     let g:airline_theme = 'term'
     let g:airline_section_y = []
@@ -59,7 +60,7 @@
 
   map <F10>       :set paste!<CR>|      " Paste Mode    [on/off]
   map <F12>       :set number!<CR>|     " Line Numbers  [on/off]
-  
+
   map <C-F10>     :set wrap!<CR>|       " Wrap Lines    [on/off]
 
 "-----------------------------------------------------
@@ -72,6 +73,11 @@
   set backspace=indent,eol,start
   set t_Co=256
   set nomodeline
+
+" Sounds
+  set noeb
+  set vb
+  set t_vb=
 
 " Tabs
   set expandtab

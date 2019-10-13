@@ -6,3 +6,6 @@ chrome:
 
 desktop   : "google-chrome"
 
+libraries_choco:
+  - googlechrome 
+

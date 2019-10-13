@@ -1,0 +1,5 @@
+---
+
+ps1_scripts:
+  - "Install-Font.ps1"
+

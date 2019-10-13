@@ -2,68 +2,13 @@
 
 #################################################################
 
-- name: "mkdir structure"
-  file:
-    path  : "{{ java.home }}"
-    state : directory
-    owner : "{{ primary_user.id }}"
-    group : "{{ primary_user.id }}"
-    mode  : 0755
+- name: " "
+  include_tasks : "{{ dist_family }}.yml"
+  when:
+    - dist_family in [ 'debian' ]
   tags:
     - "java"
-
-#################################################################
-
-- name: "apt | repositories"
-  when: not proxy | bool
-  apt_repository:
-    repo  : "{{ java.ppa }}"
-    state : "present"
-  tags:
-    - java
-
-- name: "apt | repositories"
-  when: proxy | bool
-  become: yes
-  become_user: "{{ primary_user.id }}"
-  shell: "sudo -E add-apt-repository {{ java.ppa }} -y"
-  tags:
-    - "java"
-
-#################################################################
-
-- name: "apt | install packages"
-  apt:
-    name  : "{{ libraries_apt }}"
-    state : latest
-  tags:
-    - "java"
-
-#################################################################
-
-- name: "symlink | set version"
-  with_items:
-    - { src : "{{ java.home }}/{{ java.default }}",
-        dest: "java"                                }
-    - { src : "{{ java.home }}/java",
-        dest: "default-java"                        }
-  file:
-    src   : "{{ item.src                  }}"
-    dest  : "{{ java.home }}/{{ item.dest }}"
-    owner : "{{ primary_user.id }}"
-    group : "{{ primary_user.id }}"
-    state : link
-  tags:
-    - "java"
-
-#################################################################
-
-- name: correct java version selected
-  alternatives:
-    name  : "java"
-    path  : "{{ java.home }}/{{ java.default }}/bin/java"
-  tags:
-    - "java"
+    - "proxy"
 
 #################################################################
 

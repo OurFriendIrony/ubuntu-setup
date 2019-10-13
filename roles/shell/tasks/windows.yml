@@ -1,0 +1,26 @@
+---
+
+#################################################################
+
+- name: "powershell > config > profile"
+  win_template:
+    src   : "profile.ps1.j2"
+    dest  : "%WINDIR%/System32/WindowsPowerShell/v1.0/profile.ps1"
+  tags:
+    - "shell"
+    - "powershell"
+
+#################################################################
+
+- name: "powershell > scripts"
+  with_items:
+    - "{{ ps1_scripts }}"
+  win_template:
+    src   : "{{ item }}.j2"
+    dest  : "%WINDIR%/System32/WindowsPowerShell/v1.0/{{ item }}"
+  tags:
+    - "shell"
+    - "powershell"
+
+#################################################################
+

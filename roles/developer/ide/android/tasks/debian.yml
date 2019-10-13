@@ -4,7 +4,7 @@
 
 - name: "mkdirs"
   with_items:
-    - "{{ wso2studio.home }}/{{ wso2studio_version }}"
+    - "{{ android.home }}/{{ android_version }}"
   file:
     name    : "{{ item }}"
     state   : "directory"
@@ -15,45 +15,50 @@
   tags:
     - "developer"
     - "ide"
-    - "wso2studio"
+    - "android"
 
 #################################################################
 
-- name: "apt | install"
+- name: "user > kvm"
+  with_items:
+    - "{{ all_users }}"
+  user:
+    name    : "{{ item.id }}"
+    groups  : "kvm"
+    append  : "yes"
+  tags:
+    - "developer"
+    - "ide"
+    - "android"
+
+#################################################################
+
+- name: "apt > install"
   apt:
     name    : "{{ libraries_apt }}"
     state   : "latest"
   tags:
     - "developer"
     - "ide"
-    - "wso2studio"
+    - "android"
 
 #################################################################
 
-- name: "get | application"
-  get_url:
-    url         : "{{ wso2studio.url }}{{ wso2studio.zip }}"
-    dest        : "/tmp/{{ wso2studio.zip }}"
-    headers     : {Referer: "{{ wso2studio.referer }}" }
-  tags:
-    - "developer"
-    - "ide"
-    - "wso2studio"
-
-- name: "unpack | application"
+- name: "unpack"
   become : "{{ primary_user.id }}"
   unarchive:
-    src         : "/tmp/{{ wso2studio.zip }}"
-    dest        : "{{ wso2studio.home }}/{{ wso2studio_version }}"
-    creates     : "{{ wso2studio.home }}/{{ wso2studio_version }}/eclipse/"
+    src         : "{{ android.url }}{{ android.zip }}"
+    dest        : "{{ android.home }}/{{ android_version }}"
+    remote_src  : "yes"
+    creates     : "{{ android.home }}/{{ android_version }}/android-studio/bin/"
   tags:
     - "developer"
     - "ide"
-    - "wso2studio"
+    - "android"
 
 #################################################################
 
-- name: "launcher | desktop icon"
+- name: "launcher > desktop icon"
   template:
     src   : "{{ desktop }}.desktop.j2"
     dest  : "/usr/share/applications/{{ desktop }}.desktop"
@@ -63,17 +68,17 @@
   tags:
     - "developer"
     - "ide"
-    - "wso2studio"
+    - "android"
     - "launcher"
 
-- name    : "launcher | add"
+- name    : "launcher > add"
   become  : "{{ primary_user.id }}"
   script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
   tags:
     - "developer"
     - "ide"
-    - "wso2studio"
+    - "android"
     - "launcher"
 
 #################################################################

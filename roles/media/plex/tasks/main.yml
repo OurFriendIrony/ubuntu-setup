@@ -2,9 +2,11 @@
 
 #################################################################
 
-- name: "apt | install"
-  apt:
-    deb           : "{{ plex.deb }}"
+- name: " "
+  include_tasks : "{{ dist_family }}.yml"
+  when:
+    - dist_family in [ 'debian', 'windows' ]
+    - gui | bool
   tags:
     - "media"
     - "plex"

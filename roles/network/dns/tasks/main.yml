@@ -2,37 +2,10 @@
 
 #################################################################
 
-- name: "18.04 bugfix | correct resolve.conf path"
+- name: " "
+  include_tasks : "{{ dist_family }}.yml"
   when:
-    - ansible_distribution_version == "18.04"
-  file:
-    src     : "/run/systemd/resolve/resolv.conf"
-    dest    : "/etc/resolv.conf"
-    state   : "link"
-    force   : "yes"
-  tags:
-    - "network"
-    - "dns"
-
-#################################################################
-
-- name: "config | nsswitch.conf"
-  template:
-    src     : "nsswitch.conf.j2"
-    dest    : "/etc/nsswitch.conf"
-    owner   : "{{ root_user.id }}"
-    group   : "{{ root_user.id }}"
-  tags:
-    - "network"
-    - "dns"
-
-#################################################################
-
-- name: "resolve.conf"
-  lineinfile:
-    path    : "/etc/resolv.conf"
-    regexp  : "^search"
-    line    : "search lan{% for i in dns_search_additions %} {{i}}{%endfor%}"
+    - dist_family in [ 'debian' ]
   tags:
     - "network"
     - "dns"

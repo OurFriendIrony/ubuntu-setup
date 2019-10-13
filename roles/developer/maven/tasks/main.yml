@@ -2,38 +2,10 @@
 
 #################################################################
 
-- name: "apt | install"
-  apt:
-    name    : "{{ libraries_apt }}"
-    state   : "latest"
-  tags:
-    - "developer"
-    - "maven"
-
-#################################################################
-
-- name: "proxy | mkdirs"
-  with_items:
-    - "{{ all_users }}"
-  file:
-    name    : "{{ item.home }}/.m2"
-    owner   : "{{ item.id   }}"
-    group   : "{{ item.id   }}"
-    state   : "directory"
-  tags:
-    - "developer"
-    - "maven"
-    - "proxy"
-
-- name: "proxy | config"
-  when: proxy | bool
-  with_items:
-    - "{{ all_users }}"
-  template:
-    src     : "settings.xml.j2"
-    dest    : "{{ item.home }}/.m2/settings.xml"
-    owner   : "{{ item.id   }}"
-    group   : "{{ item.id   }}"
+- name: " "
+  include_tasks : "{{ dist_family }}.yml"
+  when:
+    - dist_family in [ 'debian' ]
   tags:
     - "developer"
     - "maven"

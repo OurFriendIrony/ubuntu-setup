@@ -1,0 +1,50 @@
+---
+
+#################################################################
+
+- name: "mkdir > resolve.conf"
+  file:
+    path    : "/run/systemd/resolve"
+    owner   : "{{ root_user.id }}"
+    group   : "{{ root_user.id }}"
+    state   : "directory"
+  tags:
+    - "network"
+    - "dns"
+
+- name: "config > resolve.conf"
+  template:
+    src     : "resolv.conf.j2"
+    dest    : "/run/systemd/resolve/resolv.conf"
+    owner   : "{{ root_user.id }}"
+    group   : "{{ root_user.id }}"
+  tags:
+    - "network"
+    - "dns"
+
+- name: "18.04 bugfix > correct resolve.conf path"
+  when:
+    - ansible_distribution_version == "18.04"
+  file:
+    src     : "/run/systemd/resolve/resolv.conf"
+    dest    : "/etc/resolv.conf"
+    state   : "link"
+    force   : "yes"
+  tags:
+    - "network"
+    - "dns"
+
+#################################################################
+
+- name: "config > nsswitch.conf"
+  template:
+    src     : "nsswitch.conf.j2"
+    dest    : "/etc/nsswitch.conf"
+    owner   : "{{ root_user.id }}"
+    group   : "{{ root_user.id }}"
+  tags:
+    - "network"
+    - "dns"
+
+#################################################################
+

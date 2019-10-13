@@ -1,6 +1,7 @@
 ---
 
-libraries_apt:
+libraries:
   - vim
   - git
+  - curl
 

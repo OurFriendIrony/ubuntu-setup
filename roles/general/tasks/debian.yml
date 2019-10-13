@@ -1,0 +1,82 @@
+---
+
+#################################################################
+
+- name: "apt > no gui"
+  when:
+    - libraries_apt | length > 0
+  apt:
+    name  : "{{ libraries_apt }}"
+    state : "latest"
+  tags:
+    - "general"
+
+- name: "apt > gui"
+  when:
+    - gui | bool
+    - libraries_apt_gui | length > 0
+  apt:
+    name  : "{{ libraries_apt_gui }}"
+    state : "latest"
+  tags:
+    - "general"
+
+- name: "pip > no gui"
+  when:
+    - libraries_pip | length > 0
+  pip:
+    name  : "{{ libraries_pip }}"
+    state : "latest"
+    executable: "pip3"
+  tags:
+    - "general"
+
+- name: "pip > gui"
+  when:
+    - gui | bool
+    - libraries_pip_gui | length > 0
+  pip:
+    name  : "{{ libraries_pip_gui }}"
+    state : "latest"
+    executable: "pip3"
+  tags:
+    - "general"
+
+- name: "snap > no gui"
+  when:
+    - libraries_snap | length > 0
+  snap:
+    name  : "{{ libraries_snap }}"
+    state : "present"
+  tags:
+    - "general"
+
+- name: "snap > gui"
+  when:
+    - gui | bool
+    - libraries_snap_gui | length > 0
+  snap:
+    name  : "{{ libraries_snap_gui }}"
+    state : "present"
+  tags:
+    - "general"
+
+#################################################################
+
+- name: "additional mounts"
+  when:
+    - mount_points is iterable
+  with_items:
+    - "{{ mount_points }}"
+  mount:
+    path  : "{{ item.path }}"
+    src   : "UUID={{ item.uuid }}"
+    fstype: "{{ item.fs }}"
+    opts  : "{{ item.opts | default( defaults.mount_opts ) }}"
+    state : "mounted"
+  tags:
+    - "general"
+    - "mount"
+
+#################################################################
+

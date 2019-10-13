@@ -1,7 +1,6 @@
 ---
 
-docker_registries:
-  - "artifactory1.shared.devops.shared01.aws.travisperkins.cloud"
+docker_registries: []
 
 docker_images:
   - name      : "mysql"

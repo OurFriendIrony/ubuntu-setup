@@ -16,6 +16,11 @@ libraries_apt:
 libraries_pip:
   - yq                # Yaml Parser
 
+libraries_choco:
+  - grep
+  - netcat
+  - git
+
 libraries_snap: []
 
 libraries_apt_gui:
@@ -25,6 +30,17 @@ libraries_apt_gui:
   - gedit             # Text Editor
 
 libraries_pip_gui: []
+
+libraries_choco_gui:
+  - jdk8
+  - 7zip
+  - speccy
+  - windirstat
+  - ccleaner
+  - vlc
+  - qbittorrent
+  - yumi-uefi
+  - notepadplusplus
 
 libraries_snap_gui:
   - p7zip-desktop     # 7z [3]

@@ -3,5 +3,8 @@
 libraries_apt:
   - "firefox"
 
+libraries_choco:
+  - "firefox"
+
 desktop : "firefox"
 

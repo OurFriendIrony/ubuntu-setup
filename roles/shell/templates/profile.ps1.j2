@@ -1,0 +1,37 @@
+{{ note.cfg }}
+######################################################
+# Set Prompt Entrypoint
+
+  Set-Location ~
+
+######################################################
+# Aliases
+
+  Set-Alias -Name ll      -Value ls
+  Set-Alias -Name vi      -Value vim
+  Set-Alias -Name vim.exe -Value vim
+
+######################################################
+# Colour Terminal
+
+  $console  = $host.ui.rawui
+  $colors   = $host.privatedata
+
+# Backgrounds
+  $console.BackgroundColor        = "Black"
+  $colors.ProgressBackgroundColor = "Black"
+  $colors.DebugBackgroundColor    = "Black"
+  $colors.VerboseBackgroundColor  = "Black"
+  $colors.WarningBackgroundColor  = "Black"
+  $colors.ErrorBackgroundColor    = "Black"
+
+# Foregrounds
+  $console.ForegroundColor        = "White"
+  $colors.ProgressForegroundColor = "Cyan"
+  $colors.DebugForegroundColor    = "DarkCyan"
+  $colors.VerboseForegroundColor  = "Magenta"
+  $colors.WarningForegroundColor  = "Yellow"
+  $colors.ErrorForegroundColor    = "Red"
+
+######################################################
+
