@@ -1,0 +1,31 @@
+##########################################
+# Funcs
+
+  Function getCurrentPicture(){
+    $current = Get-ItemProperty Registry::"HKEY_CURRENT_USER\control panel\desktop"
+    return $current.wallpaper
+  }
+
+  Function getRandomPicture(){
+    $picturePath="C:\Users\steve\Pictures\$picture"
+    $files = Get-ChildItem $picturePath -Filter *.jpg
+    $rand = Get-Random -Minimum 0 -Maximum $files.count
+
+    $file = $files.get($rand).fullname
+    return $file
+  }
+
+  Function changePicture($resource){
+    reg add "HKEY_CURRENT_USER\control panel\desktop" /v wallpaper /t REG_SZ /d $resource /f
+    reg add "HKEY_CURRENT_USER\control panel\desktop" /v WallpaperStyle /t REG_SZ /d 2 /f
+    RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+  }
+
+##########################################
+# Main
+
+  $picture = getRandomPicture
+  changePicture $picture
+
+##########################################
+
