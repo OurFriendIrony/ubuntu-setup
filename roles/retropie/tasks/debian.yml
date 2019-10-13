@@ -476,6 +476,7 @@
 - name: "python scripts | resolve dependancies"
   pip:
     requirements : "{{ retropie_git.dest }}/requirements.txt"
+    executable: "pip3"
   tags:
     - retropie
     - retropie-python

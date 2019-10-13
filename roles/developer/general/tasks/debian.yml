@@ -12,8 +12,9 @@
 
 - name: "pip > install"
   pip:
-    name    : "{{ libraries_pip }}"
-    state   : "latest"
+    name      : "{{ libraries_pip }}"
+    state     : "latest"
+    executable: "pip3"
   tags:
     - developer
     - developer-general

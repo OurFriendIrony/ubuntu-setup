@@ -27,6 +27,7 @@
   pip:
     name  : "{{ libraries_pip }}"
     state : "latest"
+    executable: "pip3"
   tags:
     - "general"
 
@@ -37,6 +38,7 @@
   pip:
     name  : "{{ libraries_pip_gui }}"
     state : "latest"
+    executable: "pip3"
   tags:
     - "general"
 

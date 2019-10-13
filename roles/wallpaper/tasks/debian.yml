@@ -13,6 +13,7 @@
   pip:
     name  : "{{ packages.pip }}"
     state : "latest"
+    executable: "pip3"
   tags:
     - "wallpaper"
 

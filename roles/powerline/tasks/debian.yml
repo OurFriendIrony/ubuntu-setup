@@ -6,6 +6,7 @@
   pip:
     name  : "{{ libraries_pip }}"
     state : "latest"
+    executable: "pip3"
   tags:
     - "powerline"
 
