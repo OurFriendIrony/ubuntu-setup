@@ -40,7 +40,6 @@
     dest  : "{{ wallpaper.resource.dir }}"
   tags:
     - "wallpaper"
-    - "helloworld"
 
 #################################################################
 
