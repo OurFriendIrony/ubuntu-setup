@@ -1,0 +1,48 @@
+
+  $global:debug        = $false
+  $global:picture_path = "{{ wallpaper.resource.default_win }}"
+
+##########################################
+# Funcs
+
+  Function logit($msg){
+    if ($global:debug){
+      Write-Host "$msg"
+    }
+  }
+
+  Function getCurrentPicture(){
+    $current      = Get-ItemProperty Registry::"HKEY_CURRENT_USER\control panel\desktop"
+    $current_file = $current.wallpaper
+
+    logit "- Current: $current_file"
+    return $current_file
+  }
+
+  Function getRandomPicture(){
+    $files    = Get-ChildItem $global:picture_path -Filter *.jpg
+    $rand     = Get-Random -Minimum 0 -Maximum $files.count
+    $new_file = $files.get($rand).fullname
+
+    logit "- New    : $new_file"
+    return $new_file
+  }
+
+  Function changePicture($resource){
+    reg add "HKEY_CURRENT_USER\control panel\desktop" /v wallpaper /t REG_SZ /d "$resource" /f > $null
+    reg add "HKEY_CURRENT_USER\control panel\desktop" /v WallpaperStyle /t REG_SZ /d 2 /f > $null
+    RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
+  }
+
+##########################################
+# Main
+
+  $old_picture = getCurrentPicture
+  $new_picture = $old_picture
+  while ($old_picture -eq $new_picture){
+    $new_picture = getRandomPicture
+  }
+  changePicture $new_picture
+
+##########################################
+

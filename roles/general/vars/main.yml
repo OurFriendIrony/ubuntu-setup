@@ -5,6 +5,7 @@ libraries_apt:
   - snapd             # Package Manager - Unified Linux
   - git               # Source Control
   - curl              # Api Tool
+  - rename            # Use sed to rename files
   - wget              # Remote resource pull
   - tree              # Dir Structure tree
   - jq                # Json Parser
