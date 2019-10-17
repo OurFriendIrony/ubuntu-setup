@@ -27,10 +27,28 @@
 
 #################################################################
 
-- name: "service > script"
+- name: "script"
   win_template:
     src   : "{{ wallpaper.scripts.ps1 }}.j2"
     dest  : "{{ wallpaper.install.dir_win }}/{{ wallpaper.scripts.ps1 }}"
+  tags:
+    - "wallpaper"
+
+#################################################################
+
+- name: "scheduled task"
+  win_scheduled_task:
+    name    : "{{ wallpaper.service.name }}"
+    description: "{{ wallpaper.service.desc }}"
+    actions:
+    - path      : "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      arguments : "-ExecutionPolicy Unrestricted -WindowStyle hidden -NonInteractive -File {{ wallpaper.install.dir_win }}/{{ wallpaper.scripts.ps1 }}"
+    triggers:
+    - type: "logon"
+      repetition:
+        interval: "PT1M"
+        duration: "PT1M"
+        stop_at_duration_end: "true"
   tags:
     - "wallpaper"
 
