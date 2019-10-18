@@ -19,7 +19,6 @@ libraries_pip:
 
 libraries_choco:
   - netcat            # Test Network Connectivity
-  - git       # Move  # Git...
   - unxutils          # Collection of Unix Utils (grep, etc)
 
 libraries_snap: []

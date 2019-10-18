@@ -5,7 +5,7 @@
 - name: "mkdirs"
   with_items:
     - "{{ git.home }}"
-  file:
+  win_file:
     name    : "{{ item }}"
     state   : "directory"
     owner   : "{{ primary_user.id }}"
@@ -16,8 +16,8 @@
 
 #################################################################
 
-- name: "apt > install"
-  apt:
+- name: "choco > install"
+  win_chocolatey:
     name    : "{{ git.libraries }}"
     state   : "latest"
   tags:
@@ -26,13 +26,11 @@
 #################################################################
 
 - name: "copy > config"
-  with_items:
-    - "{{ all_users }}"
-  template:
+  win_template:
     src     : "gitconfig.j2"
-    dest    : "{{ item.home }}/.gitconfig"
-    owner   : "{{ item.id }}"
-    group   : "{{ item.id }}"
+    dest    : "{{ primary_user.home }}/.gitconfig"
+    owner   : "{{ primary_user.id   }}"
+    group   : "{{ primary_user.id   }}"
     mode    : "0644"
   tags:
     - "git"
@@ -40,19 +38,19 @@
 
 #################################################################
 
-- name: "git > add repos"
-  when:
-    - git_repos is iterable
-  become: yes
-  become_user: "{{ primary_user.id }}"
-  with_items:
-    - "{{ git_repos }}"
-  git:
-    repo    : "{{ item.repo }}"
-    dest    : "{{ git.home }}/{{ item.subdir }}"
-    update  : "no"
-  tags:
-    - "git"
+#- name: "git > add repos"
+#  when:
+#    - git_repos is iterable
+#  become: yes
+#  become_user: "{{ primary_user.id }}"
+#  with_items:
+#    - "{{ git_repos }}"
+#  git:
+#    repo    : "{{ item.repo }}"
+#    dest    : "{{ git.home }}/{{ item.subdir }}"
+#    update  : "no"
+#  tags:
+#    - "git"
 
 #################################################################
 
