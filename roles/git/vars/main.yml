@@ -1,8 +1,7 @@
 ---
 
-libraries_apt:
-  - git
-
 git:
+  libraries:
+    - git
   home  : "{{ primary_user.home }}/git"
 

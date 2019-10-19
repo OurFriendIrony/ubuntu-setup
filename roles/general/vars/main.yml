@@ -18,9 +18,8 @@ libraries_pip:
   - yq                # Yaml Parser
 
 libraries_choco:
-  - grep
-  - netcat
-  - git
+  - netcat            # Test Network Connectivity
+  - unxutils          # Collection of Unix Utils (grep, etc)
 
 libraries_snap: []
 
@@ -33,15 +32,14 @@ libraries_apt_gui:
 libraries_pip_gui: []
 
 libraries_choco_gui:
-  - jdk8
-  - 7zip
-  - speccy
-  - windirstat
-  - ccleaner
-  - vlc
-  - qbittorrent
-  - yumi-uefi
-  - notepadplusplus
+  - 7zip              # Zip Utility
+  - speccy            # System Spec
+  - windirstat        # Disk Usage
+  - ccleaner          # Clean Windows Junk
+  - vlc               # Media Player
+  - qbittorrent       # Torrent Manager
+  - yumi-uefi         # USB Boot Writer
+  - notepadplusplus   # Text Editor
 
 libraries_snap_gui:
   - p7zip-desktop     # 7z [3]

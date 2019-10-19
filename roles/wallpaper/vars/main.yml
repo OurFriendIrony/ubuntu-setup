@@ -9,7 +9,7 @@ packages:
 wallpaper:
   install :
     dir     : "/lib/ofi-wallpaper/"
-    dir_win : "%WINDIR%/System32/WindowsPowerShell/v1.0"
+    dir_win : "C:/windows/System32/WindowsPowerShell/v1.0"
 
   config  :
     name    : "config.yml"

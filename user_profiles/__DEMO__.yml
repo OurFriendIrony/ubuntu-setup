@@ -1,7 +1,20 @@
 ---
 
 #######################################################################
+#
+## WINDOWS ONLY MANDATORY ##
+#
+# These properties must match the login details of your microsoft user account.
+# This is solely used for ansible to make a connection with the windows system
+#   and may or may not be the same as the 'primary_user'.
+
+ansible_user     : "my.microsoft.account.email@live.co.uk"
+ansible_password : "MyMicrosoftAccountPassword"
+
+#######################################################################
+#
 ## MANDATORY ##
+#
 # A lot of the setup requires you provide valid information here.
 # Ensure the user id reflects that of the primary linux user.
 
@@ -12,7 +25,9 @@ primary_user:
   email       : "tiptoe.through.the.tulips@gmail.com"
 
 #######################################################################
+#
 ## OPTIONAL ##
+#
 # If you would like some additional disks to be mounted, include
 #   them here
 
@@ -22,7 +37,9 @@ mount_points:
   fs          : "file_system"
 
 #######################################################################
+#
 ## OPTIONAL ##
+#
 # If you have any private keys you like to use, put the .pem in the
 #   ~/.ssh and then place the .pub details in here.
 # This will auto load the keys in every bash session as well as grant
@@ -36,24 +53,30 @@ ssh_keys:
     value     : "AAAAB3NzaC1yc2EAAAADAQABAAABAQDcXNVwZlQ9Udnh9v06POArB9J3"
 
 #######################################################################
+#
 ## OPTIONAL ##
+#
 # If you'd like to clone some git repos, they can be included here
 
 git_repos:
   - { repo: "https://github.com/my_repos/my_repo.git", subdir: "my_repo" }
 
 #######################################################################
+#
 ## OPTIONAL ##
+#
 # If working behind TP firewall, this is very important to get you out
 #   through the proxy.
 # If not, this section can be deleted
 
 proxy         : False
 ntlm_hash     : ""
-dns_search_additions: [ "tpplc.local" ] 
+dns_search_additions: [ "tpplc.local" ]
 
 #######################################################################
+#
 ## OPTIONAL ##
+#
 # If you want quick easy access to AWS, you can configure it here. It
 #   adds the details as default in your bash session
 

@@ -3,6 +3,7 @@
   * [Playbooks](#playbooks)
     * [Ubuntu](#ubuntu)
     * [Ubuntu TP](#ubuntu-tp)
+    * [Windows](#windows)
     * [Retropie](#retropie)
   * [Help](#help)
   * [Ansible Module Index](#ansible-module-index)
@@ -88,6 +89,27 @@ export https_proxy="http://${LOGNAME}:${TMP_PASS}@10.0.20.196:8080" \
   && echo ${TMP_PASS} | cntlm -H -d tpplc -u ${LOGNAME} | awk 'NR==4 {print "\nntlm_hash = "$2}' \
   && unset TMP_PASS
 ```
+___
+## windows
+#### Setup
+Installs Windows configurations
+**Note:**
+- *Your password will be need to be held as free text at least for the duration of the execution, but can be changed afterwards*
+- *Windows can currently only be configured from a linux box, such as the Windows 10 - Linux SubSystem. This can be installed via the 'Turn Windows Features on and off' menu*
+
+- Bootstrap
+  - On Windows
+    - Execute the bootstrap at ".ansible-sys/windows-support/bootstap.bat"
+    - This will update powershell and give Ansible the ability to make connections with winrm
+- Configure your profile
+  - On Linux
+    - Create a user profile in "**user_profiles/**" from template "**user_profiles/\_\_DEMO\_\_.yml**"
+    - Make sure the `ansible_user` and `ansible_password` correctly reflects your Microsoft account on the windows machine.
+    - **DO NOT** commit your password back to git...
+
+#### Run 
+- On Linux
+  - `./go.sh -p windows -u {user_profile}`
 ___
 ## retropie
 Installs all configurations for a [**Retropie 4.4**](https://retropie.org.uk/2018/04/retropie-4-4-is-released/) install
