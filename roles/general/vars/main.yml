@@ -32,7 +32,6 @@ libraries_apt_gui:
 libraries_pip_gui: []
 
 libraries_choco_gui:
-  - jdk8      # Move  # Java...
   - 7zip              # Zip Utility
   - speccy            # System Spec
   - windirstat        # Disk Usage
