@@ -44,13 +44,13 @@
     - { role: dev/lang/java                                                                                     }
     - { role: dev/lang/ruby                                                                                     }
 
-    - { role: dev/general                                                                                       }
     - { role: dev/gradle                                                                                        }
     - { role: dev/maven                                                                                         }
     - { role: dev/postman                                                                                       }
 
     - { role: dev/terraform,      terraform_version   : "0.11.7"                                                }
     - { role: dev/docker                                                                                        }
+    - { role: dev/framework/ansible                                                                             }
     - { role: dev/framework/awscli                                                                              }
 
     - { role: dev/data/mysql-workbench                                                                          }

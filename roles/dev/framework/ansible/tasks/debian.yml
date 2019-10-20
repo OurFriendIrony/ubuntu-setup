@@ -2,22 +2,13 @@
 
 #################################################################
 
-- name: "apt > install"
-  apt:
-    name    : "{{ libraries_apt }}"
-    state   : "latest"
-  tags:
-    - developer
-    - developer-general
-
 - name: "pip > install"
   pip:
-    name      : "{{ libraries_pip }}"
+    name      : "{{ ansible.libraries.pip }}"
     state     : "latest"
     executable: "pip3"
   tags:
-    - developer
-    - developer-general
+    - "{{ ansible.tags }}"
 
 #################################################################
 

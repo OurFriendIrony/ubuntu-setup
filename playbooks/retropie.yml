@@ -21,7 +21,12 @@
   roles:
     - { role: checks                                                                                            }
     - { role: users                                                                                             }
+
     - { role: prereq                                                                                            }
+
+
+
+
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
@@ -29,6 +34,8 @@
     - { role: vim                                                                                               }
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }
+
+    - { role: dev/framework/ansible                                                                             }
 
     - { role: retropie                                                                                          }
 
