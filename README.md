@@ -43,8 +43,8 @@ Installs Ubuntu configurations
 
 ##### Bootstrap
 ```bash
-sudo apt-get install -y python-pip python-setuptools git \
-  && sudo pip install ansible \
+sudo apt install -y python3 python3-pip python3-setuptools git \
+  && sudo pip3 install ansible \
   && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
   && cd /tmp/ansible
 ```
@@ -81,9 +81,9 @@ followed by
 export https_proxy="http://${LOGNAME}:${TMP_PASS}@10.0.20.196:8080" \
   && echo -e "Acquire::http::Proxy \"${https_proxy}\";" | sudo tee /etc/apt/apt.conf.d/01proxy > /dev/null \
   && echo -e "[http]\n  proxy = ${https_proxy}" > ~/.gitconfig \
-  && sudo apt-get update \
-  && sudo apt-get install -y python-pip git cntlm \
-  && sudo -E pip install ansible \
+  && sudo apt update \
+  && sudo apt install -y python3 python3-pip python3-setuptools git cntlm \
+  && sudo -E pip3 install ansible \
   && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
   && cd /tmp/ansible \
   && echo ${TMP_PASS} | cntlm -H -d tpplc -u ${LOGNAME} | awk 'NR==4 {print "\nntlm_hash = "$2}' \
@@ -132,8 +132,8 @@ Installs all configurations for a [**Retropie 4.4**](https://retropie.org.uk/201
 
 #### Bootstrap
 ```bash
-sudo apt-get install -y python-pip git \
-  && sudo pip install -y ansible \
+sudo apt install -y python3 python3-pip python3-setuptools git \
+  && sudo pip3 install ansible \
   && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
   && cd /tmp/ansible
 ```
