@@ -1,2 +1,15 @@
 ---
 
+dist_system         : ""
+dist_family         : ""
+dist_os             : ""
+dist_os_release     : ""
+dist_os_version     : ""
+dist_os_version_m   : ""
+machine_arch        : ""
+desktop_environment : ""
+vm_type             : ""
+
+gui                 : False
+vm                  : False
+

@@ -1,0 +1,7 @@
+{{ note.cfg }}
+[Service]
+{% if proxy | bool %}
+Environment="HTTP_PROXY=http://{{ proxy_through.host }}:{{ proxy_through.port }}"
+Environment="HTTPS_PROXY=http://{{ proxy_through.host }}:{{ proxy_through.port }}"
+{% endif %}
+

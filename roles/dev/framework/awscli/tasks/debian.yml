@@ -1,0 +1,26 @@
+---
+
+#################################################################
+
+- name: "pip > install"
+  pip :
+    name      : "{{ libraries_pip }}"
+    state     : "latest"
+    executable: "pip3"
+  tags:
+    - "{{ aws.tags }}"
+
+- name: "copy > config"
+  with_items:
+    - "{{ all_users }}"
+  template:
+    src   : "aws_settings.j2"
+    dest  : "{{ item.home }}/.aws_settings"
+    owner : "{{ item.id }}"
+    group : "{{ item.id }}"
+    mode  : 0644
+  tags:
+    - "{{ aws.tags }}"
+
+#################################################################
+

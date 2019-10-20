@@ -1,0 +1,18 @@
+---
+
+gradle:
+  url     : "https://services.gradle.org/distributions/"
+  zip     : "gradle-{{ gradle_version }}-bin.zip"
+  home    : "/usr/lib/gradle"
+
+  libraries:
+    apt:
+      - unzip
+
+  tags:
+    - "dev"
+    - "framework"
+    - "gradle"
+    - "dev-framework"
+    - "dev-framework-gradle"
+

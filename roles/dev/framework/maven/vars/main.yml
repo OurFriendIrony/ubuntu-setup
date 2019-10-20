@@ -1,0 +1,14 @@
+---
+
+maven:
+  libraries:
+    apt:
+      - maven
+
+  tags:
+    - "dev"
+    - "framework"
+    - "maven"
+    - "dev-framework"
+    - "dev-framework-maven"
+

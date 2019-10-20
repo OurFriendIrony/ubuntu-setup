@@ -13,6 +13,7 @@ libraries_apt:
   - gawk              # Extended awk
   - p7zip-full        # 7z [1]
   - p7zip-rar         # 7z [2]
+  - multitail         # tail multiple files
 
 libraries_pip:
   - yq                # Yaml Parser
