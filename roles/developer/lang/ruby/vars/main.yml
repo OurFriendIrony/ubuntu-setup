@@ -11,3 +11,8 @@ ruby:
     - "rake"
     - "minitest"
 
+  tags:
+    - developer
+    - developer-lang
+    - developer-lang-ruby
+    - ruby

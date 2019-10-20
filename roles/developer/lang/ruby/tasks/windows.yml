@@ -7,20 +7,14 @@
     name    : "{{ ruby.libraries.choco }}"
     state   : "latest"
   tags:
-    - developer
-    - developer-lang
-    - developer-lang-ruby
-    - ruby
+    - "{{ ruby.tags }}"
 
 #- name: "gem > install"
 #  with_items:
 #    - "{{ ruby.gems }}"
 #  win_command: "gem install {{ item }}"
 #  tags:
-#    - developer
-#    - developer-lang
-#    - developer-lang-ruby
-#    - ruby
+#    - "{{ ruby.tags }}"
 
 #################################################################
 

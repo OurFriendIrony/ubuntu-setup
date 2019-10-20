@@ -15,3 +15,9 @@ java:
       - adoptopenjdk8
       - adoptopenjdk13
 
+  tags:
+    - "developer"
+    - "developer-lang"
+    - "developer-lang-java"
+    - "java"
+

@@ -34,7 +34,6 @@
     - { role: vim                                                                                               }
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }
-    - { role: java                                                                                              }
     - { role: keychain                                                                                          }
     - { role: wallpaper                                                                                         }
     - { role: system-monitor                                                                                    }
@@ -42,6 +41,7 @@
     - { role: browser/firefox                                                                                   }
     - { role: terminator                                                                                        }
 
+    - { role: developer/lang/java                                                                               }
     - { role: developer/lang/ruby                                                                               }
 
     - { role: developer/general                                                                                 }
