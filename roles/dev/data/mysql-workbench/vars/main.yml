@@ -1,7 +1,0 @@
----
-
-libraries_apt:
-  - "mysql-workbench"
-
-desktop : "mysql-workbench"
-

@@ -14,8 +14,7 @@ terraform:
 
   tags:
     - dev
-    - framework
-    - terraform
     - dev-framework
     - dev-framework-terraform
+    - terraform
 

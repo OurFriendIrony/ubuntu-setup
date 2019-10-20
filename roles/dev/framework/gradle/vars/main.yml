@@ -11,8 +11,7 @@ gradle:
 
   tags:
     - "dev"
-    - "framework"
-    - "gradle"
     - "dev-framework"
     - "dev-framework-gradle"
+    - "gradle"
 

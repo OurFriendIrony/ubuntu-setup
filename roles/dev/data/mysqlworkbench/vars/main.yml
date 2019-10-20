@@ -1,0 +1,15 @@
+---
+
+desktop : "mysql-workbench"
+
+mysqlworkbench:
+  libraries:
+    apt:
+      - "mysqlworkbench"
+
+  tags:
+    - dev
+    - dev-data
+    - dev-data-mysqlworkbench
+    - mysqlworkbench
+

@@ -6,13 +6,15 @@ ruby:
       - "ruby"
     choco:
       - "ruby"
+
   gems:
     - "bundler"
     - "rake"
     - "minitest"
 
   tags:
-    - developer
-    - developer-lang
-    - developer-lang-ruby
+    - dev
+    - dev-lang
+    - dev-lang-ruby
     - ruby
+

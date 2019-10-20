@@ -12,6 +12,8 @@
 - name: "gem > install"
   with_items:
     - "{{ ruby.gems }}"
+  become: yes
+  become_user: "{{ primary_user.id }}"
   gem:
     name      : "{{ item }}"
     state     : "latest"

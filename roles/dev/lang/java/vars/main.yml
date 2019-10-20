@@ -6,6 +6,7 @@ java:
   default : "java-{{ java_version }}-openjdk-amd64"
   default_win: "adoptopenjdk{{ java_version }}"
   ppa     : "ppa:openjdk-r/ppa"
+
   libraries:
     apt:
       - openjdk-8-jdk
@@ -16,8 +17,8 @@ java:
       - adoptopenjdk13
 
   tags:
-    - "developer"
-    - "developer-lang"
-    - "developer-lang-java"
+    - "dev"
+    - "dev-lang"
+    - "dev-lang-java"
     - "java"
 

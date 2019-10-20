@@ -4,12 +4,10 @@
 
 - name: "apt > install"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ mysqlworkbench.libraries.apt }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "data"
-    - "mysql-workbench"
+    - "{{ mysqlworkbench.tags }}"
 
 #################################################################
 
@@ -21,9 +19,7 @@
     group : "{{ primary_user.id }}"
     mode  : "0644"
   tags:
-    - "developer"
-    - "data"
-    - "mysql-workbench"
+    - "{{ mysqlworkbench.tags }}"
     - "launcher"
 
 - name    : "launcher > add"
@@ -31,9 +27,7 @@
   script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
   tags:
-    - "developer"
-    - "data"
-    - "mysql-workbench"
+    - "{{ mysqlworkbench.tags }}"
     - "launcher"
 
 #################################################################

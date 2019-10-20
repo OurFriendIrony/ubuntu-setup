@@ -1,10 +1,18 @@
 ---
 
-libraries_apt:
-  - unzip
+desktop   : "dbeaver"
 
 dbeaver:
   url     : "https://dbeaver.jkiss.org/files/{{ dbeaver_version }}/dbeaver-ce_{{ dbeaver_version }}_amd64.deb"
 
-desktop   : "dbeaver"
+  libraries:
+    apt:
+      - unzip
+
+  tags:
+    - dev
+    - dev-data
+    - dev-data-dbeaver
+    - dbeaver
+
 

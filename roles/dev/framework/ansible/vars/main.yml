@@ -7,8 +7,7 @@ ansible:
 
   tags:
     - dev
-    - framework
-    - ansible
     - dev-framework
     - dev-framework-ansible
+    - ansible
 

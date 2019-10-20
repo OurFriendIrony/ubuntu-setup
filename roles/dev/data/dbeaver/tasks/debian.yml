@@ -4,11 +4,10 @@
 
 - name: "apt > install"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ dbeaver.libraries.apt }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "data"
+    - "{{ dbeaver.tags }}"
     - "dbeaver"
 
 #################################################################
@@ -17,8 +16,7 @@
   apt:
     deb     : "{{ dbeaver.url }}"
   tags:
-    - "developer"
-    - "data"
+    - "{{ dbeaver.tags }}"
     - "dbeaver"
 
 #################################################################
@@ -31,9 +29,7 @@
     group : "{{ primary_user.id }}"
     mode  : "0644"
   tags:
-    - "developer"
-    - "data"
-    - "dbeaver"
+    - "{{ dbeaver.tags }}"
     - "launcher"
 
 - name    : "launcher > add"
@@ -41,9 +37,7 @@
   script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
   tags:
-    - "developer"
-    - "data"
-    - "dbeaver"
+    - "{{ dbeaver.tags }}"
     - "launcher"
 
 #################################################################

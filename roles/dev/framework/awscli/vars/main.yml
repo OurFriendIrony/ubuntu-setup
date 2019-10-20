@@ -6,10 +6,9 @@ aws:
       - awscli
   tags:
     - dev
-    - framework
-    - awscli
-    - aws
     - dev-framework
     - dev-framework-awscli
     - dev-framework-aws
+    - awscli
+    - aws
 
