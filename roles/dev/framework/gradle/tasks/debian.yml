@@ -6,23 +6,21 @@
   with_items:
     - "{{ gradle.home }}"
   file:
-    name    : "{{ item }}"
+    name    : "{{ item            }}"
     owner   : "{{ primary_user.id }}"
     group   : "{{ primary_user.id }}"
     state   : "directory"
   tags:
-    - "developer"
-    - "gradle"
+    - "{{ gradle.tags }}"
 
 #################################################################
 
 - name: "apt > install"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ gradle.libraries.apt }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "gradle"
+    - "{{ gradle.tags }}"
 
 #################################################################
 
@@ -35,12 +33,11 @@
     creates     : "{{ gradle.home     }}/gradle-{{ gradle_version }}/"
     remote_src  : "yes"
   tags:
-    - "developer"
-    - "gradle"
+    - "{{ gradle.tags }}"
 
 #################################################################
 
-- name: "proxy > mkdirs"
+- name: "config > mkdirs"
   with_items:
     - "{{ all_users }}"
   file:
@@ -49,12 +46,10 @@
     group   : "{{ item.id   }}"
     state   : "directory"
   tags:
-    - "developer"
-    - "gradle"
+    - "{{ gradle.tags }}"
     - "proxy"
 
-- name: "proxy > config"
-  when: proxy | bool
+- name: "config > properties"
   with_items:
     - "{{ all_users }}"
   template:
@@ -63,8 +58,7 @@
     owner   : "{{ item.id   }}"
     group   : "{{ item.id   }}"
   tags:
-    - "developer"
-    - "gradle"
+    - "{{ gradle.tags }}"
     - "proxy"
 
 #################################################################

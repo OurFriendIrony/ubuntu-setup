@@ -5,9 +5,11 @@ aws:
     pip:
       - awscli
   tags:
-    - developer
-    - developer-framework
-    - developer-framework-awscli
-    - aws
+    - dev
+    - framework
     - awscli
+    - aws
+    - dev-framework
+    - dev-framework-awscli
+    - dev-framework-aws
 

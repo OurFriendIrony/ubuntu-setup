@@ -4,15 +4,14 @@
 
 - name: "apt > install"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ maven.libraries.apt }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "maven"
+    - "{{ maven.tags }}"
 
 #################################################################
 
-- name: "proxy > mkdirs"
+- name: "config > mkdirs"
   with_items:
     - "{{ all_users }}"
   file:
@@ -21,12 +20,10 @@
     group   : "{{ item.id   }}"
     state   : "directory"
   tags:
-    - "developer"
-    - "maven"
+    - "{{ maven.tags }}"
     - "proxy"
 
-- name: "proxy > config"
-  when: proxy | bool
+- name: "config > properties"
   with_items:
     - "{{ all_users }}"
   template:
@@ -35,8 +32,7 @@
     owner   : "{{ item.id   }}"
     group   : "{{ item.id   }}"
   tags:
-    - "developer"
-    - "maven"
+    - "{{ maven.tags }}"
     - "proxy"
 
 #################################################################
