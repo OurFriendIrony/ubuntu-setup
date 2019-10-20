@@ -1,8 +1,14 @@
 {{ note.cfg }}
-{% if aws is defined %}
+{% if aws.region is defined %}
   export AWS_DEFAULT_REGION="{{ aws.region }}"
+{% endif %}
+{% if aws.account is defined %}
   export AWS_ACCT_ID="{{ aws.account }}"
+{% endif %}
+{% if aws.access_key is defined %}
   export AWS_ACCESS_KEY_ID="{{ aws.access_key }}"
+{% endif %}
+{% if aws.access_pass is defined %}
   export AWS_SECRET_ACCESS_KEY="{{ aws.access_pass }}"
 {% endif %}
 

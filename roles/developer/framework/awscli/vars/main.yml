@@ -1,0 +1,13 @@
+---
+
+aws:
+  libraries:
+    pip:
+      - awscli
+  tags:
+    - developer
+    - developer-framework
+    - developer-framework-awscli
+    - aws
+    - awscli
+

@@ -6,7 +6,8 @@ inventory           =
 roles_path          =
 callback_plugins    =
 host_key_checking   = False
-stdout_callback     = ourlog
+hash_behaviour      = "merge"
+stdout_callback     = "ourlog"
 retry_files_enabled = False
 
 [privilege_escalation]

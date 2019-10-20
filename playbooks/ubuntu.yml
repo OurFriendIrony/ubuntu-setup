@@ -51,7 +51,7 @@
 
     - { role: developer/terraform,      terraform_version   : "0.11.7"                                          }
     - { role: developer/docker                                                                                  }
-    - { role: developer/awscli                                                                                  }
+    - { role: developer/framework/awscli                                                                        }
 
 
 
