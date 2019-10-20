@@ -1,0 +1,13 @@
+---
+
+virtualbox:
+  libraries:
+    choco:
+      - "virtualbox"
+
+  tags:
+    - dev
+    - dev-util
+    - dev-util-virtualbox
+    - virtualbox
+

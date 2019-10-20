@@ -5,6 +5,7 @@
 dependencies:
   - role: "dev/util/docker"
   - role: "dev/util/postman"
+  - role: "dev/util/virtualbox"
 
 #################################################################
 
