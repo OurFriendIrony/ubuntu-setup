@@ -6,9 +6,8 @@ docker:
   repo        : "deb [arch=amd64] https://download.docker.com/linux/{{ dist_os }} {{ dist_os_release }} stable"
 
   compose:
-    url         : "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    url         : "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ dist_system }}-{{ machine_arch }}"
     dest        : "/usr/local/bin/docker-compose"
-
 
   libraries:
     apt_prereq:
