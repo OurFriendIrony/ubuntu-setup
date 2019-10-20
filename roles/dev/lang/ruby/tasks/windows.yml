@@ -2,7 +2,7 @@
 
 #################################################################
 
-- name: "apt > install"
+- name: "choco > install"
   win_chocolatey:
     name    : "{{ ruby.libraries.choco }}"
     state   : "latest"

@@ -3,6 +3,7 @@
 #################################################################
 
 dependencies:
+  - role: "dev/lang/python"
   - role: "dev/lang/java"
   - role: "dev/lang/ruby"
 

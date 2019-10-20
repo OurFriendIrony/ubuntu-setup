@@ -1,0 +1,25 @@
+---
+
+python:
+  libraries:
+    apt:
+      - "python3"
+      - "python3-pip"
+      - "python3-setuptools"
+    choco:
+      - "python3"   # Includes pip
+
+  libraries_remove:
+    apt:
+      - "python"
+      - "python-pip"
+      - "python-setuptools"
+    choco:
+      - "python2"
+
+  tags:
+    - dev
+    - dev-lang
+    - dev-lang-python
+    - python
+
