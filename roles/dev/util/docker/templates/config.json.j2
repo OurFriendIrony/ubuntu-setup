@@ -1,4 +1,5 @@
 {
+{% if proxy | bool %}
     "proxies": {
         "default": {
             "httpProxy": "http://{{ proxy_through.host }}:{{ proxy_through.port }}",
@@ -6,5 +7,6 @@
             "noProxy": "{% for np in no_proxy -%}{{ np }}{% if not loop.last %},{% endif %}{% endfor %}"
         }
     }
+{% endif %}
 }
 

@@ -1,2 +1,12 @@
 ---
 
+dist_family         : ""
+dist_os             : ""
+dist_os_release     : ""
+dist_os_version     : ""
+desktop_environment : ""
+vm_type             : ""
+
+gui                 : False
+vm                  : False
+

@@ -45,9 +45,9 @@
     - { role: dev/lang/java                                                                                     }
     - { role: dev/lang/ruby                                                                                     }
 
-    - { role: dev/postman                                                                                       }
+    - { role: dev/util/postman                                                                                  }
+    - { role: dev/util/docker                                                                                   }
 
-    - { role: dev/docker                                                                                        }
     - { role: dev/framework/ansible                                                                             }
     - { role: dev/framework/awscli                                                                              }
     - { role: dev/framework/gradle                                                                              }

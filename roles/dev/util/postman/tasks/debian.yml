@@ -13,18 +13,16 @@
     group   : "{{ primary_user.id }}"
     mode    : "0755"
   tags:
-    - "developer"
-    - "postman"
+    - "{{ postman.tags }}"
 
 #################################################################
 
 - name: "apt > install"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ postman.libraries.apt }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "postman"
+    - "{{ postman.tags }}"
 
 #################################################################
 
@@ -37,8 +35,7 @@
     extra_opts  : [--strip-components=1]
     creates     : "{{ postman.home }}/Postman"
   tags:
-    - "developer"
-    - "postman"
+    - "{{ postman.tags }}"
 
 #################################################################
 
@@ -50,8 +47,7 @@
     group : "{{ primary_user.id }}"
     mode  : "0644"
   tags:
-    - "developer"
-    - "postman"
+    - "{{ postman.tags }}"
     - "launcher"
 
 - name: "launcher > add"
@@ -59,8 +55,7 @@
   script  : "../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
   tags:
-    - "developer"
-    - "postman"
+    - "{{ postman.tags }}"
     - "launcher"
 
 #################################################################

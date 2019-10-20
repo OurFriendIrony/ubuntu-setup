@@ -10,18 +10,16 @@
     group: "{{ root_user.id }}"
     mode: 0755
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 
 - name: "apt > install > prereq"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ docker.libraries.apt_prereq }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 
@@ -29,21 +27,10 @@
   when: not proxy | bool
   apt_key:
     url           : "{{ docker.key_server }}"
-    id            : "{{ docker.key_id }}"
+    id            : "{{ docker.key_id     }}"
     state         : "present"
   tags:
-    - "developer"
-    - "docker"
-    - "proxy"
-
-- name: "apt > key"
-  become: yes
-  become_user: "{{ primary_user.id }}"
-  when: proxy | bool
-  shell: "sudo -E curl -fsSL {{ docker.key_server }} | sudo -E apt-key add -"
-  tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
     - "proxy"
 
 - name: "apt > repo"
@@ -52,8 +39,16 @@
     repo          : "{{ docker.repo }}"
     state         : "present"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
+    - "proxy"
+
+- name: "apt > key"
+  become: yes
+  become_user: "{{ primary_user.id }}"
+  when: proxy | bool
+  shell: "sudo -E curl -fsSL {{ docker.key_server }} | sudo -E apt-key add -"
+  tags:
+    - "{{ docker.tags }}"
     - "proxy"
 
 - name: "apt > repo"
@@ -62,22 +57,20 @@
   when: proxy | bool
   shell: "sudo -E add-apt-repository \"{{ docker.repo }}\" -y"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
     - "proxy"
 
 - name: "apt > install"
   apt:
-    name          : "{{ docker.apts }}"
+    name          : "{{ docker.libraries.apts }}"
     state         : "latest"
     update_cache  : "yes"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 
-- name: "proxy > mkdirs"
+- name: "config > mkdirs"
   with_items:
     - "{{ all_users }}"
   file:
@@ -86,23 +79,10 @@
     group   : "{{ item.id   }}"
     state   : "directory"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
     - "proxy"
 
-- name: "proxy > mkdirs > system"
-  file:
-    name    : "/etc/systemd/system/docker.service.d/"
-    owner   : "{{ root_user.id }}"
-    group   : "{{ root_user.id }}"
-    state   : "directory"
-  tags:
-    - "developer"
-    - "docker"
-    - "proxy"
-
-- name: "proxy > config"
-  when: proxy | bool
+- name: "config > properties"
   with_items:
     - "{{ all_users }}"
   template:
@@ -112,12 +92,20 @@
     group   : "{{ item.id   }}"
   register: docker_config
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
     - "proxy"
 
-- name: "proxy > config > system"
-  when: proxy | bool
+- name: "config > service > mkdirs"
+  file:
+    name    : "/etc/systemd/system/docker.service.d/"
+    owner   : "{{ root_user.id }}"
+    group   : "{{ root_user.id }}"
+    state   : "directory"
+  tags:
+    - "{{ docker.tags }}"
+    - "proxy"
+
+- name: "config > service > properties"
   template:
     src     : "http-proxy.conf.j2"
     dest    : "/etc/systemd/system/docker.service.d/http-proxy.conf"
@@ -125,8 +113,7 @@
     group   : "{{ root_user.id }}"
   register: docker_config
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
     - "proxy"
 
 #################################################################
@@ -139,8 +126,7 @@
     group   : "{{ root_user.id }}"
   register: docker_config
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 
@@ -153,8 +139,7 @@
     name  : "docker"
     state : "restarted"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 
@@ -164,19 +149,17 @@
     groups        : "docker"
     append        : "yes"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 
 - name: "install > docker-compose"
   get_url:
-    url     : "{{ docker_compose.url  }}"
-    dest    : "{{ docker_compose.dest }}"
+    url     : "{{ docker.compose.url  }}"
+    dest    : "{{ docker.compose.dest }}"
     mode    : "755"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 
@@ -189,8 +172,7 @@
     tag           : "{{ item.version }}"
     source        : "pull"
   tags:
-    - "developer"
-    - "docker"
+    - "{{ docker.tags }}"
 
 #################################################################
 

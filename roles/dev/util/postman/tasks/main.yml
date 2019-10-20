@@ -8,9 +8,7 @@
     - dist_family in [ 'debian' ]
     - gui | bool
   tags:
-    - "developer"
-    - "docker"
-    - "proxy"
+    - "{{ postman.tags }}"
 
 #################################################################
 
