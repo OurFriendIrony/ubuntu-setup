@@ -1,5 +1,12 @@
 ---
 
-ps1_scripts:
-  - "Install-Font.ps1"
+shell:
+  scripts:
+    ps1:
+      - "Install-Font.ps1"
+
+  tags:
+    - shell
+    - powershell
+    - bash
 

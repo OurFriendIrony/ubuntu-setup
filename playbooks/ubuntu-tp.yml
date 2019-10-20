@@ -25,9 +25,7 @@
     - { role: desktop                                                                                           }
     - { role: prereq                                                                                            }
 
-    - { role: network/proxy                                                                                     }
-    - { role: network/dns                                                                                       }
-    - { role: network/forticlient                                                                               }
+    - { role: network                                                                                           }
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
@@ -38,29 +36,18 @@
     - { role: keychain                                                                                          }
     - { role: wallpaper                                                                                         }
     - { role: system-monitor                                                                                    }
-    - { role: browser/chrome                                                                                    }
-    - { role: browser/firefox                                                                                   }
     - { role: terminator                                                                                        }
 
-    - { role: dev/lang/java                                                                                     }
-    - { role: dev/lang/ruby                                                                                     }
+    - { role: browser/chrome                                                                                    }
 
-    - { role: dev/util/postman                                                                                  }
-    - { role: dev/util/docker                                                                                   }
-
-    - { role: dev/framework/ansible                                                                             }
-    - { role: dev/framework/awscli                                                                              }
-    - { role: dev/framework/gradle                                                                              }
-    - { role: dev/framework/maven                                                                               }
-    - { role: dev/framework/terraform                                                                           }
-
-    - { role: dev/data/mysql-workbench                                                                          }
-    - { role: dev/data/dbeaver,   dbeaver_version     : "5.0.4"                                                 }
-
+    - { role: dev/lang                                                                                          }
+    - { role: dev/util                                                                                          }
+    - { role: dev/framework                                                                                     }
     - { role: dev/ide/intellij                                                                                  }
     - { role: dev/ide/pycharm                                                                                   }
-    - { role: dev/ide/android                                                                                   }
-    - { role: dev/ide/mongorobot3                                                                               }
+
+    - { role: dev/data                                                                                          }
+
 
 #################################################################
 

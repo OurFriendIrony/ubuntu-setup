@@ -41,7 +41,7 @@
 
 #################################################################
 
-- name: "config ? pub keys"
+- name: "config > pub keys"
   with_nested:
     - "{{ all_users }}"
     - "{{ ssh_keys }}"

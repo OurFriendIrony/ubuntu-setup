@@ -2,13 +2,9 @@
 
 #################################################################
 
-- name: " "
-  include_tasks : "{{ dist_family }}.yml"
-  when:
-    - dist_family in [ 'debian' ]
-  tags:
-    - "network"
-    - "proxy"
+dependencies:
+  - role: "dev/lang/java"
+  - role: "dev/lang/ruby"
 
 #################################################################
 

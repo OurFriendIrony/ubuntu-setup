@@ -6,25 +6,27 @@
   when:
     - proxy | bool
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ cntlm.libraries.apt }}"
     state   : "latest"
   tags:
-    - "network"
+    - "{{ cntlm.tags }}"
     - "proxy"
 
 - name: "apt > install"
   when:
     - not proxy | bool
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ cntlm.libraries.apt }}"
     state   : "absent"
   tags:
-    - "network"
+    - "{{ cntlm.tags }}"
     - "proxy"
 
 #################################################################
 
 - name: "cntlm > config"
+  when:
+    - proxy | bool
   template:
     src     : "cntlm.j2"
     dest    : "/etc/cntlm.conf"
@@ -32,18 +34,19 @@
     group   : "{{ root_user.id }}"
   register: cntlm_config
   tags:
-    - "network"
+    - "{{ cntlm.tags }}"
     - "proxy"
 
 - name: "cntlm > restart"
   when:
+    - proxy | bool
     - cntlm_config is defined
     - cntlm_config.changed
   service:
     name    : "cntlm"
     state   : "restarted"
   tags:
-    - "network"
+    - "{{ cntlm.tags }}"
     - "proxy"
 
 #################################################################
@@ -55,7 +58,7 @@
     owner   : "{{ root_user.id }}"
     group   : "{{ root_user.id }}"
   tags:
-    - "network"
+    - "{{ cntlm.tags }}"
     - "proxy"
 
 #################################################################
@@ -70,7 +73,7 @@
     owner   : "{{ root_user.id }}"
     group   : "{{ root_user.id }}"
   tags:
-    - "network"
+    - "{{ cntlm.tags }}"
     - "proxy"
 
 #################################################################
@@ -82,7 +85,7 @@
     owner   : "{{ root_user.id }}"
     group   : "{{ root_user.id }}"
   tags:
-    - "network"
+    - "{{ cntlm.tags }}"
     - "proxy"
 
 #################################################################

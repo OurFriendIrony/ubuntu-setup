@@ -12,8 +12,7 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
-    - "shell"
-    - "bash"
+    - "{{ shell.tags }}"
 
 - name: "bash > config > .bash_aliases"
   with_items:
@@ -25,8 +24,7 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
-    - "shell"
-    - "bash"
+    - "{{ shell.tags }}"
 
 - name: "bash > config > .bash_functions"
   with_items:
@@ -38,8 +36,7 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
-    - "shell"
-    - "bash"
+    - "{{ shell.tags }}"
 
 - name: "bash > config > .bash_welcome"
   with_items:
@@ -52,11 +49,9 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
-    - "shell"
-    - "bash"
+    - "{{ shell.tags }}"
 
 - name: "bash > config > .bash_proxy"
-  when    : proxy | bool
   with_items:
     - "{{ all_users }}"
   template:
@@ -66,8 +61,7 @@
     group : "{{ item.id }}"
     mode  : "0644"
   tags:
-    - "shell"
-    - "bash"
+    - "{{ shell.tags }}"
     - "proxy"
 
 #################################################################
