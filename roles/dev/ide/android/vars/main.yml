@@ -1,14 +1,21 @@
 ---
 
-libraries_apt:
-  - unzip
-  - android-tools-adb
-  - qemu-kvm
+desktop   : "jetbrains-android-studio"
 
 android:
   url     : "https://dl.google.com/dl/android/studio/ide-zips/"
   zip     : "{{ android_version }}/android-studio-ide-{{ android_build }}-linux.zip"
   home    : "/usr/lib/android-studio"
 
-desktop   : "jetbrains-android-studio"
+  libraries:
+    apt:
+      - unzip
+      - android-tools-adb
+      - qemu-kvm
+
+  tags:
+    - dev
+    - dev-ide
+    - dev-ide-android
+    - android
 
