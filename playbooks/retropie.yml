@@ -3,18 +3,19 @@
 #################################################################
 
 - hosts         : retropie
-  become        : yes
-  become_method : sudo
   gather_facts  : yes
 
+  become        : yes
+  become_method : sudo
 
   vars:
     - proxy     : False
-
-      pi_user     : "{{ primary_user }}"
       all_users:
         - "{{ root_user     }}"
         - "{{ primary_user  }}"
+      pi_user     : "{{ primary_user }}"
+
+
 
 #################################################################
 

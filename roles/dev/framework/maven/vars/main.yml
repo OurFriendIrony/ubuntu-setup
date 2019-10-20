@@ -1,8 +1,5 @@
 ---
 
-libraries_apt:
-  - "maven"
-
 maven:
   libraries:
     apt:

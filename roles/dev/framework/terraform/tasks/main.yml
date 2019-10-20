@@ -6,10 +6,8 @@
   include_tasks : "{{ dist_family }}.yml"
   when:
     - dist_family in [ 'debian' ]
-    - gui | bool
   tags:
-    - developer
-    - terraform
+    - "{{ terraform.tags }}"
 
 #################################################################
 

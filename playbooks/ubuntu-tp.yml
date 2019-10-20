@@ -3,18 +3,19 @@
 #################################################################
 
 - hosts         : localhost
-  become        : yes
-  become_method : sudo
   gather_facts  : yes
   connection    : local
+  become        : yes
+  become_method : sudo
 
   vars:
     - proxy     : True
-
-
-      all_users:
-        - "{{ root_user     }}"
+    - all_users:
         - "{{ primary_user  }}"
+        - "{{ root_user     }}"
+
+
+
 
 #################################################################
 
@@ -46,12 +47,12 @@
 
     - { role: dev/postman                                                                                       }
 
-    - { role: dev/terraform,      terraform_version   : "0.11.7"                                                }
     - { role: dev/docker                                                                                        }
     - { role: dev/framework/ansible                                                                             }
     - { role: dev/framework/awscli                                                                              }
     - { role: dev/framework/gradle                                                                              }
     - { role: dev/framework/maven                                                                               }
+    - { role: dev/framework/terraform                                                                           }
 
     - { role: dev/data/mysql-workbench                                                                          }
     - { role: dev/data/dbeaver,   dbeaver_version     : "5.0.4"                                                 }
