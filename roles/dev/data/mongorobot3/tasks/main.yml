@@ -8,10 +8,7 @@
     - dist_family in [ 'debian' ]
     - gui | bool
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 #################################################################
 

@@ -13,22 +13,16 @@
     group   : "{{ primary_user.id }}"
     mode    : "0775"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 #################################################################
 
 - name: "apt > install"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ robo3t.libraries.apt }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 #################################################################
 
@@ -37,10 +31,7 @@
     url         : "{{ robo3t.url }}{{ robo3t.zip }}"
     dest        : "/tmp/{{ robo3t.zip }}"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 - name: "unpack > application"
   become : "{{ primary_user.id }}"
@@ -49,10 +40,7 @@
     dest        : "{{ robo3t.home }}/{{ robo3t_version }}"
     creates     : "{{ robo3t.home }}/{{ robo3t_version }}/{{ robo3t_lib }}/bin/robo3t"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 - name: "get > icon"
   become : "{{ primary_user.id }}"
@@ -60,10 +48,7 @@
     src         : "robo3t.png"
     dest        : "{{ robo3t.home }}/{{ robo3t_version }}/{{ robo3t_lib }}/"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 #################################################################
 
@@ -78,10 +63,7 @@
     group   : "{{ item.id }}"
     mode    : "u=rwX,g=rwX,o=rX"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 - name: "config > connections"
   with_items:
@@ -93,10 +75,7 @@
     group   : "{{ item.id }}"
     mode    : "0644"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
 
 #################################################################
 
@@ -108,10 +87,7 @@
     group : "{{ primary_user.id }}"
     mode  : "0644"
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
     - "launcher"
 
 - name    : "launcher > add"
@@ -119,10 +95,7 @@
   script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
   tags:
-    - "developer"
-    - "ide"
-    - "robo3t"
-    - "mongo"
+    - "{{ robo3t.tags }}"
     - "launcher"
 
 #################################################################

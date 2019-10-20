@@ -1,7 +1,6 @@
 ---
 
-libraries_apt:
-  - unzip
+desktop : "robo3t"
 
 robo3t_lib        : "robo3t-{{ robo3t_version }}-linux-x86_64-{{ robo3t_subversion }}"
 
@@ -10,5 +9,15 @@ robo3t:
   zip         : "{{ robo3t_lib }}.tar.gz"
   home        : "/usr/lib/robo3t"
 
-desktop : "robo3t"
+  libraries:
+    apt:
+      - unzip
+
+  tags:
+    - dev
+    - dev-data
+    - dev-data-mongorobo3t
+    - mongorobo3t
+    - mongo
+    - robo3t
 

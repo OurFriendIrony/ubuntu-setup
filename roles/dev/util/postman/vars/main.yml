@@ -11,10 +11,9 @@ postman:
   
   tags:
     - dev
-    - util
-    - postman
     - dev-util
     - dev-util-postman
+    - postman
 
 desktop   : "postman"
 

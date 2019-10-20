@@ -14,20 +14,16 @@
     group   : "{{ primary_user.id }}"
     mode    : "0755"
   tags:
-    - "developer"
-    - "ide"
-    - "intellij"
+    - "{{ intellij.tags }}"
 
 #################################################################
 
 - name: "apt > install"
   apt:
-    name    : "{{ libraries_apt }}"
+    name    : "{{ intellij.libraries.apt }}"
     state   : "latest"
   tags:
-    - "developer"
-    - "ide"
-    - "intellij"
+    - "{{ intellij.tags }}"
 
 #################################################################
 
@@ -40,9 +36,7 @@
     extra_opts  : [--strip-components=1]
     creates     : "{{ intellij.home }}/{{ intellij_version }}/bin/"
   tags:
-    - "developer"
-    - "ide"
-    - "intellij"
+    - "{{ intellij.tags }}"
 
 - name: "unpack > application config"
   unarchive:
@@ -51,9 +45,7 @@
     owner       : "{{ primary_user.id }}"
     group       : "{{ primary_user.id }}"
   tags:
-    - "developer"
-    - "ide"
-    - "intellij"
+    - "{{ intellij.tags }}"
 
 #################################################################
 
@@ -65,9 +57,7 @@
     group : "{{ primary_user.id }}"
     mode  : "0644"
   tags:
-    - "developer"
-    - "ide"
-    - "intellij"
+    - "{{ intellij.tags }}"
     - "launcher"
 
 - name    : "launcher > add"
@@ -75,9 +65,7 @@
   script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
   tags:
-    - "developer"
-    - "ide"
-    - "intellij"
+    - "{{ intellij.tags }}"
     - "launcher"
 
 #################################################################

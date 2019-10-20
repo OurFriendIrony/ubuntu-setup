@@ -24,8 +24,7 @@ docker:
 
   tags:
     - dev
-    - util
-    - docker
     - dev-util
     - dev-util-docker
+    - docker
 
