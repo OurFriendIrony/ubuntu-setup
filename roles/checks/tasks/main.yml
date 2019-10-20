@@ -15,6 +15,7 @@
     - { k: "dist_family",         v: "{{ ansible_os_family                                    | default() | lower }}" }
     - { k: "dist_os",             v: "{{ ansible_distribution                                 | default() | lower }}" }
     - { k: "dist_os_release",     v: "{{ ansible_distribution_release                         | default() | lower }}" }
+    - { k: "dist_os_version_m",   v: "{{ ansible_distribution_major_version                   | default() | lower }}" }
     - { k: "dist_os_version",     v: "{{ ansible_distribution_version                         | default() | lower }}" }
     - { k: "desktop_environment", v: "{{ lookup('env', 'XDG_CURRENT_DESKTOP').split(':')[-1]  | default() | lower }}" }
     - { k: "vm_type",             v: "{{ ansible_virtualization_role       | replace('NA','') | default() | lower }}" }
@@ -34,14 +35,15 @@
 
 - name: "Gathered Facts"
   with_items:
-    - { k: "OS Family   ", v: "{{ dist_family         }}" }
-    - { k: "OS          ", v: "{{ dist_os             }}" }
-    - { k: "OS Release  ", v: "{{ dist_os_release     }}" }
-    - { k: "OS Version  ", v: "{{ dist_os_version     }}" }
-    - { k: "GUI?        ", v: "{{ gui                 }}" }
-    - { k: "GUI Env     ", v: "{{ desktop_environment }}" }
-    - { k: "VM?         ", v: "{{ vm                  }}" }
-    - { k: "VM Env      ", v: "{{ vm_type             }}" }
+    - { k: "OS Family         ", v: "{{ dist_family         }}" }
+    - { k: "OS                ", v: "{{ dist_os             }}" }
+    - { k: "OS Release        ", v: "{{ dist_os_release     }}" }
+    - { k: "OS Major Version  ", v: "{{ dist_os_version_m   }}" }
+    - { k: "OS Full Version   ", v: "{{ dist_os_version     }}" }
+    - { k: "GUI?              ", v: "{{ gui                 }}" }
+    - { k: "GUI Env           ", v: "{{ desktop_environment }}" }
+    - { k: "VM?               ", v: "{{ vm                  }}" }
+    - { k: "VM Env            ", v: "{{ vm_type             }}" }
   debug:
     msg: "{{ item.k }} : {{ item.v }}"
   tags: [ "always" ]

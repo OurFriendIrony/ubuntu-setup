@@ -4,6 +4,7 @@ dist_family         : ""
 dist_os             : ""
 dist_os_release     : ""
 dist_os_version     : ""
+dist_os_version_m   : ""
 desktop_environment : ""
 vm_type             : ""
 
