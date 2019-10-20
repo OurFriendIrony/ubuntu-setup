@@ -1,0 +1,13 @@
+---
+
+ruby:
+  libraries:
+    apt:
+      - "ruby"
+    choco:
+      - "ruby"
+  gems:
+    - "bundler"
+    - "rake"
+    - "minitest"
+

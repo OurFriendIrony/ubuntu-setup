@@ -42,6 +42,8 @@
     - { role: browser/firefox                                                                                   }
     - { role: terminator                                                                                        }
 
+    - { role: developer/lang/ruby                                                                               }
+
     - { role: developer/general                                                                                 }
     - { role: developer/gradle                                                                                  }
     - { role: developer/maven                                                                                   }

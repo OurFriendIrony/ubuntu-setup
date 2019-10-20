@@ -1,0 +1,26 @@
+---
+
+#################################################################
+
+- name: "apt > install"
+  win_chocolatey:
+    name    : "{{ ruby.libraries.choco }}"
+    state   : "latest"
+  tags:
+    - developer
+    - developer-lang
+    - developer-lang-ruby
+    - ruby
+
+#- name: "gem > install"
+#  with_items:
+#    - "{{ ruby.gems }}"
+#  win_command: "gem install {{ item }}"
+#  tags:
+#    - developer
+#    - developer-lang
+#    - developer-lang-ruby
+#    - ruby
+
+#################################################################
+
