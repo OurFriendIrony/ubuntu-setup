@@ -1,0 +1,22 @@
+---
+
+#################################################################
+
+- name: "apt > install"
+  apt:
+    name    : "{{ ruby.libraries.apt }}"
+    state   : "latest"
+  tags:
+    - "{{ ruby.tags }}"
+
+- name: "gem > install"
+  with_items:
+    - "{{ ruby.gems }}"
+  gem:
+    name      : "{{ item }}"
+    state     : "latest"
+  tags:
+    - "{{ ruby.tags }}"
+
+#################################################################
+

@@ -8,10 +8,16 @@ java:
   ppa     : "ppa:openjdk-r/ppa"
   libraries:
     apt:
-      - open-jdk-8-jdk
-      - open-jdk-11-jdk
-      - open-jdk-13-jdk
+      - openjdk-8-jdk
+      - openjdk-11-jdk
+      - openjdk-13-jdk
     choco:
       - adoptopenjdk8
       - adoptopenjdk13
+
+  tags:
+    - "developer"
+    - "developer-lang"
+    - "developer-lang-java"
+    - "java"
 

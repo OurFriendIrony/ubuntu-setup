@@ -10,7 +10,7 @@
     group : "{{ primary_user.id }}"
     mode  : 0755
   tags:
-    - "java"
+    - "{{ java.tags }}"
 
 #################################################################
 
@@ -22,7 +22,7 @@
     state : "present"
     install_args: " INSTALLDIR={{ java.home_win }}\\{{ item }}"
   tags:
-    - "java"
+    - "{{ java.tags }}"
 
 #################################################################
 
@@ -33,7 +33,7 @@
     level     : "machine"
     state     : "present"
   tags:
-    - "java"
+    - "{{ java.tags }}"
 
 - name: "add to path"
   win_path:
@@ -41,7 +41,7 @@
       - "%JAVA_HOME%\\bin"
     state     : "present"
   tags:
-    - "java"
+    - "{{ java.tags }}"
 
 #################################################################
 

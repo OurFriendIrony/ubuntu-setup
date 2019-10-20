@@ -1,0 +1,18 @@
+---
+
+ruby:
+  libraries:
+    apt:
+      - "ruby"
+    choco:
+      - "ruby"
+  gems:
+    - "bundler"
+    - "rake"
+    - "minitest"
+
+  tags:
+    - developer
+    - developer-lang
+    - developer-lang-ruby
+    - ruby
