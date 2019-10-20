@@ -2,10 +2,13 @@
 
 #################################################################
 
-- name: "apt > install"
-  apt:
-    name    : "{{ ssh.libraries.apt }}"
-    state   : "latest"
+- name: "choco > install"
+  with_items:
+    - "{{ ssh.libraries.choco }}"
+  win_chocolatey:
+    name    : "{{ item }}"
+    state   : "present"
+    package_params: '"/SSHAgentFeature"'
   tags:
     - "{{ ssh.tags }}"
 
@@ -15,7 +18,7 @@
   with_nested:
     - "{{ all_users }}"
     - "{{ ssh.dirs }}"
-  file:
+  win_file:
     name    : "{{ item[0].home }}/{{ item[1] }}"
     owner   : "{{ item[0].id }}"
     group   : "{{ item[0].id }}"
@@ -30,7 +33,7 @@
   with_nested:
     - "{{ all_users }}"
     - "{{ ssh.templates }}"
-  template:
+  win_template:
     src     : "{{ item[1] }}.j2"
     dest    : "{{ item[0].home }}/.ssh/{{ item[1] }}"
     owner   : "{{ item[0].id }}"
@@ -45,27 +48,12 @@
   with_nested:
     - "{{ all_users }}"
     - "{{ ssh_keys }}"
-  template:
+  win_template:
     src     : "pub.j2"
     dest    : "{{ item[0].home }}/.ssh/{{ item[1].name }}.pub"
     owner   : "{{ item[0].id }}"
     group   : "{{ item[0].id }}"
     mode    : "0664"
-  tags:
-    - "{{ ssh.tags }}"
-
-#################################################################
-
-- name: "copy > hushlogin"
-  with_items:
-    - "{{ all_users }}"
-  copy:
-    content : ""
-    dest    : "{{ item.home }}/.hushlogin"
-    owner   : "{{ item.id }}"
-    group   : "{{ item.id }}"
-    mode    : "0664"
-    force   : "no"
   tags:
     - "{{ ssh.tags }}"
 

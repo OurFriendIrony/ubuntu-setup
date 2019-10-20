@@ -1,12 +1,19 @@
 ---
 
-libraries_apt:
-  - ssh
+ssh:
+  dirs:
+    - ".ssh"
 
-ssh_dirs:
-  - ".ssh"
+  templates:
+    - "authorized_keys"
+    - "config"
+    
+  libraries:
+    apt:
+      - "ssh"
+    choco:
+      - "openssh"
 
-ssh_templates:
-  - "authorized_keys"
-  - "config"
+  tags:
+    - ssh
 

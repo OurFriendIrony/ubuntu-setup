@@ -5,9 +5,9 @@
 - name: " "
   include_tasks : "{{ dist_family }}.yml"
   when:
-    - dist_family in [ 'debian' ]
+    - dist_family in [ 'debian', 'windows' ]
   tags:
-    - "ssh"
+    - "{{ ssh.tags }}"
 
 #################################################################
 
