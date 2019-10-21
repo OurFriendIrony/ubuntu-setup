@@ -55,10 +55,10 @@
   l{{x}}          = log --pretty='format:%C(yellow)%h %C(blue)%ad %C(green)%<(15,trunc)%an %C(reset)%s%C(red)%d' --date=format:'%Y-%m-%d %H:%M:%S' -{{x}}
 {% endfor %}
 
-{% if proxy == True %}
+{% if is_proxy %}
 [http]
-  proxy       = http://{{ proxy_through.host }}:{{ proxy_through.port }}
+  proxy       = http://{{ proxy.through.host }}:{{ proxy.through.port }}
 [https]
-  proxy       = http://{{ proxy_through.host }}:{{ proxy_through.port }}
+  proxy       = http://{{ proxy.through.host }}:{{ proxy.through.port }}
 {% endif %}
 

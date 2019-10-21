@@ -13,7 +13,7 @@
 
 - name: "choco > install > gui"
   when:
-    - gui | bool
+    - is_gui
     - libraries_choco | length > 0
   win_chocolatey:
     name    : "{{ libraries_choco_gui }}"

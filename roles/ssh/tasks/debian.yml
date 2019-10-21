@@ -56,7 +56,7 @@
 
 #################################################################
 
-- name: "copy > hushlogin"
+- name: "config > .hushlogin"
   with_items:
     - "{{ all_users }}"
   copy:

@@ -8,6 +8,7 @@
     - dist_family in [ 'debian', 'windows' ]
   tags:
     - "{{ python.tags }}"
+    - "proxy"
 
 #################################################################
 

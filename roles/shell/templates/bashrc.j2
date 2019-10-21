@@ -128,7 +128,7 @@ export PATH="${GRADLE_HOME}/bin:${PATH}"
 export TERRAFORM_HOME="{{ terraform.home }}"
 export PATH="${TERRAFORM_HOME}:${PATH}"
 {% endif %}
-{% if proxy | bool %}
+{% if is_proxy %}
 #####################################################################
 # Proxy
 if [[ -f ~/.bash_proxy ]]; then

@@ -9,7 +9,7 @@
 
 
   vars:
-    - proxy     : False
+    - is_proxy     : False
     - all_users:
         - "{{ primary_user  }}"
 

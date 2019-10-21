@@ -13,7 +13,7 @@
 
 - name: "apt > gui"
   when:
-    - gui | bool
+    - is_gui
     - libraries_apt_gui | length > 0
   apt:
     name  : "{{ libraries_apt_gui }}"
@@ -33,7 +33,7 @@
 
 - name: "pip > gui"
   when:
-    - gui | bool
+    - is_gui
     - libraries_pip_gui | length > 0
   pip:
     name  : "{{ libraries_pip_gui }}"
@@ -53,7 +53,7 @@
 
 - name: "snap > gui"
   when:
-    - gui | bool
+    - is_gui
     - libraries_snap_gui | length > 0
   snap:
     name  : "{{ libraries_snap_gui }}"

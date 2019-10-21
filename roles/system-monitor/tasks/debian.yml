@@ -3,7 +3,8 @@
 #################################################################
 
 - name: "apt > add repository"
-  when: not proxy | bool
+  when:
+    - not is_proxy
   with_items:
     - "{{ repos_apt }}"
   apt_repository:
@@ -15,7 +16,8 @@
     - "proxy"
 
 - name: "apt > add repository"
-  when: proxy | bool
+  when:
+    - is_proxy
   become: yes
   become_user: "{{ primary_user.id }}"
   with_items:

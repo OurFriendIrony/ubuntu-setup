@@ -1,12 +1,5 @@
 ---
 
-libraries_apt:
-  - "cntlm"
-
-proxy_through:
-  host: "127.0.0.1"
-  port: "3128"
-
 cntlm:
   libraries:
     apt:

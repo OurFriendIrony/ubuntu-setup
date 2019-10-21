@@ -27,7 +27,7 @@
 " Plugin config
   " Airline
     let g:airline#extensions#tabline#enabled = 1
-{% if (not gui) or (dist_family == "windows") %}
+{% if (not is_gui) or (dist_family == "windows") %}
     let g:airline_powerline_fonts = 0
 {% else %}
     let g:airline_powerline_fonts = 1

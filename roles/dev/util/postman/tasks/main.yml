@@ -6,7 +6,7 @@
   include_tasks : "{{ dist_family }}.yml"
   when:
     - dist_family in [ 'debian' ]
-    - gui | bool
+    - is_gui
   tags:
     - "{{ postman.tags }}"
 

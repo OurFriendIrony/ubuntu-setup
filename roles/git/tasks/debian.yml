@@ -25,7 +25,7 @@
 
 #################################################################
 
-- name: "copy > config"
+- name: "config > .gitconfig"
   with_items:
     - "{{ all_users }}"
   template:
@@ -40,7 +40,7 @@
 
 #################################################################
 
-- name: "git > add repos"
+- name: "add repos"
   when:
     - git_repos is iterable
   become: yes

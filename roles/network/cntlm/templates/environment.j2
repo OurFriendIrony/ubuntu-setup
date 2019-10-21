@@ -1,7 +1,7 @@
 {{ note.cfg }}
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-{% if proxy | bool %}
-https_proxy=http://{{ proxy_through.host }}:{{ proxy_through.port }}
-http_proxy=http://{{ proxy_through.host }}:{{ proxy_through.port }}
+{% if is_proxy %}
+https_proxy=http://{{ proxy.through.host }}:{{ proxy.through.port }}
+http_proxy=http://{{ proxy.through.host }}:{{ proxy.through.port }}
 {% endif %}
 

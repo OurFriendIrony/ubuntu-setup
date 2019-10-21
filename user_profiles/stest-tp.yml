@@ -60,9 +60,9 @@ ssh_config_hosts:
 
 #######################################################################
 
-proxy         : True
+is_proxy         : True
 ntlm_hash     : ""
-dns_search_additions: [ "tpplc.local" ] 
+dns_search_additions: [ "tpplc.local" ]
 
 #######################################################################
 

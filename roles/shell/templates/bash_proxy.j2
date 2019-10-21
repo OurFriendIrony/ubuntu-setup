@@ -1,10 +1,10 @@
 {{ note.cfg }}
-{% if proxy | bool %}
-export HTTP_PROXY="http://{{ proxy_through.host }}:{{ proxy_through.port }}"
-export http_proxy="http://{{ proxy_through.host }}:{{ proxy_through.port }}"
-export HTTPS_PROXY="http://{{ proxy_through.host }}:{{ proxy_through.port }}"
-export https_proxy="http://{{ proxy_through.host }}:{{ proxy_through.port }}"
-export NO_PROXY="{% for np in no_proxy -%}{{ np }}{% if not loop.last %}, {% endif %}{% endfor %}"
-export no_proxy="{% for np in no_proxy -%}{{ np }}{% if not loop.last %}, {% endif %}{% endfor %}"
+{% if is_proxy %}
+export HTTP_PROXY="http://{{ proxy.through.host }}:{{ proxy.through.port }}"
+export http_proxy="http://{{ proxy.through.host }}:{{ proxy.through.port }}"
+export HTTPS_PROXY="http://{{ proxy.through.host }}:{{ proxy.through.port }}"
+export https_proxy="http://{{ proxy.through.host }}:{{ proxy.through.port }}"
+export NO_PROXY="{% for np in proxy.no_proxy + proxy.no_proxy_extras -%}{{ np }}{% if not loop.last %}, {% endif %}{% endfor %}"
+export no_proxy="{% for np in proxy.no_proxy + proxy.no_proxy_extras -%}{{ np }}{% if not loop.last %}, {% endif %}{% endfor %}"
 {% endif %}
 
