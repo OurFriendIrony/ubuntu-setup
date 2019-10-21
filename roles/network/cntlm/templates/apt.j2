@@ -1,6 +1,6 @@
 {{ note.cfg }}
 {% if is_proxy %}
-Acquire::http::Proxy "http://{{ proxy_through.host }}:{{ proxy_through.port }}";
-Acquire::https::Proxy "http://{{ proxy_through.host }}:{{ proxy_through.port }}";
+Acquire::http::Proxy "http://{{ proxy.through.host }}:{{ proxy.through.port }}";
+Acquire::https::Proxy "http://{{ proxy.through.host }}:{{ proxy.through.port }}";
 {% endif %}
 

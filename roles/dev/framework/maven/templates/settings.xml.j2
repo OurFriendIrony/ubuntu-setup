@@ -6,15 +6,15 @@
       <id>http</id>
       <active>true</active>
       <protocol>http</protocol>
-      <host>{{ proxy_through.host }}</host>
-      <port>{{ proxy_through.port }}</port>
+      <host>{{ proxy.through.host }}</host>
+      <port>{{ proxy.through.port }}</port>
     </proxy>
     <proxy>
       <id>https</id>
       <active>true</active>
       <protocol>https</protocol>
-      <host>{{ proxy_through.host }}</host>
-      <port>{{ proxy_through.port }}</port>
+      <host>{{ proxy.through.host }}</host>
+      <port>{{ proxy.through.port }}</port>
     </proxy>
   </proxies>
 {% endif %}

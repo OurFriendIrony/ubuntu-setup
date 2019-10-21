@@ -4,12 +4,12 @@ Username    {{ primary_user.id }}
 Domain      {{ ntlm_domain }}
 PassNTLMv2  {{ ntlm_hash }}
 
-{% for p in proxy_hosts %}
+{% for p in proxy.hosts %}
 Proxy       {{ p.host }}:{{ p.port }}
 {% endfor %}
-NoProxy     {% for np in no_proxy -%}{{ np }}{% if not loop.last %}, {% endif %}{% endfor %}
+NoProxy     {% for np in proxy.no_proxy + proxy.no_proxy_extras -%}{{ np }}{% if not loop.last %}, {% endif %}{% endfor %}
 
 Gateway     yes
-Listen      {{ proxy_through.port }}
+Listen      {{ proxy.through.port }}
 {% endif %}
 

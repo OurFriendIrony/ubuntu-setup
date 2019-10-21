@@ -1,18 +1,21 @@
 ---
 
-proxy_through:
-  host: "127.0.0.1"
-  port: "3128"
-
 ntlm_domain: tpplc
 
-proxy_hosts:
-  - { host: "10.0.20.196", port: "8080" }
-  - { host: "10.0.20.197", port: "8080" }
+proxy:
+  through:
+    host: "127.0.0.1"
+    port: "3128"
 
-no_proxy:
-  - "localhost"
-  - "127.0.0.*"
+  hosts:
+    - { host: "10.0.20.196", port: "8080" }
+    - { host: "10.0.20.197", port: "8080" }
+
+  no_proxy:
+    - "localhost"
+    - "127.0.0.*"
+
+  no_proxy_extras:
   - "10.*"
   - "172.16.*"
   - "192.168.0.*"
