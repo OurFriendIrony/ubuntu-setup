@@ -78,15 +78,3 @@
 
 #################################################################
 
-- name: "pip > config"
-  template:
-    src     : "pip.j2"
-    dest    : "/etc/pip.conf"
-    owner   : "{{ root_user.id }}"
-    group   : "{{ root_user.id }}"
-  tags:
-    - "{{ cntlm.tags }}"
-    - "proxy"
-
-#################################################################
-

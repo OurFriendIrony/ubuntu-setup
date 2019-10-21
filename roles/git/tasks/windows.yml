@@ -25,7 +25,7 @@
 
 #################################################################
 
-- name: "copy > config"
+- name: "config > .gitconfig"
   win_template:
     src     : "gitconfig.j2"
     dest    : "{{ primary_user.home }}/.gitconfig"
@@ -35,22 +35,6 @@
   tags:
     - "git"
     - "proxy"
-
-#################################################################
-
-#- name: "git > add repos"
-#  when:
-#    - git_repos is iterable
-#  become: yes
-#  become_user: "{{ primary_user.id }}"
-#  with_items:
-#    - "{{ git_repos }}"
-#  git:
-#    repo    : "{{ item.repo }}"
-#    dest    : "{{ git.home }}/{{ item.subdir }}"
-#    update  : "no"
-#  tags:
-#    - "git"
 
 #################################################################
 

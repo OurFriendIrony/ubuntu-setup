@@ -11,7 +11,7 @@
 
 #################################################################
 
-- name: "copy > .vimrc"
+- name: "config > .vimrc"
   with_items:
     - "{{ all_users }}"
   template:
@@ -23,7 +23,7 @@
   tags:
     - "vim"
 
-- name: "git > pull vundle"
+- name: "vundle > install"
   with_items:
     - "{{ all_users }}"
   git:

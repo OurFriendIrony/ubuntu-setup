@@ -11,7 +11,7 @@
 
 #################################################################
 
-- name: "copy > .vimrc"
+- name: "config > .vimrc"
   with_items:
     - "{{ primary_user }}"
   win_template:
@@ -21,7 +21,7 @@
   tags:
     - "vim"
 
-- name: "git > pull vundle"
+- name: "vundle > install"
   with_items:
     - "{{ primary_user }}"
   win_command: "git clone https://github.com/VundleVim/Vundle.vim.git {{ item.home }}/.vim/bundle/vundle"
