@@ -10,6 +10,7 @@ machine_arch        : ""
 desktop_environment : ""
 vm_type             : ""
 
-gui                 : False
-vm                  : False
+is_gui              : False
+is_vm               : False
+is_proxy            : False
 

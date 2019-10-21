@@ -27,8 +27,8 @@
 
 - name: "Collect Additional Facts > Boolean"
   with_items:
-    - { k: "gui",                 v: "{{ 'True' if desktop_environment != '' or dist_family == 'windows' else 'False' | bool }}" }
-    - { k: "vm",                  v: "{{ 'True' if vm_type != ''                                         else 'False' | bool }}" }
+    - { k: "is_gui",              v: "{{ 'True' if desktop_environment != '' or dist_family == 'windows' else 'False' | bool }}" }
+    - { k: "is_vm",               v: "{{ 'True' if vm_type != ''                                         else 'False' | bool }}" }
   set_fact:
     "{{ item.k }}": "{{ item.v }}"
   tags: [ "always" ]
@@ -44,11 +44,11 @@
     - { k: "OS Major Version    ", v: "{{ dist_os_version_m   }}" }
     - { k: "OS Full Version     ", v: "{{ dist_os_version     }}" }
     - { k: "Machine Architecture", v: "{{ machine_arch        }}" }
-    - { k: "GUI?                ", v: "{{ gui                 }}" }
+    - { k: "GUI?                ", v: "{{ is_gui              }}" }
     - { k: "GUI Env             ", v: "{{ desktop_environment }}" }
-    - { k: "VM?                 ", v: "{{ vm                  }}" }
+    - { k: "VM?                 ", v: "{{ is_vm               }}" }
     - { k: "VM Env              ", v: "{{ vm_type             }}" }
-    - { k: "Proxy               ", v: "{{ proxy               }}" }
+    - { k: "Proxy?              ", v: "{{ proxy               }}" }
   debug:
     msg: "{{ item.k }} : {{ item.v }}"
   tags: [ "always" ]
