@@ -1,5 +1,5 @@
 {
-{% if proxy | bool %}
+{% if is_proxy %}
     "proxies": {
         "default": {
             "httpProxy": "http://{{ proxy_through.host }}:{{ proxy_through.port }}",

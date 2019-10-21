@@ -9,7 +9,7 @@
   become_method : sudo
 
   vars:
-    - proxy     : False
+    - is_proxy     : False
       all_users:
         - "{{ root_user     }}"
         - "{{ primary_user  }}"

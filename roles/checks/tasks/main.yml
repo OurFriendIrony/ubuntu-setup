@@ -29,6 +29,7 @@
   with_items:
     - { k: "is_gui",              v: "{{ 'True' if desktop_environment != '' or dist_family == 'windows' else 'False' | bool }}" }
     - { k: "is_vm",               v: "{{ 'True' if vm_type != ''                                         else 'False' | bool }}" }
+    - { k: "is_proxy",            v: "{{ is_proxy                                                    | default(False) | bool }}" }
   set_fact:
     "{{ item.k }}": "{{ item.v }}"
   tags: [ "always" ]
@@ -48,7 +49,7 @@
     - { k: "GUI Env             ", v: "{{ desktop_environment }}" }
     - { k: "VM?                 ", v: "{{ is_vm               }}" }
     - { k: "VM Env              ", v: "{{ vm_type             }}" }
-    - { k: "Proxy?              ", v: "{{ proxy               }}" }
+    - { k: "Proxy?              ", v: "{{ is_proxy            }}" }
   debug:
     msg: "{{ item.k }} : {{ item.v }}"
   tags: [ "always" ]

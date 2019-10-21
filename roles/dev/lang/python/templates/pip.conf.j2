@@ -1,5 +1,5 @@
 {{ note.cfg }}
-{% if proxy | bool %}
+{% if is_proxy %}
 [global]
 proxy = http://{{ proxy_through.host }}:{{ proxy_through.port }}
 {% endif %}

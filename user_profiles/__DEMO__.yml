@@ -69,7 +69,7 @@ git_repos:
 #   through the proxy.
 # If not, this section can be deleted
 
-proxy         : False
+is_proxy         : False
 ntlm_hash     : ""
 dns_search_additions: [ "tpplc.local" ]
 

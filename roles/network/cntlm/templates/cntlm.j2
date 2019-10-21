@@ -1,5 +1,5 @@
 {{ note.cfg }}
-{% if proxy | bool %}
+{% if is_proxy %}
 Username    {{ primary_user.id }}
 Domain      {{ ntlm_domain }}
 PassNTLMv2  {{ ntlm_hash }}
