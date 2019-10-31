@@ -41,6 +41,7 @@ libraries_choco_gui:
   - qbittorrent       # Torrent Manager
   - yumi-uefi         # USB Boot Writer
   - notepadplusplus   # Text Editor
+  - gpu-z             # GPU/CPU Monitor
 
 libraries_snap_gui:
   - p7zip-desktop     # 7z [3]
