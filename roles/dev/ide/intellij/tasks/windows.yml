@@ -2,11 +2,11 @@
 
 #################################################################
 
-- name: " "
-  include_tasks : "{{ dist_family }}.yml"
-  when:
-    - dist_family in [ 'debian', 'windows' ]
-    - is_gui
+- name: "choco > install"
+  win_chocolatey:
+    name    : "{{ intellij.libraries.choco }}"
+    state   : "present"
+#    version : "{{ intellij_version }}"
   tags:
     - "{{ intellij.tags }}"
 

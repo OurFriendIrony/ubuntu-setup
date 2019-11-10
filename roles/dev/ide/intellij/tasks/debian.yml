@@ -20,7 +20,7 @@
 
 - name: "apt > install"
   apt:
-    name    : "{{ intellij.libraries.apt }}"
+    name    : "{{ intellij.libraries.apt_prereq }}"
     state   : "latest"
   tags:
     - "{{ intellij.tags }}"

@@ -10,8 +10,10 @@ intellij:
   home    : "/usr/lib/intellij"
 
   libraries:
-    apt:
+    apt_prereq:
       - unzip
+    choco:
+      - intellijidea-community
 
   tags:
     - "dev"
