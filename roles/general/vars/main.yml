@@ -12,7 +12,6 @@ libraries_apt:
   - xclip             # Store to Clipboard
   - gawk              # Extended awk
   - p7zip-full        # 7z [1]
-  - p7zip-rar         # 7z [2]
   - multitail         # tail multiple files
 
 libraries_pip:
@@ -29,6 +28,7 @@ libraries_apt_gui:
   - shutter           # Snipping Tool
   - vlc               # Media Player
   - gedit             # Text Editor
+  - p7zip-rar         # 7z [2]
 
 libraries_pip_gui: []
 
