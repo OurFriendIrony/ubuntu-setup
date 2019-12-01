@@ -16,7 +16,7 @@
     - retropie
     - retropie-dirs
 
-- name: "mkdirs | general dirs"
+- name: "mkdirs > general dirs"
   with_items:
     - "{{ retropie_dirs }}"
   file:
@@ -29,7 +29,7 @@
     - retropie
     - retropie-dirs
 
-- name: "mkdirs | save and state dirs"
+- name: "mkdirs > save and state dirs"
   when:
     - item[0].has_saves is defined
     - item[0].has_saves | bool
@@ -48,7 +48,7 @@
 
 #################################################################
 
-- name: "boot | cmdline.txt"
+- name: "boot > cmdline.txt"
   template:
     src     : "boot_cmdline.txt.j2"
     dest    : "/boot/cmdline.txt"
@@ -59,7 +59,7 @@
     - retropie
     - retropie-boot
 
-- name: "boot | config.txt"
+- name: "boot > config.txt"
   template:
     src     : "boot_config.txt.j2"
     dest    : "/boot/config.txt"
@@ -72,7 +72,15 @@
 
 #################################################################
 
-- name: "pi user | bios | binary | apply"
+- name: "wifi > set country"
+  lineinfile:
+    path    : "/etc/wpa_supplicant/wpa_supplicant.conf"
+    regexp  : "^country="
+    line    : "country=GB"
+
+#################################################################
+
+- name: "pi user > bios > binary > apply"
   unarchive:
     src     : "bin/bios_general.zip"
     dest    : "{{ retropie_home }}/BIOS"
@@ -85,7 +93,7 @@
 
 #################################################################
 
-- name: "personalisation | splashscreens | binary"
+- name: "personalisation > splashscreens > binary"
   unarchive:
     src     : "bin/splashscreens.zip"
     dest    : "{{ retropie_home }}/splashscreens"
@@ -97,7 +105,7 @@
     - retropie
     - retropie-personalise
 
-- name: "personalisation | splashscreens | config"
+- name: "personalisation > splashscreens > config"
   template:
     src     : "splashscreen.list.j2"
     dest    : "/etc/splashscreen.list"
@@ -108,7 +116,7 @@
     - retropie
     - retropie-personalise
 
-- name: "personalisation | themes | binary"
+- name: "personalisation > themes > binary"
   unarchive:
     src     : "bin/themes.zip"
     dest    : "/etc/emulationstation/themes"
@@ -119,7 +127,7 @@
     - retropie
     - retropie-personalise
 
-- name: "personalisation | game images | binary"
+- name: "personalisation > game images > binary"
   unarchive:
     src     : "bin/game_images.zip"
     dest    : "/opt/retropie/configs/all/emulationstation"
@@ -129,7 +137,7 @@
     - retropie
     - retropie-personalise
 
-- name: "personalisation | gamelists | makedirs"
+- name: "personalisation > gamelists > makedirs"
   with_items:
     - "{{ retropie_emus }}"
   file:
@@ -142,7 +150,7 @@
     - retropie
     - retropie-personalise
 
-- name: "personalisation | gamelists | config"
+- name: "personalisation > gamelists > config"
   with_items:
     - "{{ retropie_emus }}"
   copy:
@@ -156,7 +164,7 @@
 
 #################################################################
 
-- name: "emulationstation | es emulated system | config | apply"
+- name: "emulationstation > es emulated system > config > apply"
   template:
     src     : "es_systems.cfg.j2"
     dest    : "/etc/emulationstation/es_systems.cfg"
@@ -169,7 +177,7 @@
 
 #################################################################
 
-- name: "retropie | config | mkdirs"
+- name: "retropie > config > mkdirs"
   when:
     - item.has_saves is defined
     - item.has_saves | bool
@@ -182,7 +190,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | emu | retroarch.cfg"
+- name: "retropie > config > emu > retroarch.cfg"
   when:
     - item.has_saves is defined
     - item.has_saves | bool
@@ -198,7 +206,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | all | retroarch.cfg"
+- name: "retropie > config > all > retroarch.cfg"
   template:
     src     : "retroarch_all.j2"
     dest    : "{{ retropie_cfg }}/all/retroarch.cfg"
@@ -209,7 +217,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | all | retroarch-core-options.cfg"
+- name: "retropie > config > all > retroarch-core-options.cfg"
   template:
     src     : "retroarch_core.j2"
     dest    : "{{ retropie_cfg }}/all/retroarch-core-options.cfg"
@@ -220,7 +228,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | autoconf | apply"
+- name: "retropie > config > autoconf > apply"
   template:
     src     : "autoconf.cfg.j2"
     dest    : "{{ retropie_cfg }}/all/autoconf.cfg"
@@ -231,7 +239,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | runcommand | apply"
+- name: "retropie > config > runcommand > apply"
   template:
     src     : "runcommand.cfg.j2"
     dest    : "{{ retropie_cfg }}/all/runcommand.cfg"
@@ -242,7 +250,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | autostart | apply"
+- name: "retropie > config > autostart > apply"
   template:
     src     : "autostart.sh.j2"
     dest    : "{{ retropie_cfg }}/all/autostart.sh"
@@ -253,7 +261,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | scraper | apply"
+- name: "retropie > config > scraper > apply"
   template:
     src     : "scraper.cfg.j2"
     dest    : "{{ retropie_cfg }}/all/scraper.cfg"
@@ -264,7 +272,7 @@
     - retropie
     - retropie-cfg
 
-- name: "retropie | config | es settings | apply"
+- name: "retropie > config > es settings > apply"
   template:
     src     : "es_settings.cfg.j2"
     dest    : "{{ retropie_cfg }}/all/emulationstation/es_settings.cfg"
@@ -277,7 +285,7 @@
 
 #################################################################
 
-- name: "controller | emulators"
+- name: "controller > emulators"
   with_items:
     - "{{ retropie_controllers }}"
   template:
@@ -290,7 +298,7 @@
     - retropie
     - retropie-controllers
 
-- name: "controller | emulationstation"
+- name: "controller > emulationstation"
   template:
     src     : "controller_emulationstation.j2"
     dest    : "{{ retropie_cfg }}/all/emulationstation/es_input.cfg"
@@ -303,7 +311,7 @@
 
 #################################################################
 
-- name: "n64 | change default emulator"
+- name: "n64 > change default emulator"
   lineinfile:
     path    : "{{ retropie_n64.cfg }}/emulators.cfg"
     regexp  : "^default"
@@ -312,7 +320,7 @@
     - retropie
     - retropie-n64
 
-- name: "n64 | mkdirs"
+- name: "n64 > mkdirs"
   file:
     path    : "{{ retropie_cfg }}/n64/{{ retropie_n64.emu }}"
     owner   : "pi"
@@ -323,7 +331,7 @@
     - retropie
     - retropie-n64
 
-- name: "n64 | controller remap"
+- name: "n64 > controller remap"
   template:
     src     : "controller_n64.j2"
     dest    : "{{ retropie_cfg }}/n64/{{ retropie_n64.emu }}/{{ retropie_n64.emu }}.rmp"
@@ -334,7 +342,7 @@
 
 #################################################################
 
-- name: "psx | mkdirs"
+- name: "psx > mkdirs"
   file:
     path    : "{{ retropie_cfg }}/psx/{{ retropie_psx.emu }}"
     owner   : "pi"
@@ -345,7 +353,7 @@
     - retropie
     - retropie-psx
 
-- name: "psx | controller remap"
+- name: "psx > controller remap"
   template:
     src     : "controller_psx.j2"
     dest    : "{{ retropie_cfg }}/psx/{{ retropie_psx.emu }}/{{ retropie_psx.emu }}.rmp"
@@ -356,7 +364,7 @@
 
 #################################################################
 
-- name: "mkdirs | dreamcast"
+- name: "mkdirs > dreamcast"
   file:
     path    : "{{ retropie_dreamcast.cfg }}/mappings"
     owner   : "pi"
@@ -367,7 +375,7 @@
     - retropie
     - retropie-dreamcast
 
-- name: "dreamcast | config"
+- name: "dreamcast > config"
   template:
     src     : "dreamcast_emu.cfg.j2"
     dest    : "{{ retropie_dreamcast.cfg }}/emu.cfg"
@@ -378,7 +386,7 @@
     - retropie
     - retropie-dreamcast
 
-- name: "dreamcast | controller memory cards"
+- name: "dreamcast > controller memory cards"
   unarchive:
     src     : "bin/dreamcast_vmu.zip"
     dest    : "{{ retropie_dreamcast.cfg }}"
@@ -387,7 +395,7 @@
     - retropie
     - retropie-dreamcast
 
-- name: "dreamcast | controller"
+- name: "dreamcast > controller"
   with_items:
     - { src: "xbox360",   dest: "controller_xpad"     }
     - { src: "xboxone",   dest: "controller_generic"  }
@@ -405,7 +413,7 @@
 
 #################################################################
 
-- name: "nds | mkdirs"
+- name: "nds > mkdirs"
   file:
     path    : "{{ retropie_cfg }}/nds/{{ retropie_nds.emu }}/config"
     owner   : "pi"
@@ -416,7 +424,7 @@
     - retropie
     - retropie-nds
 
-- name: "nds | config"
+- name: "nds > config"
   template:
     src     : "nds_cfg.j2"
     dest    : "{{ retropie_nds.cfg }}/drastic.cfg"
@@ -429,7 +437,7 @@
 
 #################################################################
 
-- name: "python scripts | git clone"
+- name: "python scripts > git clone"
   become  : "{{ primary_user.id }}"
   git:
     repo    : "{{ retropie_git.url  }}"
@@ -439,7 +447,7 @@
     - retropie
     - retropie-python
 
-- name: "python scripts | symlinks"
+- name: "python scripts > symlinks"
   file:
     src     : "{{ retropie_git.src      }}"
     dest    : "{{ retropie_python.home  }}"
@@ -452,7 +460,7 @@
     - retropie
     - retropie-python
 
-- name: "python scripts | mkdir"
+- name: "python scripts > mkdir"
   with_items:
     - "{{ retropie_python.bgm_home }}"
   file:
@@ -465,7 +473,7 @@
     - retropie
     - retropie-python
 
-- name: "python scripts | apt"
+- name: "python scripts > apt"
   apt:
     name    : "{{ retropie_python.apt }}"
     state   : "latest"
@@ -473,7 +481,7 @@
     - retropie
     - retropie-python
 
-- name: "python scripts | resolve dependancies"
+- name: "python scripts > resolve dependancies"
   pip:
     requirements : "{{ retropie_git.dest }}/requirements.txt"
     executable: "pip3"
@@ -481,7 +489,7 @@
     - retropie
     - retropie-python
 
-- name: "python scripts | install background music"
+- name: "python scripts > install background music"
   unarchive:
     src     : "bin/bgm.zip"
     dest    : "{{ retropie_python.bgm_home }}"
@@ -489,7 +497,7 @@
     - retropie
     - retropie-python
 
-- name: "python scripts | set bgm, restart and lightshow scripts on start"
+- name: "python scripts > set bgm, restart and lightshow scripts on start"
   template:
     src     : "rc.local.j2"
     dest    : "/etc/rc.local"
@@ -499,7 +507,7 @@
 
 #################################################################
 
-- name: "fba | install bios"
+- name: "fba > install bios"
   unarchive:
     src     : "bin/bios_fba.zip"
     dest    : "{{ retropie_fba.home }}"
@@ -509,7 +517,7 @@
 
 #################################################################
 
-- name: "steam | mkdir"
+- name: "steam > mkdir"
   when: retropie_enabled_steam | bool
   with_items:
     - "{{ retropie_steam.home }}"
@@ -524,7 +532,7 @@
     - retropie
     - retropie-steam
 
-- name: "steam | apt key"
+- name: "steam > apt key"
   when: retropie_enabled_steam | bool
   apt_key:
     url     : "http://archive.itimmer.nl/itimmer.gpg"
@@ -533,7 +541,7 @@
     - retropie
     - retropie-steam
 
-- name: "steam | apt source"
+- name: "steam > apt source"
   when: retropie_enabled_steam | bool
   apt_repository:
     repo    : "deb http://archive.itimmer.nl/raspbian/moonlight stretch main"
@@ -542,7 +550,7 @@
     - retropie
     - retropie-steam
 
-- name: "steam | apt install"
+- name: "steam > apt install"
   when: retropie_enabled_steam | bool
   apt:
     name    : "moonlight-embedded"
@@ -552,7 +560,7 @@
     - retropie
     - retropie-steam
 
-- name: "steam | 'roms'"
+- name: "steam > 'roms'"
   when: retropie_enabled_steam | bool
   with_items:
     - "{{ retropie_steam.modes }}"
