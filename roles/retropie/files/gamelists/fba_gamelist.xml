@@ -114,4 +114,15 @@ The player's plane in Prehistoric Isle only has a single, straight ahead shot. B
 		<genre>n/a</genre>
 		<players>n/a</players>
 	</game>
+  <game>
+    <path>./missile.zip</path>
+    <name>Missile Command</name>
+    <desc>Missile Command is a one or two-player game depicting the outbreak of a nuclear war. Players must defend six cities from waves of incoming nuclear missiles by launching their own anti-ballistic missiles (ABMs) from one of three missile batteries.</desc>
+    <image>~/.emulationstation/downloaded_images/fba/missile-image.png</image>
+    <releasedate>19800101T000000</releasedate>
+    <developer>Atari</developer>
+    <publisher>Atari</publisher>
+    <genre>Shooter</genre>
+    <players>1-2</players>
+  </game>   
 </gameList>

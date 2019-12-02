@@ -77,6 +77,9 @@
     path    : "/etc/wpa_supplicant/wpa_supplicant.conf"
     regexp  : "^country="
     line    : "country=GB"
+  tags:
+    - retropie
+    - retropie-wifi
 
 #################################################################
 

@@ -213,18 +213,6 @@ A mysterious and high-tech organization, named "E.Y.E.", quickly threatens to ta
 		<genre>Action</genre>
 	</game>
 	<game>
-		<path>./Golden Axe 1.gen</path>
-		<name>Golden Axe</name>
-		<desc>The game takes place in the fictional land of Yuria, a Conan the Barbarian-style high fantasy medieval world. An evil entity known as Death Adder has captured the King and his daughter, and holds them captive in their castle. He also finds the Golden Axe, the magical emblem of Yuria, and threatens to destroy both the axe and the royal family unless the people of Yuria accept him as their ruler. The character of Death Adder and the stolen Golden Axe could well be traced to the historical event of the Acquisition of the True Cross during the Sassanid-Byzantine wars, as the Norse mythology is heavily influenced by Greek and Middle Eastern mythologies.
-The player controls one of three Warriors. The first is a battle axe-wielding dwarf, Gilius Thunderhead, from the mines of Wolud, whose twin brother was killed by the soldiers of Death Adder. Another is a male barbarian, Ax Battler, wielding a two handed broadsword looking for revenge for the murder of his mother. The last is a long-sword-wielding Tyris Flare, an amazon, whose parents were both killed by Death Adder.</desc>
-		<image>/home/pi/.emulationstation/downloaded_images/megadrive/Golden Axe 1-image.jpg</image>
-		<releasedate>19891222T000000</releasedate>
-		<developer>Sega</developer>
-		<publisher>Sega</publisher>
-		<genre>Action</genre>
-		<players>2</players>
-	</game>
-	<game>
 		<path>./Golden Axe 2.gen</path>
 		<name>Golden Axe II</name>
 		<desc>The three playable characters from the first Golden Axe, Ax Battler, Tyris Flare, and Gilius Thunderhead, return in Golden Axe II to fight the new evil forces led by Dark Guild. The game features a total of seven levels: six scrolling levels and a final end of game boss battle against Dark Guild.</desc>
@@ -781,5 +769,456 @@ Zero Tolerance is a first-person shooter. It is required that you kill every sin
 		<publisher>Accolade</publisher>
 		<genre>Shooter</genre>
 		<players>2</players>
+	</game>
+	<game>
+		<path>./Golden Axe 1.gen</path>
+		<name>Golden Axe</name>
+		<desc>The game takes place in the fictional land of Yuria, a Conan the Barbarian-style high fantasy medieval world. An evil entity known as Death Adder has captured the King and his daughter, and holds them captive in their castle. He also finds the Golden Axe, the magical emblem of Yuria, and threatens to destroy both the axe and the royal family unless the people of Yuria accept him as their ruler. The character of Death Adder and the stolen Golden Axe could well be traced to the historical event of the Acquisition of the True Cross during the Sassanid-Byzantine wars, as the Norse mythology is heavily influenced by Greek and Middle Eastern mythologies.
+The player controls one of three Warriors. The first is a battle axe-wielding dwarf, Gilius Thunderhead, from the mines of Wolud, whose twin brother was killed by the soldiers of Death Adder. Another is a male barbarian, Ax Battler, wielding a two handed broadsword looking for revenge for the murder of his mother. The last is a long-sword-wielding Tyris Flare, an amazon, whose parents were both killed by Death Adder.</desc>
+		<image>/home/pi/.emulationstation/downloaded_images/megadrive/Golden Axe 1-image.jpg</image>
+		<releasedate>19891222T000000</releasedate>
+		<developer>Sega</developer>
+		<publisher>Sega</publisher>
+		<genre>Action</genre>
+		<players>2</players>
+		<playcount>1</playcount>
+		<lastplayed>20191202T130048</lastplayed>
+	</game>
+	<game>
+		<path>./Aladdin.gen</path>
+		<name>Aladdin</name>
+		<desc>The game from Virgin based on the 1992 animated Disney film is a side-scrolling platformer.
+
+The player controls Aladdin, who must make his way through several levels based on locations from the movie: from the streets and rooftops of Agrabah, the Cave of Wonders and the Sultan's dungeon to the final confrontation in Grand Vizier Jafar's palace. The Sultan's guards and also animals of the desert want to hinder Aladdin in his way. He can defend himself with his sword or by throwing apples. Next to apples, Aladdin can also collect gems which can be traded for lives and continues with a traveling trader. Finding Genie or Abu icons enables bonus rounds. The Genie bonus round is a game of luck played for apples, gems or extra lives. In Abu's bonus round, the player controls the little monkey who has to catch bonus items that fall from the sky, but without touching any of the unwanted objects like rocks and pots.
+
+The game's humorous animations were created by Walt Disney Feature Animation.
+</desc>
+		<image>/home/pi/.emulationstation/downloaded_images/megadrive/Aladdin-image.png</image>
+		<releasedate>19931111T000000</releasedate>
+		<developer>Virgin</developer>
+		<publisher>Sega</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./Alien 3.gen</path>
+		<name>Alien 3</name>
+		<desc>Alien³ is a video game based on the movie sequel of the same name. The plot of the movie picks up directly after the end of Aliens. Ellen Ripley, the main character of the Alien series, is in cryo-sleep aboard the space ship Sulaco. Unfortunately, an alien or two has stowed away on the Sulaco, and wreaked havoc within the ship.  Thus, it crash lands on the prison colony planet Fiorina 161.  Ripley and the unarmed prisoners have to figure out a way to survive the aliens terrorizing the colony until help arrives.
+
+The game play of the various Alien³ conversions varies from platform to platform. The Genesis Alien³ game is a side-scrolling action game with large maze-like levels. In each level, you have to rescue all the trapped prisoners and then make your way to the exit, all while surviving multiple alien attacks.
+</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Alien 3-image.png</image>
+		<releasedate>19920101T000000</releasedate>
+		<developer>Arena Entertainment</developer>
+		<publisher>Acclaim</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./Beauty and the Beast - Belle's Quest.gen</path>
+		<name>Beauty and the Beast : Belle's Quest</name>
+		<desc>Play as Belle from Disney's "Beauty and the Beast" and (loosely) follow the animated film's story. Jump and duck to ward off hindrances, which can come in forms of birds, rats, bats, etc. 
+
+Also have the 'beauty' interact with her supporting characters as you lead her from her start as a village girl, to the final dance with her prince in the ball room.
+</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Beauty and the Beast - Belle's Quest-image.png</image>
+		<releasedate>19930101T000000</releasedate>
+		<developer>Software Creations</developer>
+		<publisher>Sunsoft</publisher>
+		<genre>Action</genre>
+	</game>
+	<game>
+		<path>./Beauty and the Beast - Roar of the Beast.gen</path>
+		<name>Beauty and the Beast : Roar of the Beast</name>
+		<desc>Roar of the Beast is the second Genesis game based on the Beauty and the Beast animated film, only this time the player does not control Belle but Beast throughout the entire game. It is not a sequel to the first game, as both games were released in the same year. This title largely retells the story from Beast's perspective. It starts with Beast living in a castle in the dark woods with his servants (Lumiere, Cogsworth and Mrs. Potts). A powerful storm hits the castle and enchants all animals around it. Initially the beast needs to protect the magic rose against the creatures. Soon, Belle and her father Maurice become involved, and eventually the villagers who invade the castle.
+
+The game takes place in Beast's castle and the surrounding woods. Through side-scrolling platform gameplay Beast can attack from three different stances (crouch, stand up, jump) and unleash a limited amount of roars that stun enemies for a short time. After regular levels, a sequence with a boss follows. There are also a few mini-games where Beast needs to finish a puzzle and catch rosebuds. Certain events are time limited. The game keeps track of the player's score, based on defeated enemies and collected treasures. There is an unlimited amount of continues and the story is told through static, drawn cut-scenes between missions.
+</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Beauty and the Beast - Roar of the Beast-image.png</image>
+		<releasedate>19930101T000000</releasedate>
+		<developer>Sunsoft</developer>
+		<publisher>Sunsoft</publisher>
+		<genre>Sports</genre>
+	</game>
+	<game>
+		<path>./Fantasia.gen</path>
+		<name>Fantasia</name>
+		<desc>Fantasia takes place in the dream world of Mickey Mouse as the Sorcerer's Apprentice.
+
+Mickey must find the missing musical notes scattered about in four imaginary worlds.  The Water World, Earth World, Air World and Fire World are filled with magical creatures such as marching brooms, skipping mushrooms, jumping cactus, flying horses, dancing hippos and many more.
+
+The music in the worlds is straight from the movie, including pieces by Bach, Mussorgsky, Beethoven, Tchaikovsky, Stravinsky, Dukas and Ponchielli.
+
+Mickey must collect special items to keep up his strength and earn bonus points. Spell books, stars, crystal balls, potions and dinosaur eggs help him along the way. Enemies are dispatched by bouncing on them or casting small or large spells. If Mickey finds a wooden door he is led to a bonus area where he can collect many magical items.
+
+At the end of each level, Mickey takes the notes he's found back to the orchestra's conductor who will send him back into the world to keep searching if he hasn't found enough of them or gained enough points.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Fantasia-image.png</image>
+		<releasedate>19910801T000000</releasedate>
+		<developer>Sega</developer>
+		<publisher>Infogrames</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./Mickey Mania - Timeless Adventures of Mickey Mouse.gen</path>
+		<name>Mickey Mania - Timeless Adventures of Mickey Mouse</name>
+		<playcount>1</playcount>
+		<lastplayed>20191202T214037</lastplayed>
+	</game>
+	<game>
+		<path>./Mickey Mouse - Great Circus Mystery.gen</path>
+		<name>The Great Circus Mystery Starring Mickey &amp; Minnie</name>
+		<desc>Starring Mickey and Minnie Mouse, the two plan to spend the day at the Circus only to find that it's deserted. Believing that someone is responsible, you must dress up in different outfits such as Safari and Western, as you try to find clues to solve the mystery behind the disappereance of the performers, including your pals Donald Duck and Pluto.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Mickey Mouse - Great Circus Mystery-image.png</image>
+		<releasedate>19950101T000000</releasedate>
+		<developer>Capcom</developer>
+		<publisher>Capcom</publisher>
+		<genre>Action</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./Mickey Mouse - Minnie's Magical Adventure 2.gen</path>
+		<name>Mickey Mouse - Minnie's Magical Adventure 2</name>
+		<playcount>1</playcount>
+		<lastplayed>20191202T214051</lastplayed>
+	</game>
+	<game>
+		<path>./Mickey's Ultimate Challenge.gen</path>
+		<name>Mickey's Ultimate Challenge</name>
+		<desc>One night, as Mickey (or Minnie) lay in bed reading a book of fairy tales, he started to wonder how it would be to live in a far off land, in a magic castle. As he fell asleep, he woke up in the Kingdom of Beanwick, which is constantly tormented by earthquakes. Then, he offers his help to solve the mystery behind those earthquakes.
+
+Mickey's Ultimate Challenge is a puzzle game in which the player chooses either Mickey or Minnie to play with. They'll find five characters from the Disney's universe in the kingdom, and will be prompted to help them in several tasks.
+
+Each task is a different puzzle, given by a specific character. Daisy, for instance, will ask help to clean the castle's paintings hanging on a wall. The task is in fact a memory game, where Mickey or Minnie must clean the pictures matching pairs. After completing one task, they'll receive a gift.
+
+After completing all tasks, Mickey or Minnie must trade the gifts they won with the right characters. For instance, after finishing Goofy's task, they will receive his hammer. The player must then guess who among the other characters would like to receive that hammer.
+
+Giving the right items to the right characters will allow Mickey or Minnie access to the last puzzle and character.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Mickey's Ultimate Challenge-image.png</image>
+		<releasedate>19940101T000000</releasedate>
+		<developer>Hi-Tech Software</developer>
+		<publisher>Hi-Tech Software</publisher>
+		<genre>Fight</genre>
+	</game>
+	<game>
+		<path>./Pinocchio.gen</path>
+		<name>Pinocchio</name>
+		<desc>Journey through as Geppetto, the carpenter's live wooden puppet, Pinocchio, as he did in his Disney animated film - which itself was based on a children's novel.
+
+Have Pinocchio run, jump and twist-kick through all the familiar places, including the inside of a whale, and do good deeds enough to become the real human boy he's always wanted to be.
+
+A standard Disney platformer.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Pinocchio-image.png</image>
+		<releasedate>19950101T000000</releasedate>
+		<developer>Virgin Interactive</developer>
+		<publisher>Disney Interactive</publisher>
+		<genre>Various</genre>
+		<playcount>1</playcount>
+		<lastplayed>20191202T214113</lastplayed>
+	</game>
+	<game>
+		<path>./Pocahontas.gen</path>
+		<name>Pocahontas</name>
+		<desc>Incarnation of the Disney cartoon; Pocahontas, along with a tag team partner in her raccoon friend, Meeko, goes about her homeland, helping her animal friends. As so is done, she will acquire animal spirits which will help her become stronger and bless her with new abilities.
+
+But soon enough she meets John Smith, and as an inevitable consequence has to prevent a war between his and John's people. And she has to do it in a hurry, before John's neck gets a non-&amp;quot;disney&amp;quot; treatment..
+</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Pocahontas-image.png</image>
+		<releasedate>19960101T000000</releasedate>
+		<developer>Disney Interactive</developer>
+		<publisher>Disney Interactive</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./The Lion King.gen</path>
+		<name>The Lion King</name>
+		<desc>Young Simba just can't wait to be king. His father is the current King of the Savannah and the young prince is able to frolic the lands at will; jumping on and around other subjects of this animal kingdom. When Simba's father, King Mufasa, is killed and his evil brother Scar takes over the kingdom, Simba is banished from the lands of his birthright and has to grow up fast, honing his skills, for the day of his return.
+
+The Lion King, based on the famous Disney movie, is a platform game where you control Simba - initially as a young cub, and later as an adult lion. The plot of the game follows the plot of the movie. Each of the levels represents a part of the movie. 
+
+As young Simba, you can fight various beasts, such as lizards, by jumping on them. You can also roar to scare some creatures into submission, though every time you roar, you have to wait for your &amp;quot;roar meter&amp;quot; to charge. 
+
+As an adult lion, you can still roar and jump, but now you fight enemies by slashing at them with your claws (if you're skillful enough, you can also grab them and toss them off the screen). 
+
+The game features no in-game save function, and it needs to be replayed from the beginning every time.
+</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/The Lion King-image.png</image>
+		<releasedate>19940101T000000</releasedate>
+		<developer>Westwood Studios</developer>
+		<publisher>Virgin Interactive</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./Toy Story.gen</path>
+		<name>Toy Story</name>
+		<desc>This game is based on the movie "Toy Story". It sets you as the character of Woody as you jump, swing, and drive to the end of each level. Each level contains familar scenes from the movie. The gameplay consists of the platformsidescrolling kind. You use Woody's pullstring to defeat enemies like sharks, Mr. Potatohead, and Ham. After each level, you are treated to still images from the movie.
+</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Toy Story-image.png</image>
+		<releasedate>19960426T000000</releasedate>
+		<developer>Disney Interactive</developer>
+		<publisher>Disney Interactive</publisher>
+		<genre>Action</genre>
+	</game>
+	<game>
+		<path>./Bible Adventures.gen</path>
+		<name>Bible Adventures</name>
+		<desc>Bible Adventures contains three different side scrolling platform games, each with a different bible theme. 
+
+The first game is Noah's Ark. Here the player needs to search forests, caverns, and mountains to find a male and female of each species and bring them back to the ark before the flood begins. The next game is Save Baby Moses, where the player needs to get past numerous soldiers and other obstacles to bring the baby Moses to safety. The last game is David and Goliath. As the shepherd David, the player needs to round up and protect the family's flock of sheep. After all of the sheep are safe, the player will then need to face Goliath.
+
+The game features scripture taken from the Holy Bible, New International Version to provide clues or information.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Bible Adventures-image.png</image>
+		<releasedate>19950101T000000</releasedate>
+		<developer>Color Dreams</developer>
+		<publisher>Wisdom Tree</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./Cannon Fodder.gen</path>
+		<name>Cannon Fodder</name>
+		<desc>Guide a team of up to four soldiers through 72 levels of combat in this innovative top-down action/strategy hybrid, best thought of as Lemmings crossed with Commando crossed with Dune 2. The characters are controlled indirectly using the mouse, as you activate each soldier or group of them by highlighting them, click the left button to move them to a particular spot, and the right button for them to fire guns at an enemy. You can also pick up grenades, which can be used to destroy groups of enemies or buildings (by pressing both buttons at once). 
+
+Each mission has a specific objective, and some feature vehicles such as tanks to make things easier. Your troops can cross water but can't shoot within it, so finding and controlling bridges is often crucial. You can use the arrangement of trees to find hiding places to shoot from, and should watch out for CPU soldiers also doing so.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Cannon Fodder-image.png</image>
+		<releasedate>19940101T000000</releasedate>
+		<developer>Sensible Software</developer>
+		<publisher>Virgin Interactive</publisher>
+		<genre>Strategy</genre>
+	</game>
+	<game>
+		<path>./Dr. Robotnik's Mean Bean Machine.gen</path>
+		<name>Dr. Robotnik's Mean Bean Machine</name>
+		<desc>Set on planet Mobius, Dr. Robotnik has hatched a new plan to menace the world and its inhabitants - by kidnapping the citizens of Beanville and turning them into devious robot slaves, the doctor will create an army that will help him rid the planet of music and fun forever. To this end, he has created a giant roboticizing machine called the "Mean Bean-Steaming Machine" to use on the jolly bean folk. Putting his plan into motion, Robotnik sends out his henchbots to round up all the unfortunate bean folk and group them together in dark dungeons so they can be sent to the Mean Bean-Steaming Machine.
+
+Assuming the role of Has Bean, the player must now stand up against Robotnik's henchmen by breaking into the dungeons, freeing the bean folk before it is too late, and get through Robotnik's henchbots to the deranged doctor himself and foil his evil plans once and for all.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Dr. Robotnik's Mean Bean Machine-image.png</image>
+		<releasedate>19931201T000000</releasedate>
+		<developer>Compile</developer>
+		<publisher>Sega</publisher>
+		<genre>Puzzle-Game</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./Gunstar Heroes.gen</path>
+		<name>Gunstar Heroes</name>
+		<desc>Chaos has broken out on the planet Gunstar-9!!
+
+The mad Colonel Red has discovered four crystals that imprison a deadly being known as GoldenSilver, and plans on unleashing it onto the population of the planet! He must be stopped! Enter...the Gunstar Heroes, Red and Blue!
+
+Unleash some mad blasting action onto the Colonel's army and don't let him bring GoldenSilver to life!! The fate of Gunstar-9 is in your hands!</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Gunstar Heroes-image.png</image>
+		<releasedate>19930909T000000</releasedate>
+		<developer>Treasure</developer>
+		<publisher>Sega</publisher>
+		<genre>Beat'em Up</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./Home Alone.gen</path>
+		<name>Home Alone</name>
+		<desc>Macaulay Culkin briefly became a child star following the film Home Alone, in which he played Kevin McCallister, who is accidentally left behind by his family when they go off on holiday. During this time, burglars attempt to break in, and Kevin must foil them.
+
+Playing as Kevin, you start off on his trusty sled, but the main job is to get to the house and make it burglar-proof. This involves setting traps throughout the house. Useful objects such as a Crossbow, Wire and Pepper can be combined to make fiendish weaponry. You must also lock up any valuables you find, to avoid the family losing them.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Home Alone-image.png</image>
+		<releasedate>19920101T000000</releasedate>
+		<developer>Brian A. Rice</developer>
+		<publisher>Sega</publisher>
+		<genre>Adventure</genre>
+	</game>
+	<game>
+		<path>./Hook.gen</path>
+		<name>Hook</name>
+		<desc>In this video game adaption of the Steven Spielberg film Hook, the player takes the role of a grown-up Peter Pan, whose kids have been kidnapped by Captain Hook. Tinker Bell takes Peter back to Neverland where he must again become Pan and reclaim his children.
+
+This particular interpretation is a side-scrolling action game, in which players must hack their way past Hook's denizens through 11 levels.  These include forests, icy regions, and towns which Peter will have to jump, climb, and swim through. Magic items such as apples and pixie dust can be collected for special powers. When enemies are attacked, they simply put their hands up in surrender rather than dying, so as to make the game more child-friendly.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Hook-image.png</image>
+		<releasedate>19930801T000000</releasedate>
+		<developer>Sony</developer>
+		<publisher>Ukiyotei</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./McDonald's Treasure Land Adventure.gen</path>
+		<name>McDonald's Treasure Land Adventure</name>
+		<desc>McDonald's Treasure Land Adventure is a side-scrolling adventure starring Ronald McDonald.
+
+After finding a piece of a treasure map, the yellow clown travels through four different levels (Forest, Town, Sea and Moon).  He's off to find and defeat the baddies who have the other pieces of the map.
+
+Ronald can jump, shoot and use his scarf to grab onto hooks to jump to higher levels.
+
+Jewels and flowers collected in each level can be used to purchase extra lives and power-ups in shops between levels.
+
+You can also pay to play a Columns style falling block game between levels to earn extra items.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/McDonald's Treasure Land Adventure-image.png</image>
+		<releasedate>19930101T000000</releasedate>
+		<developer>Treasure</developer>
+		<publisher>Sega</publisher>
+		<genre>Action</genre>
+	</game>
+	<game>
+		<path>./Michael Jackson's Moonwalker.gen</path>
+		<name>Michael Jackson's Moonwalker</name>
+		<desc>Michael Jackson's Moonwalker is pretty much based on the Michael Jackson movie. Mr. Big has kidnapped the children and has nasty things in store for them, like drugging them and making them slaves. It's up to Michael to use his powers and save his little friends.
+
+Michael Jackson (MJ) can jump, throw magical stars, and dance to counter his opponents as he looks for the hidden children. Stages come in shape of some of MJ's videos like streets and graveyards.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Michael Jackson's Moonwalker-image.png</image>
+		<releasedate>19900824T000000</releasedate>
+		<developer>Ultimate</developer>
+		<publisher>Sega</publisher>
+		<genre>Platform</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./Revenge of Shinobi.gen</path>
+		<name>The Revenge of Shinobi</name>
+		<desc>In this game, once again you are Shinobi, but this time you're out not to free hostages, but to gain your revenge.
+
+All you have to do is go around killing people with "shurikins", or throwing knives.
+You can also get power pack upgrades. Once you touch it, your knives turn into fire and you have a ninja sword.
+
+You have to do 3 rounds per zone, kick the butt of a boss and hey presto! You're done on that zone.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Revenge of Shinobi-image.png</image>
+		<releasedate>19890101T000000</releasedate>
+		<developer>Sega</developer>
+		<publisher>Sega</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./Ristar.gen</path>
+		<name>Ristar</name>
+		<desc>An evil tyrant with a silly name (Greedy) has arisen to control a solar system full of sentient beings. He Corrupts the leaders of each world and thereby enslaves the populace. He has sent his minions in the disguise of planet natives into the worlds to enforce his rule...
+
+A lush forest planet, the last planet in the tyrants agenda manages to send a call of help to the solar systems ancient hero before being over run. However Greedy even has managed to remove the great hero. Yet he did not count on the interference of the hero's sun... Ristar!
+
+You control Ristar in his attempt to liberate the solar system. You will stretch his arms to grab enemies and summarily head-but them. Your long limbs will be used to climb various surfaces. Being a star adds even more to the unique gameplay, already chock-full of action and puzzles.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Ristar-image.png</image>
+		<releasedate>19950216T000000</releasedate>
+		<developer>Sega</developer>
+		<publisher>Sega</publisher>
+		<genre>Platform</genre>
+	</game>
+	<game>
+		<path>./Robocop 3.gen</path>
+		<name>RoboCop 3</name>
+		<desc>RoboCop 3 is a side-scrolling platform shooter. You get missions (such as rescuing your colleagues who are being kept hostages), which are divided into several smaller levels. The levels usually consist of several platforms, and are heavily populated by enemies who shoot at you. You can gather special repair kits, which will be used to restore your health after you've completed a level. "RoboCop 3" is more of a shooter than its predecessors, having more and tougher enemies.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Robocop 3-image.png</image>
+		<releasedate>19931101T000000</releasedate>
+		<developer>Flying Edge</developer>
+		<publisher>Acclaim</publisher>
+		<genre>Action</genre>
+	</game>
+	<game>
+		<path>./Teenage Mutant Ninja Turtles - The Hyperstone Heist.gen</path>
+		<name>Teenage Mutant Ninja Turtles : The Hyperstone Heist</name>
+		<desc>The Turtles' nemesis Shredder has acquired the HyperStone from Dimension X, and is using its powers to shrink down the city buildings. He threatens to take over the world and challenges the Turtles to deny him, and so the turtles head out to beat the guy once more.
+
+A standard Ninja Turtles beat-em-up action game.
+</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Teenage Mutant Ninja Turtles - The Hyperstone Heist-image.png</image>
+		<releasedate>19920101T000000</releasedate>
+		<developer>Konami</developer>
+		<publisher>Konami</publisher>
+		<genre>Beat'em Up</genre>
+		<players>2</players>
+	</game>
+	<game>
+		<path>./Tetris.gen</path>
+		<name>Tetris</name>
+		<desc>Tetris is one of many conversions of the famous block-stacking game, this one is based on the 1988 coin-op version produced by Sega. The goal is to place pieces made up of four tiles in a ten-by-twenty well, organizing them into complete rows, which then disappear. As rows are cleared, the pace of the game increases and the background changes, and the game ends if the stack reaches the top of the well.
+
+In addition to a standard endless mode for one or two players, the game also includes a "time trial" mode for one or two players, where the goal is to get as many points as possible in three minutes. There is also a "doubles" mode, where two players work together to fill lines in an extra-wide well, each controlling their own pieces simultaneously.
+
+The game offers a number of standard options: setting the starting level, how much "garbage" is at the bottom of the well when the game starts, and whether the next piece is visible. There are also optional "item blocks," which are special flashing pieces that give an extra bonus if they are used to clear a line.</desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Tetris-image.png</image>
+		<releasedate>19890101T000000</releasedate>
+		<developer>Sega</developer>
+		<publisher>Sega</publisher>
+		<genre>Puzzle-Game</genre>
+		<players>2</players>
+	</game>
+  <game>
+		<path>./Mickey Mania - Timeless Adventures of Mickey Mouse.gen</path>
+		<name>Mickey Mania</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Mickey Mania-image.jpg</image>
+		<releasedate>19941101T000000</releasedate>
+		<developer>Traveller's Tales</developer>
+		<publisher>Sony Imagesoft</publisher>
+		<genre>Platformer</genre>
+		<players>1</players>
+	</game>
+  <game>
+		<path>./Shinobi 3.gen</path>
+		<name>Shinobi 3</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Shinobi 3-image.jpg</image>
+		<releasedate>19930822T000000</releasedate>
+		<developer>Sega</developer>
+		<publisher>Sega</publisher>
+		<genre>Platformer</genre>
+		<players>1</players>
+	</game>
+  <game>
+		<path>./Smash TV.gen</path>
+		<name>Smash TV</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Smash TV-image.jpg</image>
+		<releasedate>19900401T000000</releasedate>
+		<developer>Williams</developer>
+		<publisher>Williams</publisher>
+		<genre>Shooter</genre>
+		<players>2</players>
+	</game>
+  <game>
+		<path>./Terminator.gen</path>
+		<name>Terminator</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Terminator-image.jpg</image>
+		<releasedate>19920201T000000</releasedate>
+		<developer>Probe Entertainment Limited</developer>
+		<publisher>Virgin Games</publisher>
+		<genre>Action</genre>
+		<players>1</players>
+	</game>
+  <game>
+		<path>./Terminator 2.gen</path>
+		<name>Terminator 2</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Terminator 2-image.jpg</image>
+		<releasedate>19931201T000000</releasedate>
+		<developer>Bits Studio</developer>
+		<publisher>Flying Edge</publisher>
+		<genre>Action</genre>
+		<players>1</players>
+	</game>
+  <game>
+		<path>./The Jungle Book.gen</path>
+		<name>The Jungle Book</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/The Jungle Book-image.jpg</image>
+		<releasedate>19940701T000000</releasedate>
+		<developer>Eurocom Entertainment Software</developer>
+		<publisher>Virgin Interactive</publisher>
+		<genre></genre>
+		<players>1</players>
+	</game>
+  <game>
+		<path>./The Little Mermaid.gen</path>
+		<name>The Little Mermaid</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/The Little Mermaid-image.jpg</image>
+		<releasedate>19920101T000000</releasedate>
+		<developer>BlueSky Software</developer>
+		<publisher>Sega</publisher>
+		<genre>Action</genre>
+		<players>1</players>
+	</game>
+  <game>
+		<path>./World of Illusion.gen</path>
+		<name>World of Illusion</name>
+		<desc></desc>
+		<image>~/.emulationstation/downloaded_images/megadrive/Wold of Illusion-image.jpg</image>
+		<releasedate>19921201T000000</releasedate>
+		<developer>Sega</developer>
+		<publisher>Sega</publisher>
+		<genre>Platformer</genre>
+		<players>1</players>
 	</game>
 </gameList>
