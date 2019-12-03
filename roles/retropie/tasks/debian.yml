@@ -48,7 +48,18 @@
 
 #################################################################
 
+- name: "boot > capture partuuid"
+  shell:
+    cmd: "blkid | grep retropie | awk '{print $5}' | grep -oh '\\w\\w\\w\\w\\w\\w\\w\\w-\\w\\w'"
+  register: disk_partuuid
+  tags:
+    - retropie
+    - retropie-boot
+
 - name: "boot > cmdline.txt"
+  when:
+    - disk_partuuid.stdout is defined
+    - disk_partuuid.stdout != ""
   template:
     src     : "boot_cmdline.txt.j2"
     dest    : "/boot/cmdline.txt"
