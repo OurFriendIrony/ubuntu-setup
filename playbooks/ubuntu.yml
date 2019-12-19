@@ -7,6 +7,9 @@
   connection    : local
   become        : yes
   become_method : sudo
+  environment:
+    HTTP_PROXY: 'euuktelsprx01.corp.internalroot.com:3128'
+    HTTPS_PROXY: 'euuktelsprx01.corp.internalroot.com:3128'
 
   vars:
     - is_proxy     : False
@@ -25,7 +28,7 @@
     - { role: desktop                                                                                           }
     - { role: prereq                                                                                            }
 
-    - { role: network                                                                                           }
+      #    - { role: network                                                                                           }
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
@@ -34,18 +37,18 @@
     - { role: powerline                                                                                         }
     - { role: general                                                                                           }
     - { role: keychain                                                                                          }
-    - { role: wallpaper                                                                                         }
-    - { role: system-monitor                                                                                    }
-    - { role: terminator                                                                                        }
+      #    - { role: wallpaper                                                                                         }
+      #    - { role: system-monitor                                                                                    }
+      #    - { role: terminator                                                                                        }
 
-    - { role: browser/chrome                                                                                    }
+      #    - { role: browser/chrome                                                                                    }
 
     - { role: dev/lang                                                                                          }
     - { role: dev/util                                                                                          }
     - { role: dev/framework                                                                                     }
-    - { role: dev/ide                                                                                           }
+      #    - { role: dev/ide                                                                                           }
 
-    - { role: media                                                                                             }
+      #    - { role: media                                                                                             }
 
 #################################################################
 

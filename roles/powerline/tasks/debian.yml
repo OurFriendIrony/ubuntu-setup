@@ -7,6 +7,9 @@
     name  : "{{ libraries_pip }}"
     state : "latest"
     executable: "pip3"
+  environment:
+    HTTP_PROXY: 'euuktelsprx01.corp.internalroot.com:3128'
+    HTTPS_PROXY: 'euuktelsprx01.corp.internalroot.com:3128'
   tags:
     - "powerline"
 

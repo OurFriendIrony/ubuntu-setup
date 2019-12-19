@@ -2,6 +2,14 @@
 
 #################################################################
 
+- name: "choco > config"
+  win_chocolatey_config:
+    name  : "proxy"
+    state : "present"
+    value : "http://euuktelsprx01.corp.internalroot.com:3128"
+  tags:
+    - "general"
+
 - name: "choco > install"
   when:
     - libraries_choco | length > 0

@@ -25,7 +25,7 @@
     - { role: desktop                                                                                           }
     - { role: prereq                                                                                            }
 
-    - { role: network                                                                                           }
+#    - { role: network                                                                                           }
 
     - { role: git                                                                                               }
     - { role: ssh                                                                                               }
@@ -35,17 +35,17 @@
     - { role: general                                                                                           }
     - { role: keychain                                                                                          }
     - { role: wallpaper                                                                                         }
-    - { role: system-monitor                                                                                    }
-    - { role: terminator                                                                                        }
+#    - { role: system-monitor                                                                                    }
+#    - { role: terminator                                                                                        }
 
-    - { role: browser/chrome                                                                                    }
+#    - { role: browser/chrome                                                                                    }
 
     - { role: dev/lang                                                                                          }
     - { role: dev/util                                                                                          }
     - { role: dev/framework                                                                                     }
     - { role: dev/ide                                                                                           }
 
-    - { role: media                                                                                             }
+#    - { role: media                                                                                             }
 
 #################################################################
 
