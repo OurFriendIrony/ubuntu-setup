@@ -66,7 +66,7 @@
 
 - name: "apt > install"
   apt:
-    name          : "{{ docker.libraries.apts }}"
+    name          : "{{ docker.libraries.apt }}"
     state         : "latest"
     update_cache  : "yes"
   tags:

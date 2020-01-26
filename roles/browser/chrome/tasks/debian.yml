@@ -2,7 +2,7 @@
 
 #################################################################
 
-- name: "wget | deb"
+- name: "wget > deb"
   get_url:
     url   : "{{ chrome.url }}{{ chrome.file }}"
     dest  : "/tmp/{{ chrome.file }}"
@@ -10,7 +10,7 @@
     - "browser"
     - "chrome"
 
-- name: "apt | install"
+- name: "apt > install"
   apt:
     deb   : "/tmp/{{ chrome.file }}"
     state : "present"
@@ -20,7 +20,7 @@
 
 #################################################################
 
-- name: "launcher | desktop icon"
+- name: "launcher > desktop icon"
   template:
     src   : "{{ desktop }}.desktop.j2"
     dest  : "/usr/share/applications/{{ desktop }}.desktop"
@@ -32,7 +32,7 @@
     - "chrome"
     - "launcher"
 
-- name    : "launcher | add"
+- name    : "launcher > add"
   become  : "{{ primary_user.id }}"
   script  : "../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False

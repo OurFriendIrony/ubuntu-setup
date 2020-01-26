@@ -47,7 +47,7 @@
     owner : "{{ primary_user.id }}"
     group : "{{ primary_user.id }}"
     mode  : "0755"
-  notify: "application | start"
+  notify: "application > start"
   tags:
     - "system-monitor"
 

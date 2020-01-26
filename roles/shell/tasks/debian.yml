@@ -66,3 +66,13 @@
 
 #################################################################
 
+- name: "inputrc > disable bell"
+  lineinfile:
+    path    : "/etc/inputrc"
+    regexp  : "set bell-style visible"
+    line    : "set bell-style visible"
+  tags:
+    - "{{ shell.tags }}"
+
+#################################################################
+
