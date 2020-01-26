@@ -1,10 +1,10 @@
   * [User Profiles](#user-profiles)
   * [Tags](#tags)
   * [Playbooks](#playbooks)
-    * [Ubuntu](#ubuntu)
-    * [Ubuntu TP](#ubuntu-tp)
-    * [Windows](#windows)
-    * [Retropie](#retropie)
+    * [Ubuntu](./READMES/ubuntu.md)
+    * [Ubuntu TP](./READMES/ubuntu-tp.md)
+    * [Windows](./READMES/windows.md)
+    * [Retropie](./READMES/retropie.md)
   * [Help](#help)
   * [Ansible Module Index](#ansible-module-index)
 ___
@@ -28,115 +28,17 @@ ___
 # Playbooks
 The sections below cover install and build steps to get a full functioning linux box meeting whatever requirements you have. 
 ## ubuntu
-Installs Ubuntu configurations
-#### Setup
-- ***If on VM***
-  - Install Guest Additions
-- Bootstrap
-  - Copy 'Bootstrap' to terminal
-  - Execute Bootstrap
-- Configure your profile
-    - Create a user profile in "**user_profiles/**" from template "**user_profiles/\_\_DEMO\_\_.yml**"
-
-#### Run
-`./go.sh -s -p ubuntu -u {user_profile}`  
-
-##### Bootstrap
-```bash
-sudo apt install -y python3 python3-pip python3-setuptools git \
-  && sudo pip3 install ansible \
-  && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
-  && cd /tmp/ansible
-```
-___
+Installs Ubuntu configurations  
+[README](./READMES/ubuntu.md)
 ## ubuntu-tp
-#### Setup
-Installs Ubuntu configurations from behind a proxy
-***Note:** Your password will be temporarily stored in a couple of files to initially escape the to the internet via the proxy, where it can download cntlm and apply your hashed password. It is then 'forgotten'*
-
-- ***If on VM***
-  - Install Guest Additions
-- Bootstrap
-  - Copy 'Bootstrap' to terminal
-  - Replace `__YOURPASSWORD__` with your password
-  - Execute Bootstrap
-    - note your "**ntlm_hash**"
-- Configure your profile
-    - Create a user profile in "**user_profiles/**" from template "**user_profiles/\_\_DEMO\_\_.yml**"
-    - Add your "**ntlm_hash**" to your user profile
-
-#### First Run
-To ensure successful executions, first run the following and then restart you machine before attempting to run the main rollout
-`./go.sh -s -p ubuntu-tp -u {user_profile} -t proxy`
-
-#### Run 
-`./go.sh -s -p ubuntu-tp -u {user_profile}`
-
-#### Bootstrap
-```bash
- TMP_PASS="__YOURPASSWORD__"
-```
-followed by
-```bash
-export https_proxy="http://${LOGNAME}:${TMP_PASS}@10.0.20.196:8080" \
-  && echo -e "Acquire::http::Proxy \"${https_proxy}\";" | sudo tee /etc/apt/apt.conf.d/01proxy > /dev/null \
-  && echo -e "[http]\n  proxy = ${https_proxy}" > ~/.gitconfig \
-  && sudo apt update \
-  && sudo apt install -y python3 python3-pip python3-setuptools git cntlm \
-  && sudo -E pip3 install ansible \
-  && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
-  && cd /tmp/ansible \
-  && echo ${TMP_PASS} | cntlm -H -d tpplc -u ${LOGNAME} | awk 'NR==4 {print "\nntlm_hash = "$2}' \
-  && unset TMP_PASS
-```
-___
+Installs Ubuntu configurations from behind a proxy  
+[README](./READMES/ubuntu-tp.md)
 ## windows
-#### Setup
-Installs Windows configurations
-**Note:**
-- *Your password will be need to be held as free text at least for the duration of the execution, but can be changed afterwards*
-- *Windows can currently only be configured from a linux box, such as the Windows 10 - Linux SubSystem. This can be installed via the 'Turn Windows Features on and off' menu*
-
-- Bootstrap
-  - On Windows
-    - Execute the bootstrap at ".ansible-sys/windows-support/bootstap.bat"
-    - This will update powershell and give Ansible the ability to make connections with winrm
-- Configure your profile
-  - On Linux
-    - Create a user profile in "**user_profiles/**" from template "**user_profiles/\_\_DEMO\_\_.yml**"
-    - Make sure the `ansible_user` and `ansible_password` correctly reflects your Microsoft account on the windows machine.
-    - **DO NOT** commit your password back to git...
-
-#### Run 
-- On Linux
-  - `./go.sh -p windows -u {user_profile}`
-___
+Installs Windows configurations  
+[README](./READMES/windows.md)
 ## retropie
-Installs all configurations for a [**Retropie 4.4**](https://retropie.org.uk/2018/04/retropie-4-4-is-released/) install
-
-#### Allow SSH connectivity
-- Connect Wifi
-- sudo raspi-config
-  - 5 --> 2 [Turn on SSH client]
-  - 7 --> 1 [Expand FileSystem]
-
-#### Setup
-- Bootstrap
-  - Copy 'Bootstrap' to terminal
-  - Execute Bootstrap
-- Configure your profile
-    - Create a user profile in "**user_profiles/**" from template "**user_profiles/\_\_DEMO\_\_.yml**"
-
-#### Run
-`./go.sh -s -p retropie -u pi`  
-
-#### Bootstrap
-```bash
-sudo apt install -y python3 python3-pip python3-setuptools git \
-  && sudo pip3 install ansible \
-  && git clone https://github.com/OurFriendIrony/ansible.git /tmp/ansible \
-  && cd /tmp/ansible
-```
+Installs all configurations for a [**Retropie 4.4**](https://retropie.org.uk/2018/04/retropie-4-4-is-released/) install  
+[README](./READMES/retropie.md)
 ___
 # Help
 `./go.sh -h`
