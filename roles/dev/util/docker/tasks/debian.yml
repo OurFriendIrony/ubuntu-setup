@@ -171,10 +171,11 @@
   become: yes
   with_items:
     - "{{ docker_images }}"
-  docker_image:
-    name          : "{{ item.name }}"
-    tag           : "{{ item.version }}"
-    source        : "pull"
+#  docker_image:
+#    name          : "{{ item.name }}"
+#    tag           : "{{ item.version }}"
+#    source        : "pull"
+  command: "docker pull {{ item.name}}:{{ item.version }}"
   tags:
     - "{{ docker.tags }}"
 
