@@ -17,21 +17,9 @@
 
 #################################################################
 
-- name: "user > kvm"
-  with_items:
-    - "{{ all_users }}"
-  user:
-    name    : "{{ item.id }}"
-    groups  : "kvm"
-    append  : "yes"
-  tags:
-    - "{{ android.tags }}"
-
-#################################################################
-
 - name: "apt > install"
   apt:
-    name    : "{{ android.libraries._apt }}"
+    name    : "{{ android.libraries.apt }}"
     state   : "latest"
   tags:
     - "{{ android.tags }}"
@@ -45,6 +33,18 @@
     dest        : "{{ android.home }}/{{ android_version }}"
     remote_src  : "yes"
     creates     : "{{ android.home }}/{{ android_version }}/android-studio/bin/"
+  tags:
+    - "{{ android.tags }}"
+
+#################################################################
+
+- name: "user > kvm"
+  with_items:
+    - "{{ all_users }}"
+  user:
+    name    : "{{ item.id }}"
+    groups  : "kvm"
+    append  : "yes"
   tags:
     - "{{ android.tags }}"
 
