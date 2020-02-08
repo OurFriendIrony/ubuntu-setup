@@ -42,9 +42,9 @@ change_background() {
 ###############################################################
 
 load_config
-set_dbus
 
 while (true); do
+  [[ -z ${PID} ]] && set_dbus
   FILES_IN_DIR=( $( find_images ) )
 {%- raw %}
   FILES_IN_DIR_CT="${#FILES_IN_DIR[@]}"
