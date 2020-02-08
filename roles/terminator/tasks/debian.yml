@@ -6,6 +6,28 @@
   apt:
     name  : "{{ libraries_apt }}"
     state : "latest"
+  register: apt_installed
+  tags:
+    - "terminator"
+
+#################################################################
+# Terminator 1.9.1 doesn't work with python3, so rig it for now
+
+- name: "apt > get version"
+  when: apt_installed.changed | bool
+  command: "apt list terminator | grep terminator | awk '{print $2}'"
+  register: result
+  tags:
+    - "terminator"
+
+- name: "bugfix"
+  when:
+    - result.stdout is defined
+    - result.stdout is search('1.91-1')
+  lineinfile:
+    path    : /usr/bin/terminator
+    regexp  : "^#!/usr/bin/python"
+    line    : "#!/usr/bin/python2"
   tags:
     - "terminator"
 
