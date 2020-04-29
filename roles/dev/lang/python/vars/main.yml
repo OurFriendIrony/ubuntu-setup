@@ -12,7 +12,7 @@ python:
   libraries_remove:
     apt:
       - "python"
-      - "python-pip"
+#      - "python-pip"
       - "python-setuptools"
     choco:
       - "python2"
