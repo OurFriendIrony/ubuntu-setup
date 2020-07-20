@@ -9,3 +9,22 @@ tailc() {
       -e 's/\(.*INFO.*\)/\o033[32m\1\o033[39m/'
 }
 
+stopwatchstart() {
+  stopwatchstart=$(date +%s%3N)
+  stopwatchstop=0
+}
+
+stopwatchstop() {
+  stopwatchstop=$(date +%s%3N)
+  if [[ -n "${stopwatchstart}" ]]; then
+    stopwatchdiff_ms=$(( stopwatchstop - stopwatchstart ))
+    stopwatchdiff_s=$(( stopwatchdiff_ms / 1000 ))
+    echo "Took ${stopwatchdiff_ms}ms / ${stopwatchdiff_s}s"
+  else
+  # Incase we forgot to start the stopwatch
+    echo "You didn't start the stopwatch..."
+  fi
+# Reset incase we want multiple timings
+  stopwatchstart=${stopwatchstop}
+}
+
