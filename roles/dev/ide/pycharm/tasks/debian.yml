@@ -27,7 +27,8 @@
 #################################################################
 
 - name: "unpack > application"
-  become : "{{ primary_user.id }}"
+  become : yes
+  become_user : "{{ primary_user.id }}"
   unarchive:
     src         : "{{ pycharm.url }}{{ pycharm.zip }}"
     dest        : "{{ pycharm.home }}/{{ pycharm_version }}"
@@ -51,7 +52,8 @@
     - "launcher"
 
 - name    : "launcher > add"
-  become  : "{{ primary_user.id }}"
+  become : yes
+  become_user : "{{ primary_user.id }}"
   script  : "../../../scripts/add_{{ desktop_environment }}_launcher.sh {{ desktop }}"
   changed_when: False
   tags:

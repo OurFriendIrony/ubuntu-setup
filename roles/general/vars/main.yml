@@ -1,7 +1,7 @@
 ---
 
 libraries_apt:
-  - python-pip        # Package Manager - Python
+  - python3-pip       # Package Manager - Python
   - snapd             # Package Manager - Unified Linux
   - git               # Source Control
   - curl              # Api Tool
@@ -25,7 +25,6 @@ libraries_snap: []
 
 libraries_apt_gui:
   - baobab            # Disk Usage
-  - shutter           # Snipping Tool
   - vlc               # Media Player
   - gedit             # Text Editor
   - p7zip-rar         # 7z [2]
