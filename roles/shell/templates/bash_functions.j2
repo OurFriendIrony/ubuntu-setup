@@ -28,3 +28,10 @@ stopwatchstop() {
   stopwatchstart=${stopwatchstop}
 }
 
+gitremoveoldbranches() {
+  git fetch
+  git prune origin
+  for branch in $(git branch -v | awk '{print $1" "$3}' | grep "\[gone\]" | awk '{print $1}'); do
+    git branch -D ${branch}
+  done
+}
